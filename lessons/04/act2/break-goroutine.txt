@@ -1,0 +1,26 @@
+$ make break-goroutine        # ветка demo/l4-otel, 26.09.2026 00:41
+FAULT_NOTIFY_MODE=goroutine FAULT_CRASH_AFTER_COMMIT=order.paid make up-stack
+готово: http://localhost:8080/readyz
+join    200      10 мс
+hold    409      12 мс
+hold    409       6 мс
+hold    409       7 мс
+hold    201       8 мс
+order   201       6 мс
+pay     200     323 мс
+pay:    paid
+user_id=9b234c18-d363-4c94-8ff5-da242012bede order_id=49c43a26-58e1-4951-922b-59f7ed545e76 seat_id=40780
+ждём, пока soldout поднимется после аварийного завершения…
+time=2026-09-25T21:41:03.693Z level=ERROR msg="FAULT_CRASH_AFTER_COMMIT: аварийное завершение (фоновые горутины теряются)" point=order.paid delay=100ms
+make invariants
+ID  Инвариант                                                                      Нарушений  Статус
+I1  нет двух active hold на одно (event, seat)                                     0          OK
+I2  нет двух tickets на одно (event, seat)                                         0          OK
+I3  у каждого paid заказа есть ticket на каждую позицию                            0          OK
+I4  у пользователя ≤ 4 билетов на мероприятие                                      0          OK
+I6  проекция карты (catalog_seat_state) совпадает с истиной (holds) — с занятия 2  0          OK
+I5  каждому paid заказу — ровно одна notification (с занятия 3)                    1          НАРУШЕН
+
+active holds=0 confirmed holds=10701 orders=10701 paid=10701 tickets=10701
+
+НАРУШЕНИЙ: 1

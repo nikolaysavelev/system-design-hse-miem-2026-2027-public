@@ -1,0 +1,363 @@
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: /scripts/checkout.js
+        output: Prometheus remote write (http://prometheus:9090/api/v1/write)
+
+     scenarios: (100.00%) 1 scenario, 150 max VUs, 2m0s max duration (incl. graceful stop):
+              * checkout: 150 looping VUs for 1m30s (gracefulStop: 30s)
+
+
+running (0m01.0s), 150/150 VUs, 168 complete and 0 interrupted iterations
+checkout   [   1% ] 150 VUs  0m01.0s/1m30s
+
+running (0m02.0s), 150/150 VUs, 404 complete and 0 interrupted iterations
+checkout   [   2% ] 150 VUs  0m02.0s/1m30s
+
+running (0m03.0s), 150/150 VUs, 677 complete and 0 interrupted iterations
+checkout   [   3% ] 150 VUs  0m03.0s/1m30s
+
+running (0m04.0s), 150/150 VUs, 901 complete and 0 interrupted iterations
+checkout   [   4% ] 150 VUs  0m04.0s/1m30s
+
+running (0m05.0s), 150/150 VUs, 1087 complete and 0 interrupted iterations
+checkout   [   6% ] 150 VUs  0m05.0s/1m30s
+
+running (0m06.0s), 150/150 VUs, 1341 complete and 0 interrupted iterations
+checkout   [   7% ] 150 VUs  0m06.0s/1m30s
+
+running (0m07.0s), 150/150 VUs, 1622 complete and 0 interrupted iterations
+checkout   [   8% ] 150 VUs  0m07.0s/1m30s
+
+running (0m08.0s), 150/150 VUs, 1869 complete and 0 interrupted iterations
+checkout   [   9% ] 150 VUs  0m08.0s/1m30s
+
+running (0m09.0s), 150/150 VUs, 2111 complete and 0 interrupted iterations
+checkout   [  10% ] 150 VUs  0m09.0s/1m30s
+
+running (0m10.0s), 150/150 VUs, 2349 complete and 0 interrupted iterations
+checkout   [  11% ] 150 VUs  0m10.0s/1m30s
+
+running (0m11.0s), 150/150 VUs, 2600 complete and 0 interrupted iterations
+checkout   [  12% ] 150 VUs  0m11.0s/1m30s
+
+running (0m12.0s), 150/150 VUs, 2852 complete and 0 interrupted iterations
+checkout   [  13% ] 150 VUs  0m12.0s/1m30s
+
+running (0m13.0s), 150/150 VUs, 3109 complete and 0 interrupted iterations
+checkout   [  14% ] 150 VUs  0m13.0s/1m30s
+
+running (0m14.0s), 150/150 VUs, 3339 complete and 0 interrupted iterations
+checkout   [  16% ] 150 VUs  0m14.0s/1m30s
+
+running (0m15.0s), 150/150 VUs, 3593 complete and 0 interrupted iterations
+checkout   [  17% ] 150 VUs  0m15.0s/1m30s
+
+running (0m16.0s), 150/150 VUs, 3800 complete and 0 interrupted iterations
+checkout   [  18% ] 150 VUs  0m16.0s/1m30s
+
+running (0m17.0s), 150/150 VUs, 3982 complete and 0 interrupted iterations
+checkout   [  19% ] 150 VUs  0m17.0s/1m30s
+
+running (0m18.0s), 150/150 VUs, 4189 complete and 0 interrupted iterations
+checkout   [  20% ] 150 VUs  0m18.0s/1m30s
+
+running (0m19.0s), 150/150 VUs, 4458 complete and 0 interrupted iterations
+checkout   [  21% ] 150 VUs  0m19.0s/1m30s
+>>> stop notifier
+ Container soldout-notifier-1  Stopping
+
+running (0m20.0s), 150/150 VUs, 4685 complete and 0 interrupted iterations
+checkout   [  22% ] 150 VUs  0m20.0s/1m30s
+ Container soldout-notifier-1  Stopped
+
+running (0m21.0s), 150/150 VUs, 4920 complete and 0 interrupted iterations
+checkout   [  23% ] 150 VUs  0m21.0s/1m30s
+
+running (0m22.0s), 150/150 VUs, 5164 complete and 0 interrupted iterations
+checkout   [  24% ] 150 VUs  0m22.0s/1m30s
+
+running (0m23.0s), 150/150 VUs, 5452 complete and 0 interrupted iterations
+checkout   [  26% ] 150 VUs  0m23.0s/1m30s
+
+running (0m24.0s), 150/150 VUs, 5732 complete and 0 interrupted iterations
+checkout   [  27% ] 150 VUs  0m24.0s/1m30s
+
+running (0m25.0s), 150/150 VUs, 6029 complete and 0 interrupted iterations
+checkout   [  28% ] 150 VUs  0m25.0s/1m30s
+
+running (0m26.0s), 150/150 VUs, 6288 complete and 0 interrupted iterations
+checkout   [  29% ] 150 VUs  0m26.0s/1m30s
+
+running (0m27.0s), 150/150 VUs, 6555 complete and 0 interrupted iterations
+checkout   [  30% ] 150 VUs  0m27.0s/1m30s
+
+running (0m28.0s), 150/150 VUs, 6828 complete and 0 interrupted iterations
+checkout   [  31% ] 150 VUs  0m28.0s/1m30s
+
+running (0m29.0s), 150/150 VUs, 7130 complete and 0 interrupted iterations
+checkout   [  32% ] 150 VUs  0m29.0s/1m30s
+
+running (0m30.0s), 150/150 VUs, 7453 complete and 0 interrupted iterations
+checkout   [  33% ] 150 VUs  0m30.0s/1m30s
+
+running (0m31.0s), 150/150 VUs, 7707 complete and 0 interrupted iterations
+checkout   [  34% ] 150 VUs  0m31.0s/1m30s
+
+running (0m32.0s), 150/150 VUs, 8024 complete and 0 interrupted iterations
+checkout   [  36% ] 150 VUs  0m32.0s/1m30s
+
+running (0m33.0s), 150/150 VUs, 8314 complete and 0 interrupted iterations
+checkout   [  37% ] 150 VUs  0m33.0s/1m30s
+
+running (0m34.0s), 150/150 VUs, 8576 complete and 0 interrupted iterations
+checkout   [  38% ] 150 VUs  0m34.0s/1m30s
+
+running (0m35.0s), 150/150 VUs, 8860 complete and 0 interrupted iterations
+checkout   [  39% ] 150 VUs  0m35.0s/1m30s
+
+running (0m36.0s), 150/150 VUs, 9130 complete and 0 interrupted iterations
+checkout   [  40% ] 150 VUs  0m36.0s/1m30s
+
+running (0m37.0s), 150/150 VUs, 9280 complete and 0 interrupted iterations
+checkout   [  41% ] 150 VUs  0m37.0s/1m30s
+
+running (0m38.0s), 150/150 VUs, 9542 complete and 0 interrupted iterations
+checkout   [  42% ] 150 VUs  0m38.0s/1m30s
+
+running (0m39.0s), 150/150 VUs, 9779 complete and 0 interrupted iterations
+checkout   [  43% ] 150 VUs  0m39.0s/1m30s
+
+running (0m40.0s), 150/150 VUs, 10047 complete and 0 interrupted iterations
+checkout   [  44% ] 150 VUs  0m40.0s/1m30s
+
+running (0m41.0s), 150/150 VUs, 10294 complete and 0 interrupted iterations
+checkout   [  46% ] 150 VUs  0m41.0s/1m30s
+
+running (0m42.0s), 150/150 VUs, 10602 complete and 0 interrupted iterations
+checkout   [  47% ] 150 VUs  0m42.0s/1m30s
+
+running (0m43.0s), 150/150 VUs, 10848 complete and 0 interrupted iterations
+checkout   [  48% ] 150 VUs  0m43.0s/1m30s
+
+running (0m44.0s), 150/150 VUs, 11113 complete and 0 interrupted iterations
+checkout   [  49% ] 150 VUs  0m44.0s/1m30s
+
+running (0m45.0s), 150/150 VUs, 11382 complete and 0 interrupted iterations
+checkout   [  50% ] 150 VUs  0m45.0s/1m30s
+
+running (0m46.0s), 150/150 VUs, 11675 complete and 0 interrupted iterations
+checkout   [  51% ] 150 VUs  0m46.0s/1m30s
+
+running (0m47.0s), 150/150 VUs, 11930 complete and 0 interrupted iterations
+checkout   [  52% ] 150 VUs  0m47.0s/1m30s
+
+running (0m48.0s), 150/150 VUs, 12163 complete and 0 interrupted iterations
+checkout   [  53% ] 150 VUs  0m48.0s/1m30s
+
+running (0m49.0s), 150/150 VUs, 12441 complete and 0 interrupted iterations
+checkout   [  54% ] 150 VUs  0m49.0s/1m30s
+
+running (0m50.0s), 150/150 VUs, 12759 complete and 0 interrupted iterations
+checkout   [  56% ] 150 VUs  0m50.0s/1m30s
+
+running (0m51.0s), 150/150 VUs, 13032 complete and 0 interrupted iterations
+checkout   [  57% ] 150 VUs  0m51.0s/1m30s
+
+running (0m52.0s), 150/150 VUs, 13252 complete and 0 interrupted iterations
+checkout   [  58% ] 150 VUs  0m52.0s/1m30s
+
+running (0m53.0s), 150/150 VUs, 13566 complete and 0 interrupted iterations
+checkout   [  59% ] 150 VUs  0m53.0s/1m30s
+
+running (0m54.0s), 150/150 VUs, 13817 complete and 0 interrupted iterations
+checkout   [  60% ] 150 VUs  0m54.0s/1m30s
+
+running (0m55.0s), 150/150 VUs, 14128 complete and 0 interrupted iterations
+checkout   [  61% ] 150 VUs  0m55.0s/1m30s
+
+running (0m56.0s), 150/150 VUs, 14415 complete and 0 interrupted iterations
+checkout   [  62% ] 150 VUs  0m56.0s/1m30s
+
+running (0m57.0s), 150/150 VUs, 14670 complete and 0 interrupted iterations
+checkout   [  63% ] 150 VUs  0m57.0s/1m30s
+
+running (0m58.0s), 150/150 VUs, 14940 complete and 0 interrupted iterations
+checkout   [  64% ] 150 VUs  0m58.0s/1m30s
+
+running (0m59.0s), 150/150 VUs, 15201 complete and 0 interrupted iterations
+checkout   [  66% ] 150 VUs  0m59.0s/1m30s
+
+running (1m00.0s), 150/150 VUs, 15478 complete and 0 interrupted iterations
+checkout   [  67% ] 150 VUs  1m00.0s/1m30s
+>>> start notifier
+ Container soldout-postgres-1  Waiting
+ Container soldout-postgres-1  Healthy
+ Container soldout-valkey-1  Waiting
+ Container soldout-pgbouncer-1  Waiting
+ Container soldout-postgres-1  Waiting
+
+running (1m01.0s), 150/150 VUs, 15705 complete and 0 interrupted iterations
+checkout   [  68% ] 150 VUs  1m01.0s/1m30s
+ Container soldout-postgres-1  Healthy
+ Container soldout-valkey-1  Healthy
+ Container soldout-pgbouncer-1  Healthy
+ Container soldout-postgres-1  Waiting
+ Container soldout-mailgw-1  Waiting
+ Container soldout-soldout-1  Waiting
+ Container soldout-soldout-1  Healthy
+ Container soldout-mailgw-1  Healthy
+ Container soldout-postgres-1  Healthy
+ Container soldout-notifier-1  Starting
+ Container soldout-notifier-1  Started
+
+running (1m02.0s), 150/150 VUs, 15918 complete and 0 interrupted iterations
+checkout   [  69% ] 150 VUs  1m02.0s/1m30s
+
+running (1m03.0s), 150/150 VUs, 16166 complete and 0 interrupted iterations
+checkout   [  70% ] 150 VUs  1m03.0s/1m30s
+
+running (1m04.0s), 150/150 VUs, 16392 complete and 0 interrupted iterations
+checkout   [  71% ] 150 VUs  1m04.0s/1m30s
+
+running (1m05.0s), 150/150 VUs, 16647 complete and 0 interrupted iterations
+checkout   [  72% ] 150 VUs  1m05.0s/1m30s
+
+running (1m06.0s), 150/150 VUs, 16901 complete and 0 interrupted iterations
+checkout   [  73% ] 150 VUs  1m06.0s/1m30s
+
+running (1m07.0s), 150/150 VUs, 17066 complete and 0 interrupted iterations
+checkout   [  74% ] 150 VUs  1m07.0s/1m30s
+
+running (1m08.0s), 150/150 VUs, 17334 complete and 0 interrupted iterations
+checkout   [  76% ] 150 VUs  1m08.0s/1m30s
+
+running (1m09.0s), 150/150 VUs, 17576 complete and 0 interrupted iterations
+checkout   [  77% ] 150 VUs  1m09.0s/1m30s
+
+running (1m10.0s), 150/150 VUs, 17825 complete and 0 interrupted iterations
+checkout   [  78% ] 150 VUs  1m10.0s/1m30s
+
+running (1m11.0s), 150/150 VUs, 18064 complete and 0 interrupted iterations
+checkout   [  79% ] 150 VUs  1m11.0s/1m30s
+
+running (1m12.0s), 150/150 VUs, 18270 complete and 0 interrupted iterations
+checkout   [  80% ] 150 VUs  1m12.0s/1m30s
+
+running (1m13.0s), 150/150 VUs, 18529 complete and 0 interrupted iterations
+checkout   [  81% ] 150 VUs  1m13.0s/1m30s
+
+running (1m14.0s), 150/150 VUs, 18771 complete and 0 interrupted iterations
+checkout   [  82% ] 150 VUs  1m14.0s/1m30s
+
+running (1m15.0s), 150/150 VUs, 19013 complete and 0 interrupted iterations
+checkout   [  83% ] 150 VUs  1m15.0s/1m30s
+
+running (1m16.0s), 150/150 VUs, 19280 complete and 0 interrupted iterations
+checkout   [  84% ] 150 VUs  1m16.0s/1m30s
+
+running (1m17.0s), 150/150 VUs, 19537 complete and 0 interrupted iterations
+checkout   [  86% ] 150 VUs  1m17.0s/1m30s
+
+running (1m18.0s), 150/150 VUs, 19791 complete and 0 interrupted iterations
+checkout   [  87% ] 150 VUs  1m18.0s/1m30s
+
+running (1m19.0s), 150/150 VUs, 19978 complete and 0 interrupted iterations
+checkout   [  88% ] 150 VUs  1m19.0s/1m30s
+
+running (1m20.0s), 150/150 VUs, 20208 complete and 0 interrupted iterations
+checkout   [  89% ] 150 VUs  1m20.0s/1m30s
+
+running (1m21.0s), 150/150 VUs, 20439 complete and 0 interrupted iterations
+checkout   [  90% ] 150 VUs  1m21.0s/1m30s
+
+running (1m22.0s), 150/150 VUs, 20602 complete and 0 interrupted iterations
+checkout   [  91% ] 150 VUs  1m22.0s/1m30s
+
+running (1m23.0s), 150/150 VUs, 20787 complete and 0 interrupted iterations
+checkout   [  92% ] 150 VUs  1m23.0s/1m30s
+
+running (1m24.0s), 150/150 VUs, 21029 complete and 0 interrupted iterations
+checkout   [  93% ] 150 VUs  1m24.0s/1m30s
+
+running (1m25.0s), 150/150 VUs, 21289 complete and 0 interrupted iterations
+checkout   [  94% ] 150 VUs  1m25.0s/1m30s
+
+running (1m26.0s), 150/150 VUs, 21532 complete and 0 interrupted iterations
+checkout   [  96% ] 150 VUs  1m26.0s/1m30s
+
+running (1m27.0s), 150/150 VUs, 21768 complete and 0 interrupted iterations
+checkout   [  97% ] 150 VUs  1m27.0s/1m30s
+
+running (1m28.0s), 150/150 VUs, 22023 complete and 0 interrupted iterations
+checkout   [  98% ] 150 VUs  1m28.0s/1m30s
+
+running (1m29.0s), 150/150 VUs, 22288 complete and 0 interrupted iterations
+checkout   [  99% ] 150 VUs  1m29.0s/1m30s
+
+running (1m30.0s), 150/150 VUs, 22507 complete and 0 interrupted iterations
+checkout   [ 100% ] 150 VUs  1m30.0s/1m30s
+
+
+  █ THRESHOLDS 
+
+    http_req_duration{name:order}
+    ✓ 'p(99)<500' p(99)=101.63ms
+
+    http_req_duration{name:pay}
+    ✓ 'p(99)<800' p(99)=588.06ms
+
+    http_req_duration{name:tickets}
+    ✓ 'p(99)<500' p(99)=98.28ms
+
+    http_req_failed
+    ✓ 'rate<0.01' rate=0.00%
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 117587  1299.697573/s
+    checks_succeeded...: 100.00% 117587 out of 117587
+    checks_failed......: 0.00%   0 out of 117587
+
+    ✓ queue/join 200
+    ✓ hold 409 (место занято) — допустимо
+    ✓ order 201
+    ✓ pay 200 → paid
+    ✓ tickets 200, есть билет
+
+    HTTP
+    http_req_duration..............: avg=97.99ms  p(50)=66.75ms  p(95)=408.06ms p(99)=493.04ms max=792.97ms
+      { expected_response:true }...: avg=97.99ms  p(50)=66.75ms  p(95)=408.06ms p(99)=493.04ms max=792.97ms
+      { name:order }...............: avg=40.11ms  p(50)=15.26ms  p(95)=92.33ms  p(99)=101.63ms max=302.93ms
+      { name:pay }.................: avg=415.33ms p(50)=402.62ms p(95)=498.11ms p(99)=588.06ms max=792.97ms
+      { name:tickets }.............: avg=29.74ms  p(50)=10.28ms  p(95)=89.14ms  p(99)=98.28ms  max=287.78ms
+    http_req_failed................: 0.00%  0 out of 137986
+    http_reqs......................: 137986 1525.169189/s
+
+    EXECUTION
+    iteration_duration.............: avg=597.34ms p(50)=597.72ms p(95)=871.02ms p(99)=1s       max=1.3s    
+    iterations.....................: 22657  250.429452/s
+    vus............................: 150    min=150         max=150
+    vus_max........................: 150    min=150         max=150
+
+    NETWORK
+    data_received..................: 51 MB  568 kB/s
+    data_sent......................: 34 MB  379 kB/s
+
+
+
+
+running (1m30.5s), 000/150 VUs, 22657 complete and 0 interrupted iterations
+checkout ✓ [ 100% ] 150 VUs  1m30s
+ждём, пока notifier догонит…
+ paid  | notifications | duplicates | notifier_not_sent 
+-------+---------------+------------+-------------------
+ 58794 |         58794 |          0 |                 0
+(1 row)
+

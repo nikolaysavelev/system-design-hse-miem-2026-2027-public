@@ -1,0 +1,2598 @@
+{
+ "isError": false,
+ "content": {
+  "series": [
+   {
+    "labels": [
+     {
+      "key": "p",
+      "value": {
+       "doubleValue": 0.99
+      }
+     }
+    ],
+    "samples": [
+     {
+      "timestampMs": "1790377260000"
+     },
+     {
+      "timestampMs": "1790377262000"
+     },
+     {
+      "timestampMs": "1790377264000"
+     },
+     {
+      "timestampMs": "1790377266000"
+     },
+     {
+      "timestampMs": "1790377268000"
+     },
+     {
+      "timestampMs": "1790377270000"
+     },
+     {
+      "timestampMs": "1790377272000"
+     },
+     {
+      "timestampMs": "1790377274000"
+     },
+     {
+      "timestampMs": "1790377276000"
+     },
+     {
+      "timestampMs": "1790377278000"
+     },
+     {
+      "timestampMs": "1790377280000"
+     },
+     {
+      "timestampMs": "1790377282000"
+     },
+     {
+      "timestampMs": "1790377284000"
+     },
+     {
+      "timestampMs": "1790377286000"
+     },
+     {
+      "timestampMs": "1790377288000"
+     },
+     {
+      "timestampMs": "1790377290000"
+     },
+     {
+      "timestampMs": "1790377292000"
+     },
+     {
+      "timestampMs": "1790377294000"
+     },
+     {
+      "timestampMs": "1790377296000"
+     },
+     {
+      "timestampMs": "1790377298000"
+     },
+     {
+      "timestampMs": "1790377300000"
+     },
+     {
+      "timestampMs": "1790377302000"
+     },
+     {
+      "timestampMs": "1790377304000"
+     },
+     {
+      "timestampMs": "1790377306000",
+      "value": 1.073741824
+     },
+     {
+      "timestampMs": "1790377308000"
+     },
+     {
+      "timestampMs": "1790377310000"
+     },
+     {
+      "timestampMs": "1790377312000"
+     },
+     {
+      "timestampMs": "1790377314000"
+     },
+     {
+      "timestampMs": "1790377316000"
+     },
+     {
+      "timestampMs": "1790377318000",
+      "value": 3.61162260283834
+     },
+     {
+      "timestampMs": "1790377320000",
+      "value": 3.681834871046733
+     },
+     {
+      "timestampMs": "1790377322000",
+      "value": 3.5233135258053228
+     },
+     {
+      "timestampMs": "1790377324000",
+      "value": 3.681834871046733
+     },
+     {
+      "timestampMs": "1790377326000",
+      "value": 3.0370004999760503
+     },
+     {
+      "timestampMs": "1790377328000",
+      "value": 2.7056598524202324
+     },
+     {
+      "timestampMs": "1790377330000",
+      "value": 3.681834871046733
+     },
+     {
+      "timestampMs": "1790377332000",
+      "value": 3.0370004999760503
+     },
+     {
+      "timestampMs": "1790377334000",
+      "value": 3.4089178019197064
+     },
+     {
+      "timestampMs": "1790377336000",
+      "value": 2.7056598524202324
+     },
+     {
+      "timestampMs": "1790377338000",
+      "value": 3.254976541583785
+     },
+     {
+      "timestampMs": "1790377340000",
+      "value": 3.5233135258053228
+     },
+     {
+      "timestampMs": "1790377342000",
+      "value": 3.61162260283834
+     },
+     {
+      "timestampMs": "1790377344000",
+      "value": 3.254976541583785
+     },
+     {
+      "timestampMs": "1790377346000",
+      "value": 3.61162260283834
+     },
+     {
+      "timestampMs": "1790377348000",
+      "value": 2.7056598524202324
+     },
+     {
+      "timestampMs": "1790377350000",
+      "value": 3.254976541583785
+     },
+     {
+      "timestampMs": "1790377352000",
+      "value": 3.61162260283834
+     },
+     {
+      "timestampMs": "1790377354000",
+      "value": 2.7056598524202324
+     },
+     {
+      "timestampMs": "1790377356000",
+      "value": 3.254976541583785
+     },
+     {
+      "timestampMs": "1790377358000",
+      "value": 3.4089178019197064
+     },
+     {
+      "timestampMs": "1790377360000",
+      "value": 3.4089178019197064
+     },
+     {
+      "timestampMs": "1790377362000",
+      "value": 2.7056598524202324
+     },
+     {
+      "timestampMs": "1790377364000",
+      "value": 2.7056598524202324
+     },
+     {
+      "timestampMs": "1790377366000",
+      "value": 3.5233135258053228
+     },
+     {
+      "timestampMs": "1790377368000",
+      "value": 3.0370004999760503
+     },
+     {
+      "timestampMs": "1790377370000",
+      "value": 2.7056598524202324
+     },
+     {
+      "timestampMs": "1790377372000",
+      "value": 3.4089178019197064
+     },
+     {
+      "timestampMs": "1790377374000",
+      "value": 3.254976541583785
+     },
+     {
+      "timestampMs": "1790377376000",
+      "value": 2.147483648
+     },
+     {
+      "timestampMs": "1790377378000",
+      "value": 2.1392754950099975
+     },
+     {
+      "timestampMs": "1790377380000",
+      "value": 3.0370004999760503
+     },
+     {
+      "timestampMs": "1790377382000",
+      "value": 3.0370004999760503
+     },
+     {
+      "timestampMs": "1790377384000",
+      "value": 3.0370004999760503
+     },
+     {
+      "timestampMs": "1790377386000",
+      "value": 3.0370004999760503
+     },
+     {
+      "timestampMs": "1790377388000",
+      "value": 2.147483648
+     },
+     {
+      "timestampMs": "1790377390000",
+      "value": 3.4089178019197064
+     },
+     {
+      "timestampMs": "1790377392000",
+      "value": 3.4089178019197064
+     },
+     {
+      "timestampMs": "1790377394000",
+      "value": 3.4089178019197064
+     },
+     {
+      "timestampMs": "1790377396000",
+      "value": 3.4089178019197064
+     },
+     {
+      "timestampMs": "1790377398000",
+      "value": 2.147483648
+     },
+     {
+      "timestampMs": "1790377400000",
+      "value": 3.0370004999760503
+     },
+     {
+      "timestampMs": "1790377402000",
+      "value": 3.61162260283834
+     },
+     {
+      "timestampMs": "1790377404000",
+      "value": 3.4089178019197064
+     },
+     {
+      "timestampMs": "1790377406000",
+      "value": 3.5233135258053228
+     },
+     {
+      "timestampMs": "1790377408000",
+      "value": 3.61162260283834
+     },
+     {
+      "timestampMs": "1790377410000"
+     },
+     {
+      "timestampMs": "1790377412000"
+     },
+     {
+      "timestampMs": "1790377414000"
+     },
+     {
+      "timestampMs": "1790377416000"
+     },
+     {
+      "timestampMs": "1790377418000"
+     },
+     {
+      "timestampMs": "1790377420000"
+     },
+     {
+      "timestampMs": "1790377422000"
+     },
+     {
+      "timestampMs": "1790377424000"
+     },
+     {
+      "timestampMs": "1790377426000"
+     },
+     {
+      "timestampMs": "1790377428000"
+     },
+     {
+      "timestampMs": "1790377430000"
+     },
+     {
+      "timestampMs": "1790377432000"
+     },
+     {
+      "timestampMs": "1790377434000"
+     },
+     {
+      "timestampMs": "1790377436000"
+     },
+     {
+      "timestampMs": "1790377438000"
+     },
+     {
+      "timestampMs": "1790377440000"
+     },
+     {
+      "timestampMs": "1790377442000"
+     },
+     {
+      "timestampMs": "1790377444000"
+     },
+     {
+      "timestampMs": "1790377446000"
+     },
+     {
+      "timestampMs": "1790377448000"
+     },
+     {
+      "timestampMs": "1790377450000"
+     },
+     {
+      "timestampMs": "1790377452000"
+     },
+     {
+      "timestampMs": "1790377454000"
+     },
+     {
+      "timestampMs": "1790377456000"
+     },
+     {
+      "timestampMs": "1790377458000"
+     },
+     {
+      "timestampMs": "1790377460000"
+     },
+     {
+      "timestampMs": "1790377462000"
+     },
+     {
+      "timestampMs": "1790377464000"
+     },
+     {
+      "timestampMs": "1790377466000"
+     },
+     {
+      "timestampMs": "1790377468000"
+     },
+     {
+      "timestampMs": "1790377470000"
+     },
+     {
+      "timestampMs": "1790377472000"
+     },
+     {
+      "timestampMs": "1790377474000"
+     },
+     {
+      "timestampMs": "1790377476000"
+     },
+     {
+      "timestampMs": "1790377478000"
+     },
+     {
+      "timestampMs": "1790377480000"
+     },
+     {
+      "timestampMs": "1790377482000"
+     },
+     {
+      "timestampMs": "1790377484000"
+     },
+     {
+      "timestampMs": "1790377486000"
+     },
+     {
+      "timestampMs": "1790377488000"
+     },
+     {
+      "timestampMs": "1790377490000"
+     },
+     {
+      "timestampMs": "1790377492000"
+     },
+     {
+      "timestampMs": "1790377494000"
+     },
+     {
+      "timestampMs": "1790377496000"
+     },
+     {
+      "timestampMs": "1790377498000"
+     },
+     {
+      "timestampMs": "1790377500000"
+     },
+     {
+      "timestampMs": "1790377502000"
+     },
+     {
+      "timestampMs": "1790377504000"
+     },
+     {
+      "timestampMs": "1790377506000"
+     },
+     {
+      "timestampMs": "1790377508000"
+     },
+     {
+      "timestampMs": "1790377510000"
+     },
+     {
+      "timestampMs": "1790377512000"
+     },
+     {
+      "timestampMs": "1790377514000"
+     },
+     {
+      "timestampMs": "1790377516000"
+     },
+     {
+      "timestampMs": "1790377518000"
+     },
+     {
+      "timestampMs": "1790377520000",
+      "value": 0.536870912
+     },
+     {
+      "timestampMs": "1790377522000"
+     },
+     {
+      "timestampMs": "1790377524000"
+     },
+     {
+      "timestampMs": "1790377526000"
+     },
+     {
+      "timestampMs": "1790377528000"
+     },
+     {
+      "timestampMs": "1790377530000"
+     },
+     {
+      "timestampMs": "1790377532000"
+     },
+     {
+      "timestampMs": "1790377534000"
+     },
+     {
+      "timestampMs": "1790377536000"
+     },
+     {
+      "timestampMs": "1790377538000"
+     },
+     {
+      "timestampMs": "1790377540000"
+     },
+     {
+      "timestampMs": "1790377542000"
+     },
+     {
+      "timestampMs": "1790377544000"
+     },
+     {
+      "timestampMs": "1790377546000"
+     },
+     {
+      "timestampMs": "1790377548000"
+     },
+     {
+      "timestampMs": "1790377550000",
+      "value": 1.06872479028828
+     },
+     {
+      "timestampMs": "1790377552000",
+      "value": 0.6384507083883997
+     },
+     {
+      "timestampMs": "1790377554000",
+      "value": 0.5332349414080412
+     },
+     {
+      "timestampMs": "1790377556000",
+      "value": 1.0532656615501006
+     },
+     {
+      "timestampMs": "1790377558000",
+      "value": 0.5341810746666878
+     },
+     {
+      "timestampMs": "1790377560000",
+      "value": 0.5351184456346636
+     },
+     {
+      "timestampMs": "1790377562000",
+      "value": 1.0454945979371855
+     },
+     {
+      "timestampMs": "1790377564000",
+      "value": 0.5334677024004956
+     },
+     {
+      "timestampMs": "1790377566000",
+      "value": 1.0551419220833862
+     },
+     {
+      "timestampMs": "1790377568000",
+      "value": 0.5334677024004956
+     },
+     {
+      "timestampMs": "1790377570000",
+      "value": 0.5334831930377734
+     },
+     {
+      "timestampMs": "1790377572000",
+      "value": 0.8675115304148507
+     },
+     {
+      "timestampMs": "1790377574000",
+      "value": 0.5333880745337952
+     },
+     {
+      "timestampMs": "1790377576000",
+      "value": 1.060454759049586
+     },
+     {
+      "timestampMs": "1790377578000",
+      "value": 1.0583478007575893
+     },
+     {
+      "timestampMs": "1790377580000",
+      "value": 1.0431744785685335
+     },
+     {
+      "timestampMs": "1790377582000",
+      "value": 1.0622646718170672
+     },
+     {
+      "timestampMs": "1790377584000",
+      "value": 0.5359918911244547
+     },
+     {
+      "timestampMs": "1790377586000",
+      "value": 1.0504942014824472
+     },
+     {
+      "timestampMs": "1790377588000",
+      "value": 0.9150217332382609
+     },
+     {
+      "timestampMs": "1790377590000",
+      "value": 1.0272713814179333
+     },
+     {
+      "timestampMs": "1790377592000",
+      "value": 1.0477924912013994
+     },
+     {
+      "timestampMs": "1790377594000",
+      "value": 0.5341680501277885
+     },
+     {
+      "timestampMs": "1790377596000",
+      "value": 1.0588607821373341
+     },
+     {
+      "timestampMs": "1790377598000",
+      "value": 1.036557169801846
+     },
+     {
+      "timestampMs": "1790377600000",
+      "value": 0.5334123514209991
+     },
+     {
+      "timestampMs": "1790377602000",
+      "value": 1.05876093925293
+     },
+     {
+      "timestampMs": "1790377604000",
+      "value": 0.5333551701850768
+     },
+     {
+      "timestampMs": "1790377606000",
+      "value": 1.0480905942332028
+     },
+     {
+      "timestampMs": "1790377608000",
+      "value": 0.536870912
+     },
+     {
+      "timestampMs": "1790377610000",
+      "value": 0.5350041621648003
+     },
+     {
+      "timestampMs": "1790377612000",
+      "value": 1.0291281601721616
+     },
+     {
+      "timestampMs": "1790377614000",
+      "value": 0.5340802162298777
+     },
+     {
+      "timestampMs": "1790377616000",
+      "value": 1.0644207424530154
+     },
+     {
+      "timestampMs": "1790377618000",
+      "value": 1.0461916394585307
+     },
+     {
+      "timestampMs": "1790377620000",
+      "value": 0.8137441353959461
+     },
+     {
+      "timestampMs": "1790377622000",
+      "value": 1.0520734150720883
+     },
+     {
+      "timestampMs": "1790377624000",
+      "value": 0.5349055733324752
+     },
+     {
+      "timestampMs": "1790377626000",
+      "value": 1.039934958733651
+     },
+     {
+      "timestampMs": "1790377628000",
+      "value": 0.8522294504799267
+     },
+     {
+      "timestampMs": "1790377630000",
+      "value": 0.9029056507095848
+     },
+     {
+      "timestampMs": "1790377632000",
+      "value": 1.0554467242000587
+     },
+     {
+      "timestampMs": "1790377634000",
+      "value": 0.534030514434701
+     },
+     {
+      "timestampMs": "1790377636000",
+      "value": 1.0573294149355257
+     },
+     {
+      "timestampMs": "1790377638000",
+      "value": 1.036557169801846
+     },
+     {
+      "timestampMs": "1790377640000",
+      "value": 0.534830127231177
+     },
+     {
+      "timestampMs": "1790377642000"
+     },
+     {
+      "timestampMs": "1790377644000"
+     },
+     {
+      "timestampMs": "1790377646000"
+     },
+     {
+      "timestampMs": "1790377648000"
+     },
+     {
+      "timestampMs": "1790377650000"
+     },
+     {
+      "timestampMs": "1790377652000"
+     },
+     {
+      "timestampMs": "1790377654000"
+     },
+     {
+      "timestampMs": "1790377656000"
+     },
+     {
+      "timestampMs": "1790377658000"
+     },
+     {
+      "timestampMs": "1790377660000"
+     },
+     {
+      "timestampMs": "1790377662000",
+      "value": 0.536870912
+     },
+     {
+      "timestampMs": "1790377664000",
+      "value": 0.5338600714071186
+     },
+     {
+      "timestampMs": "1790377666000",
+      "value": 0.8925348947822795
+     },
+     {
+      "timestampMs": "1790377668000",
+      "value": 0.5334908855942718
+     },
+     {
+      "timestampMs": "1790377670000",
+      "value": 0.5332349414080412
+     },
+     {
+      "timestampMs": "1790377672000",
+      "value": 0.533665568045856
+     },
+     {
+      "timestampMs": "1790377674000",
+      "value": 0.5331845155370389
+     },
+     {
+      "timestampMs": "1790377676000",
+      "value": 0.5360729421820755
+     },
+     {
+      "timestampMs": "1790377678000",
+      "value": 0.5349756399561965
+     },
+     {
+      "timestampMs": "1790377680000",
+      "value": 0.9968886607852826
+     },
+     {
+      "timestampMs": "1790377682000",
+      "value": 0.5361104479101366
+     },
+     {
+      "timestampMs": "1790377684000",
+      "value": 0.5338539690391971
+     },
+     {
+      "timestampMs": "1790377686000",
+      "value": 0.533417166242217
+     },
+     {
+      "timestampMs": "1790377688000",
+      "value": 0.536870912
+     },
+     {
+      "timestampMs": "1790377690000",
+      "value": 0.5337423687255539
+     },
+     {
+      "timestampMs": "1790377692000",
+      "value": 0.5335993461659556
+     },
+     {
+      "timestampMs": "1790377694000",
+      "value": 0.5334426205479247
+     },
+     {
+      "timestampMs": "1790377696000",
+      "value": 0.5333651065868401
+     },
+     {
+      "timestampMs": "1790377698000",
+      "value": 1.0146727396775175
+     },
+     {
+      "timestampMs": "1790377700000",
+      "value": 0.7890576972658577
+     },
+     {
+      "timestampMs": "1790377702000",
+      "value": 0.7225746638795087
+     },
+     {
+      "timestampMs": "1790377704000",
+      "value": 0.5333046311607399
+     },
+     {
+      "timestampMs": "1790377706000",
+      "value": 0.5337593720693934
+     },
+     {
+      "timestampMs": "1790377708000",
+      "value": 0.5338355126086061
+     },
+     {
+      "timestampMs": "1790377710000",
+      "value": 0.5335213096133397
+     },
+     {
+      "timestampMs": "1790377712000",
+      "value": 0.533417166242217
+     },
+     {
+      "timestampMs": "1790377714000",
+      "value": 0.676414963105058
+     },
+     {
+      "timestampMs": "1790377716000",
+      "value": 0.5332770783094954
+     },
+     {
+      "timestampMs": "1790377718000",
+      "value": 0.5338661491384288
+     },
+     {
+      "timestampMs": "1790377720000",
+      "value": 0.533733135879606
+     },
+     {
+      "timestampMs": "1790377722000",
+      "value": 0.5335950262133159
+     },
+     {
+      "timestampMs": "1790377724000",
+      "value": 0.9347465497178078
+     },
+     {
+      "timestampMs": "1790377726000",
+      "value": 0.533459903836095
+     },
+     {
+      "timestampMs": "1790377728000",
+      "value": 1.038043324449841
+     },
+     {
+      "timestampMs": "1790377730000",
+      "value": 0.5350453713825836
+     },
+     {
+      "timestampMs": "1790377732000",
+      "value": 0.533371699710299
+     },
+     {
+      "timestampMs": "1790377734000",
+      "value": 0.827968132333034
+     },
+     {
+      "timestampMs": "1790377736000",
+      "value": 0.5340013103827363
+     },
+     {
+      "timestampMs": "1790377738000",
+      "value": 0.5331990650867162
+     },
+     {
+      "timestampMs": "1790377740000",
+      "value": 0.9689532718277508
+     },
+     {
+      "timestampMs": "1790377742000",
+      "value": 0.9565952146152699
+     },
+     {
+      "timestampMs": "1790377744000",
+      "value": 1.0468551102228885
+     },
+     {
+      "timestampMs": "1790377746000",
+      "value": 0.5338862322144993
+     },
+     {
+      "timestampMs": "1790377748000",
+      "value": 0.53405203034028
+     },
+     {
+      "timestampMs": "1790377750000",
+      "value": 0.5332081003772682
+     },
+     {
+      "timestampMs": "1790377752000",
+      "value": 0.533963949825042
+     },
+     {
+      "timestampMs": "1790377754000"
+     },
+     {
+      "timestampMs": "1790377756000"
+     },
+     {
+      "timestampMs": "1790377758000"
+     },
+     {
+      "timestampMs": "1790377760000"
+     },
+     {
+      "timestampMs": "1790377762000"
+     },
+     {
+      "timestampMs": "1790377764000"
+     },
+     {
+      "timestampMs": "1790377766000"
+     },
+     {
+      "timestampMs": "1790377768000"
+     },
+     {
+      "timestampMs": "1790377770000"
+     },
+     {
+      "timestampMs": "1790377772000"
+     },
+     {
+      "timestampMs": "1790377774000"
+     },
+     {
+      "timestampMs": "1790377776000"
+     },
+     {
+      "timestampMs": "1790377778000"
+     },
+     {
+      "timestampMs": "1790377780000"
+     },
+     {
+      "timestampMs": "1790377782000"
+     },
+     {
+      "timestampMs": "1790377784000"
+     },
+     {
+      "timestampMs": "1790377786000"
+     },
+     {
+      "timestampMs": "1790377788000"
+     },
+     {
+      "timestampMs": "1790377790000"
+     },
+     {
+      "timestampMs": "1790377792000"
+     },
+     {
+      "timestampMs": "1790377794000"
+     },
+     {
+      "timestampMs": "1790377796000"
+     },
+     {
+      "timestampMs": "1790377798000"
+     },
+     {
+      "timestampMs": "1790377800000"
+     }
+    ],
+    "exemplars": [
+     {
+      "labels": [
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "81d6bd1b40342dfb58f9a6d97bc93e7"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "2.413917293s"
+        }
+       }
+      ],
+      "value": 2.413917293,
+      "timestampMs": "1790377319744"
+     },
+     {
+      "labels": [
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "c40586d4eef77fd42fa9a03f0ede731"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "2.255355751s"
+        }
+       }
+      ],
+      "value": 2.255355751,
+      "timestampMs": "1790377320111"
+     },
+     {
+      "labels": [
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "17f26174af183206710346f94538ee6"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "1.406730792s"
+        }
+       }
+      ],
+      "value": 1.406730792,
+      "timestampMs": "1790377331054"
+     },
+     {
+      "labels": [
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "ca82fe4510f0a147c7585fb13f662"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "1.879574209s"
+        }
+       }
+      ],
+      "value": 1.879574209,
+      "timestampMs": "1790377331967"
+     },
+     {
+      "labels": [
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "1.288393751s"
+        }
+       },
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "d850a614665373f10b0c661aabe9"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       }
+      ],
+      "value": 1.288393751,
+      "timestampMs": "1790377337545"
+     },
+     {
+      "labels": [
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "1.354286418s"
+        }
+       },
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "5c535365f62a687a2c9374dc0ffcf"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       }
+      ],
+      "value": 1.354286418,
+      "timestampMs": "1790377342174"
+     },
+     {
+      "labels": [
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "1.372080126s"
+        }
+       },
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "83b97852152c22d88f0562a2339762"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       }
+      ],
+      "value": 1.372080126,
+      "timestampMs": "1790377351736"
+     },
+     {
+      "labels": [
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "1.093420001s"
+        }
+       },
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "14f175360d47d35daf2e0f445e75fd0"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       }
+      ],
+      "value": 1.093420001,
+      "timestampMs": "1790377355335"
+     },
+     {
+      "labels": [
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "108a7dda29a8ecc1b8365781a38ccdc"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "1.31991425s"
+        }
+       }
+      ],
+      "value": 1.31991425,
+      "timestampMs": "1790377358372"
+     },
+     {
+      "labels": [
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "3cfb4362c7b811ca8e735cf2713538"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "999.736084ms"
+        }
+       }
+      ],
+      "value": 0.999736084,
+      "timestampMs": "1790377367431"
+     },
+     {
+      "labels": [
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "1.023663625s"
+        }
+       },
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "178fbced73deb1e8941ee5d2043442c"
+        }
+       }
+      ],
+      "value": 1.023663625,
+      "timestampMs": "1790377374650"
+     },
+     {
+      "labels": [
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "1.057937084s"
+        }
+       },
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "3516552fa5e24634e04ab4c358f4030"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       }
+      ],
+      "value": 1.057937084,
+      "timestampMs": "1790377384226"
+     },
+     {
+      "labels": [
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "1.046722792s"
+        }
+       },
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "25d2cd344449c7d3fe2c89ef91486f0"
+        }
+       }
+      ],
+      "value": 1.046722792,
+      "timestampMs": "1790377385259"
+     },
+     {
+      "labels": [
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "48362fb47341fc425906ae6b7b2a57e"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "992.821626ms"
+        }
+       }
+      ],
+      "value": 0.992821626,
+      "timestampMs": "1790377397014"
+     },
+     {
+      "labels": [
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "e92b804128d62778efc6f586d752d5"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "945.116543ms"
+        }
+       }
+      ],
+      "value": 0.945116543,
+      "timestampMs": "1790377397889"
+     },
+     {
+      "labels": [
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "11c0fbf1735a1cec6056c225900429b"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "933.75375ms"
+        }
+       }
+      ],
+      "value": 0.93375375,
+      "timestampMs": "1790377402799"
+     },
+     {
+      "labels": [
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "7d2840a06e1cf96cfa52ddc0e9ea47b1"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "325.535917ms"
+        }
+       }
+      ],
+      "value": 0.325535917,
+      "timestampMs": "1790377519622"
+     },
+     {
+      "labels": [
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "bf1aca1a8dfc2312c3e7e476e3d985ef"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "523.323167ms"
+        }
+       }
+      ],
+      "value": 0.523323167,
+      "timestampMs": "1790377549153"
+     },
+     {
+      "labels": [
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "8873a09dbc60616803c1f3e91bdce80d"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "521.565959ms"
+        }
+       }
+      ],
+      "value": 0.521565959,
+      "timestampMs": "1790377549154"
+     },
+     {
+      "labels": [
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "2bd6dfa2f25fb76d6faee2b3cc7e37"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "493.594958ms"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       }
+      ],
+      "value": 0.493594958,
+      "timestampMs": "1790377551469"
+     },
+     {
+      "labels": [
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "22c3baa6df3070b69b31c06eafd049"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "414.060292ms"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       }
+      ],
+      "value": 0.414060292,
+      "timestampMs": "1790377554560"
+     },
+     {
+      "labels": [
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "423.669709ms"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "138fac3ea0c1cdfabcbbb49e3cfad2"
+        }
+       }
+      ],
+      "value": 0.423669709,
+      "timestampMs": "1790377564355"
+     },
+     {
+      "labels": [
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "42efb5157668700120eae0eddceb33"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "482.457708ms"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       }
+      ],
+      "value": 0.482457708,
+      "timestampMs": "1790377569979"
+     },
+     {
+      "labels": [
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "476.804917ms"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "8a3597e3609cbb066eb69030685450"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       }
+      ],
+      "value": 0.476804917,
+      "timestampMs": "1790377572583"
+     },
+     {
+      "labels": [
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "420.269833ms"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "849572a8f7f9254e81bb5b6c47aa6d"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       }
+      ],
+      "value": 0.420269833,
+      "timestampMs": "1790377578156"
+     },
+     {
+      "labels": [
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "3ef2a002de3248cf7f4385755c94e"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "510.888334ms"
+        }
+       }
+      ],
+      "value": 0.510888334,
+      "timestampMs": "1790377585873"
+     },
+     {
+      "labels": [
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "537fd3f273938d89fcf7b7a66e4182"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "505.505125ms"
+        }
+       }
+      ],
+      "value": 0.505505125,
+      "timestampMs": "1790377586981"
+     },
+     {
+      "labels": [
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "413.343709ms"
+        }
+       },
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "315f33285206eefd0e25a786fedd15"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       }
+      ],
+      "value": 0.413343709,
+      "timestampMs": "1790377594653"
+     },
+     {
+      "labels": [
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "489.186833ms"
+        }
+       },
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "1d946fee2834023ded6be4ebe3b979"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       }
+      ],
+      "value": 0.489186833,
+      "timestampMs": "1790377603875"
+     },
+     {
+      "labels": [
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "3008feec1b50ac7dc35a3a096122eb"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "512.361126ms"
+        }
+       }
+      ],
+      "value": 0.512361126,
+      "timestampMs": "1790377614673"
+     },
+     {
+      "labels": [
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "513.924458ms"
+        }
+       },
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "6328862b8ecfedb442a44e81fda684"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       }
+      ],
+      "value": 0.513924458,
+      "timestampMs": "1790377614762"
+     },
+     {
+      "labels": [
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "491.774583ms"
+        }
+       },
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "39a7e28be846240545b766d158e8bf"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       }
+      ],
+      "value": 0.491774583,
+      "timestampMs": "1790377619284"
+     },
+     {
+      "labels": [
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "483.820792ms"
+        }
+       },
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "51b12a4d39bb0d6cf95e7713e014fa"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       }
+      ],
+      "value": 0.483820792,
+      "timestampMs": "1790377624274"
+     },
+     {
+      "labels": [
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "6e042eb1e787f2c0bf99236b1302b3"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "487.554667ms"
+        }
+       }
+      ],
+      "value": 0.487554667,
+      "timestampMs": "1790377627179"
+     },
+     {
+      "labels": [
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "475.946708ms"
+        }
+       },
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "756a683184ade5ff141ab5b006a5ef"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       }
+      ],
+      "value": 0.475946708,
+      "timestampMs": "1790377629182"
+     },
+     {
+      "labels": [
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "251271a4c579068d868884505c5a806"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "432.311875ms"
+        }
+       }
+      ],
+      "value": 0.432311875,
+      "timestampMs": "1790377637456"
+     },
+     {
+      "labels": [
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "491.074376ms"
+        }
+       },
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "798cc99cfdd166e4906dfb78962f63"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       }
+      ],
+      "value": 0.491074376,
+      "timestampMs": "1790377638377"
+     },
+     {
+      "labels": [
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "2f33df8f6d670dc23197e7f62f0c57"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "485.489709ms"
+        }
+       }
+      ],
+      "value": 0.485489709,
+      "timestampMs": "1790377661882"
+     },
+     {
+      "labels": [
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "44b140992e715a66f7a0107b2d40f0"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "476.929625ms"
+        }
+       }
+      ],
+      "value": 0.476929625,
+      "timestampMs": "1790377665376"
+     },
+     {
+      "labels": [
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "a17a6f58ef1ad4a7e2b9950b5f32f8"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "478.994084ms"
+        }
+       }
+      ],
+      "value": 0.478994084,
+      "timestampMs": "1790377670676"
+     },
+     {
+      "labels": [
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "cfab6d5d73172c20000a1de0479bde"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "397.63375ms"
+        }
+       }
+      ],
+      "value": 0.39763375,
+      "timestampMs": "1790377672379"
+     },
+     {
+      "labels": [
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "100c69622fdfc7695cf560428a966e"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "396.527708ms"
+        }
+       }
+      ],
+      "value": 0.396527708,
+      "timestampMs": "1790377686876"
+     },
+     {
+      "labels": [
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "390.782375ms"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "14b164c864ce68c053dd5a11fe4132"
+        }
+       }
+      ],
+      "value": 0.390782375,
+      "timestampMs": "1790377694664"
+     },
+     {
+      "labels": [
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "511.199667ms"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "21cbb82068a0967ffe822c2f6576bb"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       }
+      ],
+      "value": 0.511199667,
+      "timestampMs": "1790377700252"
+     },
+     {
+      "labels": [
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "397.636625ms"
+        }
+       },
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "283b665b3412271dac6873ba3fc563e"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       }
+      ],
+      "value": 0.397636625,
+      "timestampMs": "1790377712175"
+     },
+     {
+      "labels": [
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "450.753375ms"
+        }
+       },
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "87fb0bf1823a78d7aeff9e38fff16c"
+        }
+       }
+      ],
+      "value": 0.450753375,
+      "timestampMs": "1790377712503"
+     },
+     {
+      "labels": [
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "398.645626ms"
+        }
+       },
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "1bfe397d22ef6ccccb011eb581c3ab"
+        }
+       }
+      ],
+      "value": 0.398645626,
+      "timestampMs": "1790377720884"
+     },
+     {
+      "labels": [
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "7c4ed826a1810d393d9bce4753b359"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "401.281917ms"
+        }
+       }
+      ],
+      "value": 0.401281917,
+      "timestampMs": "1790377723165"
+     },
+     {
+      "labels": [
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "3330aa054b90e1dbb19fb0e1a57b6"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "406.467834ms"
+        }
+       }
+      ],
+      "value": 0.406467834,
+      "timestampMs": "1790377725469"
+     },
+     {
+      "labels": [
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "406.33875ms"
+        }
+       },
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "2ae371a24507623837fa6696a9d2e"
+        }
+       }
+      ],
+      "value": 0.40633875,
+      "timestampMs": "1790377726664"
+     },
+     {
+      "labels": [
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "3403b126cf1794843ea93e0ce3e7c1"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "392.48125ms"
+        }
+       }
+      ],
+      "value": 0.39248125,
+      "timestampMs": "1790377737163"
+     },
+     {
+      "labels": [
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "63e51ee405b6480bd3b06dabed344d"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "391.643875ms"
+        }
+       }
+      ],
+      "value": 0.391643875,
+      "timestampMs": "1790377738162"
+     },
+     {
+      "labels": [
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "f927ba5a8238692a86396fbd84e09"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       },
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "413.507667ms"
+        }
+       }
+      ],
+      "value": 0.413507667,
+      "timestampMs": "1790377750659"
+     },
+     {
+      "labels": [
+       {
+        "key": "duration",
+        "value": {
+         "stringValue": "324.946375ms"
+        }
+       },
+       {
+        "key": "trace:id",
+        "value": {
+         "stringValue": "273556c3b6ee905886d27fe886bfa1"
+        }
+       },
+       {
+        "key": "resource.service.name",
+        "value": {
+         "stringValue": "soldout"
+        }
+       },
+       {
+        "key": "name",
+        "value": {
+         "stringValue": "POST /v1/orders/{id}/pay"
+        }
+       }
+      ],
+      "value": 0.324946375,
+      "timestampMs": "1790377751653"
+     }
+    ]
+   }
+  ],
+  "metrics": {
+   "completedJobs": 1,
+   "totalJobs": 1
+  }
+ }
+}

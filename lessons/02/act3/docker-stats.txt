@@ -1,0 +1,12 @@
+NAME                          CPU %     MEM USAGE / LIMIT
+soldout-k6-run-f9fc910912ac   56.98%    456.5MiB / 7.653GiB
+soldout-soldout-1             73.59%    182.6MiB / 512MiB
+soldout-postgres-1            103.89%   199MiB / 1GiB
+soldout-alloy-1               0.71%     43.26MiB / 256MiB
+soldout-grafana-1             0.18%     172.3MiB / 512MiB
+soldout-pgbouncer-1           45.60%    7.387MiB / 7.653GiB
+soldout-postgres-exporter-1   0.00%     16.87MiB / 128MiB
+soldout-pyroscope-1           3.47%     108.7MiB / 768MiB
+soldout-prometheus-1          0.09%     74.99MiB / 512MiB
+soldout-valkey-1              7.90%     118.7MiB / 7.653GiB
+soldout-valkey-exporter-1     0.00%     12.31MiB / 64MiB

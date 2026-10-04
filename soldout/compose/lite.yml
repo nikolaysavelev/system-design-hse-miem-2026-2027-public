@@ -1,0 +1,15 @@
+# Lite-профиль (8–16 ГБ RAM): уменьшенный seed, экономный PostgreSQL. Лимиты CPU/памяти из lesson-02.yml сохраняются;
+# obs-профиль в lite не поднимается (Pyroscope/exporters) — вместо flame graph используйте `make pprof-top` (docs/setup.md).
+services:
+  postgres:
+    mem_limit: 512m
+  soldout:
+    environment:
+      SEED_SEATS_PER_EVENT: ${SEED_SEATS_PER_EVENT:-4000}
+      OUTBOX_DELETE_AFTER_INSERT: "false"   # занятие 4: без Debezium строки outbox читает polling notifier'а
+  notifier:
+    environment:
+      NOTIFIER_SOURCE: outbox-poll   # вариант A ADR-003: без Kafka и Connect
+  k6:
+    environment:
+      SEATS_PER_EVENT: ${SEED_SEATS_PER_EVENT:-4000}

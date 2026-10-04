@@ -1,0 +1,14 @@
+ calls  | total_ms | mean_ms |  rows   | hit_pct |                                                query                                                 
+--------+----------+---------+---------+---------+------------------------------------------------------------------------------------------------------
+ 186157 |  10369.9 |    0.06 |  186157 |   100.0 | /* queue.insert_admission */ INSERT INTO admissions (token, event_id, user_id, issued_at, expires_at
+ 186157 |   7149.0 |    0.04 |  186157 |   100.0 | /* catalog.get_seat */ SELECT s.id, s.sector_id, sec.venue_id, s.row_no, s.seat_no FROM seats s JOIN
+ 186157 |   4440.5 |    0.02 |  186157 |   100.0 | /* booking.count_user_holds */ SELECT count(*) FROM holds WHERE event_id = $1 AND user_id = $2 AND s
+ 208798 |   4240.6 |    0.02 |  208798 |   100.0 | SELECT 1 FROM ONLY "public"."events" x WHERE "id" OPERATOR(pg_catalog.=) $1 FOR KEY SHARE OF x
+ 186157 |   3867.5 |    0.02 |  186157 |   100.0 | /* booking.seat_sold */ SELECT EXISTS (SELECT $3 FROM holds WHERE event_id = $1 AND seat_id = $2 AND
+ 375260 |   3317.9 |    0.01 |  375260 |   100.0 | /* catalog.get_event */ SELECT id, name, venue_id, starts_at, sales_open_at, sales_state FROM events
+  22641 |   2984.2 |    0.13 |   22641 |   100.0 | /* booking.insert_hold */ INSERT INTO holds (id, event_id, seat_id, user_id, status, expires_at, cre
+ 186157 |    717.6 |    0.00 |  186157 |         | /* booking.lock_seat */ SELECT pg_advisory_xact_lock(hashtext($1::text), $2::int)
+   2946 |    685.9 |    0.23 | 1407688 |   100.0 | /* catalog.sector_states */ SELECT seat_id, state FROM catalog_seat_state WHERE event_id = $1 AND se
+   5245 |    478.4 |    0.09 |    5245 |   100.0 | /* catalog.projection_upsert */ INSERT INTO catalog_seat_state (event_id, seat_id, sector_id, state,
+(10 rows)
+

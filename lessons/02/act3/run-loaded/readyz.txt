@@ -1,0 +1,2 @@
+{"checks":{"postgres":"ok","valkey":"ok"},"db_acquire_timeout":"2s","db_max_conns":40,"go":"go1.27.1","gomaxprocs":2,"gomemlimit":461373440,"numcpu":12,"pgbouncer":"PgBouncer 1.25.2","ready":true}
+

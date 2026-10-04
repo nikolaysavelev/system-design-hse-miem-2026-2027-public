@@ -1,0 +1,3 @@
+too_many_clients=0
+   1 booking/pg: expire orders: db: пул занят, повторите позже
+pg_log_too_many_clients=0

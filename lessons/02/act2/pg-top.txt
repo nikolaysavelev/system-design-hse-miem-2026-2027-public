@@ -1,0 +1,14 @@
+ calls | total_ms | mean_ms |   rows    | hit_pct |                                                query                                                 
+-------+----------+---------+-----------+---------+------------------------------------------------------------------------------------------------------
+  5746 | 496086.1 |   86.34 | 229840000 |   100.0 | /* catalog.seats_by_venue */ SELECT s.id, s.sector_id, sec.venue_id, s.row_no, s.seat_no FROM seats 
+ 17217 |   7394.2 |    0.43 |     17217 |   100.0 | /* booking.insert_hold */ INSERT INTO holds (id, event_id, seat_id, user_id, status, expires_at, cre
+ 27479 |   5545.2 |    0.20 |     27479 |   100.0 | /* queue.insert_admission */ INSERT INTO admissions (token, event_id, user_id, issued_at, expires_at
+  1333 |   5137.5 |    3.85 |   8147490 |   100.0 | /* booking.seat_states */ SELECT seat_id, status FROM holds WHERE event_id = $1 AND status IN ($2, $
+ 44696 |   3185.3 |    0.07 |     44696 |   100.0 | SELECT $2 FROM ONLY "public"."events" x WHERE "id" OPERATOR(pg_catalog.=) $1 FOR KEY SHARE OF x
+ 27416 |   2642.1 |    0.10 |     27416 |   100.0 | /* catalog.get_seat */ SELECT s.id, s.sector_id, sec.venue_id, s.row_no, s.seat_no FROM seats s JOIN
+ 62049 |   1567.4 |    0.03 |     62049 |   100.0 | /* catalog.get_event */ SELECT id, name, venue_id, starts_at, sales_open_at, sales_state FROM events
+ 22651 |   1242.9 |    0.05 |     22651 |   100.0 | /* booking.count_user_holds */ SELECT count(*) FROM holds WHERE event_id = $1 AND user_id = $2 AND s
+ 17217 |    850.6 |    0.05 |     17217 |   100.0 | SELECT $2 FROM ONLY "public"."seats" x WHERE "id" OPERATOR(pg_catalog.=) $1 FOR KEY SHARE OF x
+ 22479 |    683.4 |    0.03 |     22479 |   100.0 | /* booking.seat_sold */ SELECT EXISTS (SELECT $3 FROM holds WHERE event_id = $1 AND seat_id = $2 AND
+(10 rows)
+
