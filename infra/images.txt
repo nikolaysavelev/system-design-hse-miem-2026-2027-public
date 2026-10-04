@@ -1,0 +1,8 @@
+# Образы курса (занятие 1). Формат: image:tag — один на строку. Digest'ы — в images.lock.
+postgres:17-alpine
+valkey/valkey:9-alpine
+golang:1.27-alpine
+gcr.io/distroless/static-debian12:nonroot
+grafana/k6:1.3.0
+prom/prometheus:v3.6.0
+grafana/grafana:12.2.0
