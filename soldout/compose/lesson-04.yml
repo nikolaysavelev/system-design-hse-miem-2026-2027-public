@@ -1,0 +1,77 @@
+# Оверлей занятия 4 поверх lesson-02: полный путь покупки и внешний почтовый шлюз.
+# Запуск: make up (LESSON=04) = docker compose -f docker-compose.yml -f compose/lesson-02.yml -f compose/lesson-04.yml --profile obs up.
+services:
+  soldout:
+    image: soldout:lesson-4
+    restart: unless-stopped
+    environment:
+      PSP_DELAY_MS: ${PSP_DELAY_MS:-300}            # вторая внешняя остановка pay (эмулятор in-process)
+      MAILGW_URL: ${MAILGW_URL:-http://mailgw:8090} # письмо отправляется синхронно внутри pay
+    depends_on:
+      mailgw:
+        condition: service_healthy
+
+  # Эмулятор почтового шлюза: медленно (900 мс ± 30 %) и иногда 502 (5 %).
+  # Образ собирается из того же Dockerfile под своим тегом: параллельная сборка одного тега двумя сервисами падает.
+  mailgw:
+    image: soldout-mailgw:lesson-4
+    build: .
+    entrypoint: ["/mailgw"]
+    environment:
+      MAILGW_DELAY_MS: ${MAILGW_DELAY_MS:-900}   # 600 по умолчанию в mailgw; 900 — чтобы p99 pay уверенно пробивал порог (спека C.1)
+      MAILGW_FAIL_RATE: ${MAILGW_FAIL_RATE:-0.05}
+    ports:
+      - "8090:8090"
+    cpus: 0.25
+    mem_limit: 64m
+    healthcheck:
+      test: ["CMD", "/mailgw", "-healthcheck"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+
+  k6:
+    environment:
+      CHECKOUT_VUS: ${CHECKOUT_VUS:-150}
+      CHECKOUT_DURATION: ${CHECKOUT_DURATION:-90s}
+
+  invariants:
+    image: soldout:lesson-4
+
+  prometheus:
+    volumes:
+      - ./compose/prometheus-04.yml:/etc/prometheus/prometheus.yml:ro
+
+  # PostgreSQL занятия 4: параметры lesson-02 плюс две вещи. autovacuum_naptime=5s — на свежей БД план подготовленного
+  # count_user_holds кэшируется при пустой holds и живет до первого autoanalyze (по умолчанию до минуты):
+  # count_user_holds стоил ~1 мс вместо 0.02 мс и давал 40+ с работы БД за первый прогон. Слоты репликации — для
+  # Debezium на ветке cdc: команда одна на все ветки, чтобы switch не перезапускал базу.
+  postgres:
+    command:
+      - postgres
+      - -c
+      - shared_preload_libraries=pg_stat_statements
+      - -c
+      - pg_stat_statements.track=all
+      - -c
+      - wal_level=logical
+      - -c
+      - max_replication_slots=4
+      - -c
+      - max_wal_senders=4
+      - -c
+      - max_connections=100
+      - -c
+      - shared_buffers=256MB
+      - -c
+      - work_mem=8MB
+      - -c
+      - statement_timeout=5s
+      - -c
+      - idle_in_transaction_session_timeout=5s
+      - -c
+      - track_io_timing=on
+      - -c
+      - log_min_duration_statement=1000
+      - -c
+      - autovacuum_naptime=5s
