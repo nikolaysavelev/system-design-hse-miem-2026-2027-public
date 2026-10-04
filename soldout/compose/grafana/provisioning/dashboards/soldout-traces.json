@@ -1,0 +1,238 @@
+{
+ "uid": "soldout-traces",
+ "title": "soldout · трейсы (span-метрики)",
+ "tags": [
+  "soldout",
+  "lesson-4"
+ ],
+ "timezone": "browser",
+ "schemaVersion": 39,
+ "version": 1,
+ "refresh": "",
+ "time": {
+  "from": "now-15m",
+  "to": "now"
+ },
+ "panels": [
+  {
+   "type": "timeseries",
+   "title": "p99 по span'ам пути pay (span-метрики коллектора)",
+   "description": "Тот же ответ «где время», что и водопад одного трейса, но по всем запросам. Метрик в коде для этого не добавляли: их считает connector span_metrics в otel-collector.",
+   "gridPos": {
+    "x": 0,
+    "y": 0,
+    "w": 24,
+    "h": 9
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "fieldConfig": {
+    "defaults": {
+     "unit": "s",
+     "custom": {
+      "lineWidth": 2,
+      "fillOpacity": 5
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "displayMode": "table",
+     "placement": "right",
+     "calcs": [
+      "lastNotNull",
+      "max"
+     ]
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "targets": [
+    {
+     "refId": "A",
+     "expr": "histogram_quantile(0.99, sum by (le, service_name, span_name) (rate(traces_span_metrics_duration_seconds_bucket{span_name=~\"POST /v1/orders/{id}/pay|booking.PayOrder|payment.Charge|psp.emulate|ticketing.Issue|notification.Send|mailgw.POST /send|POST /send|notifier.consume|outbox.append\"}[1m])))",
+     "legendFormat": "{{service_name}} · {{span_name}}"
+    }
+   ]
+  },
+  {
+   "type": "bargauge",
+   "title": "Среднее время этапа pay за окно (с)",
+   "description": "sum(rate(sum)) / sum(rate(count)) по имени span'а за выбранный интервал.",
+   "gridPos": {
+    "x": 0,
+    "y": 9,
+    "w": 12,
+    "h": 9
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "fieldConfig": {
+    "defaults": {
+     "unit": "s",
+     "min": 0
+    },
+    "overrides": []
+   },
+   "options": {
+    "orientation": "horizontal",
+    "displayMode": "gradient",
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "values": false
+    }
+   },
+   "targets": [
+    {
+     "refId": "A",
+     "instant": true,
+     "legendFormat": "{{span_name}}",
+     "expr": "sum by (span_name) (increase(traces_span_metrics_duration_seconds_sum{span_name=~\"POST /v1/orders/{id}/pay|booking.PayOrder|payment.Charge|psp.emulate|ticketing.Issue|notification.Send|mailgw.POST /send|POST /send|notifier.consume|outbox.append\"}[$__range])) / sum by (span_name) (increase(traces_span_metrics_duration_seconds_count{span_name=~\"POST /v1/orders/{id}/pay|booking.PayOrder|payment.Charge|psp.emulate|ticketing.Issue|notification.Send|mailgw.POST /send|POST /send|notifier.consume|outbox.append\"}[$__range]))"
+    }
+   ]
+  },
+  {
+   "type": "timeseries",
+   "title": "Вызовы/с по span'ам пути pay",
+   "description": "",
+   "gridPos": {
+    "x": 12,
+    "y": 9,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "fieldConfig": {
+    "defaults": {
+     "unit": "reqps",
+     "custom": {
+      "lineWidth": 2,
+      "fillOpacity": 5
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "displayMode": "table",
+     "placement": "right",
+     "calcs": [
+      "lastNotNull",
+      "max"
+     ]
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "targets": [
+    {
+     "refId": "A",
+     "expr": "sum by (span_name) (rate(traces_span_metrics_duration_seconds_count{span_name=~\"POST /v1/orders/{id}/pay|booking.PayOrder|payment.Charge|psp.emulate|ticketing.Issue|notification.Send|mailgw.POST /send|POST /send|notifier.consume|outbox.append\"}[1m]))",
+     "legendFormat": "{{span_name}}"
+    }
+   ]
+  },
+  {
+   "type": "timeseries",
+   "title": "Ошибки/с по span'ам (status=Error)",
+   "description": "502 почтового шлюза, таймауты, ошибки SQL. Повтор к шлюзу — отдельный span mailgw.POST /send с retry.attempt=1. booking.insert_hold с ошибкой — это 409 seat_held: уникальный индекс срабатывает как задумано.",
+   "gridPos": {
+    "x": 0,
+    "y": 18,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "fieldConfig": {
+    "defaults": {
+     "unit": "reqps",
+     "custom": {
+      "lineWidth": 2,
+      "fillOpacity": 5
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "displayMode": "table",
+     "placement": "right",
+     "calcs": [
+      "lastNotNull",
+      "max"
+     ]
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "targets": [
+    {
+     "refId": "A",
+     "expr": "sum by (service_name, span_name) (rate(traces_span_metrics_duration_seconds_count{status_code=\"STATUS_CODE_ERROR\"}[1m]))",
+     "legendFormat": "{{service_name}} · {{span_name}}"
+    }
+   ]
+  },
+  {
+   "type": "timeseries",
+   "title": "p99 SQL и ожидания соединения (pgx.acquire)",
+   "description": "Имена SQL-span'ов — из комментария /* module.name */, как в pg_stat_statements. Бакеты гистограммы грубые (5 мс): для точных цифр — трейс.",
+   "gridPos": {
+    "x": 12,
+    "y": 18,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "fieldConfig": {
+    "defaults": {
+     "unit": "s",
+     "custom": {
+      "lineWidth": 2,
+      "fillOpacity": 5
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "displayMode": "table",
+     "placement": "right",
+     "calcs": [
+      "lastNotNull",
+      "max"
+     ]
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "targets": [
+    {
+     "refId": "A",
+     "expr": "histogram_quantile(0.99, sum by (le, span_name) (rate(traces_span_metrics_duration_seconds_bucket{span_name=~\"pgx.acquire|sql\\\\..*|(booking|payment|ticketing|notification|catalog|queue)\\\\.[a-z_]+\"}[1m])))",
+     "legendFormat": "{{span_name}}"
+    }
+   ]
+  }
+ ]
+}

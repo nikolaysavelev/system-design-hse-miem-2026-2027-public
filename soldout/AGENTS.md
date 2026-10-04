@@ -1,0 +1,41 @@
+# AGENTS.md — инструкции для ИИ-агента в репозитории `soldout`
+
+Ты работаешь в модульном монолите на Go 1.27. Прежде чем менять код, прочитай `docs/constitution.md` (правила), `spec/soldout.md` (что строим), `docs/adr/ADR-001-modular-monolith.md` (почему так) и, для HTTP, `api/openapi.yaml`.
+
+## Где что лежит
+
+- `cmd/soldout/main.go` — сборка зависимостей и HTTP-сервер; единственное место, где модули «знают» друг о друге целиком.
+- `internal/<module>/{api,domain,app,adapters}` — модули `catalog`, `queue`, `booking`, `payment`, `ticketing`, `notification`. Публично только `api`.
+- `internal/platform/` — config, db (pgx, golang-migrate), cache (valkey-go), httpx (JSON, ошибки, middleware), log, metrics, faults.
+- `migrations/` — SQL по модулям; `seed/` — тестовые данные; `k6/` — сценарии; `tools/invariant-checker/` — инварианты.
+- `.go-arch-lint.yml` — архитектурные правила; `Makefile` — все команды.
+
+## Команды
+
+```
+make up          поднять стенд (Docker Compose), ждёт /readyz
+make test        go test ./... (unit + интеграционный через testcontainers; нужен Docker)
+make lint-arch   go-arch-lint check
+make invariants  инвариант-чекер (на поднятом стенде)
+make smoke       k6 smoke; make down — остановить
+```
+
+Локально без Docker: `go build ./... && go vet ./... && go test -short ./...`.
+
+## Правила работы
+
+1. **План до кода.** Для задач, затрагивающих более 3 файлов, сначала выведи список файлов (создать/изменить) и список тестов, дождись подтверждения, потом реализуй.
+2. **Границы модулей.** Импортируй другой модуль только через `internal/<module>/api`. Нужны данные чужого модуля — добавь метод в его `api` и реализацию у владельца, не ходи в чужие таблицы.
+3. **Миграции.** Не редактируй существующие файлы в `migrations/`; схема меняется только новым файлом `NNNN_name.up.sql` + `.down.sql`.
+4. **Тесты обязательны.** Новая доменная операция → unit-тест в `domain`; новая конкурентная операция → интеграционный тест на testcontainers.
+5. **Идемпотентность и таймауты** по умолчанию: см. constitution, разделы 4–5.
+6. **Готово = зелёные `make lint-arch`, `make test`** и (если стенд поднят) `make invariants`. Приведи вывод команд.
+7. **Не трогай без просьбы**: `docs/constitution.md`, ADR, `api/openapi.yaml` (изменение контракта — отдельная задача с обновлением OpenAPI), `k6/`, `docker-compose.yml`.
+
+## Коммиты
+
+Сообщения на русском в формате `lesson-N: что сделано` (например, `lesson-1: модуль booking`). Без трейлеров, подписей и упоминания инструментов.
+
+## Стиль
+
+Комментарии и сообщения об ошибках — на русском; идентификаторы — на английском. Ошибки оборачивай с контекстом (`%w`). Логи — через `slog` из контекста запроса (`httpx.LoggerFrom`). Без глобальных переменных состояния.

@@ -1,0 +1,1172 @@
+{
+ "isError": false,
+ "content": {
+  "traces": [
+   {
+    "traceID": "2fc1741e3ca6d8862f1c966fb177b39",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377664774113421",
+    "durationMs": 1577,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "7d45dc6aeffb70eb",
+       "name": "notifier.consume",
+       "startTimeUnixNano": "1790377665383605630",
+       "durationNanos": "968223042",
+       "attributes": [
+        {
+         "key": "service.name",
+         "value": {
+          "stringValue": "notifier"
+         }
+        }
+       ]
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "7d45dc6aeffb70eb",
+        "name": "notifier.consume",
+        "startTimeUnixNano": "1790377665383605630",
+        "durationNanos": "968223042",
+        "attributes": [
+         {
+          "key": "service.name",
+          "value": {
+           "stringValue": "notifier"
+          }
+         }
+        ]
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 1
+     },
+     "notifier": {
+      "spanCount": 11
+     },
+     "soldout": {
+      "spanCount": 29
+     }
+    }
+   },
+   {
+    "traceID": "2db1ac014a2c6d528f01b90e656975c",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377664584321255",
+    "durationMs": 1767,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "8518b2f82bed02f5",
+       "name": "notifier.consume",
+       "startTimeUnixNano": "1790377665172703047",
+       "durationNanos": "1179024167",
+       "attributes": [
+        {
+         "key": "service.name",
+         "value": {
+          "stringValue": "notifier"
+         }
+        }
+       ]
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "8518b2f82bed02f5",
+        "name": "notifier.consume",
+        "startTimeUnixNano": "1790377665172703047",
+        "durationNanos": "1179024167",
+        "attributes": [
+         {
+          "key": "service.name",
+          "value": {
+           "stringValue": "notifier"
+          }
+         }
+        ]
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 1
+     },
+     "notifier": {
+      "spanCount": 11
+     },
+     "soldout": {
+      "spanCount": 29
+     }
+    }
+   },
+   {
+    "traceID": "1448f6bd5ae0f8afb0246c82c642df8",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377664579585213",
+    "durationMs": 1682,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "ea5222bd2432ba3d",
+       "name": "notifier.consume",
+       "startTimeUnixNano": "1790377665152973713",
+       "durationNanos": "1108831459",
+       "attributes": [
+        {
+         "key": "service.name",
+         "value": {
+          "stringValue": "notifier"
+         }
+        }
+       ]
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "ea5222bd2432ba3d",
+        "name": "notifier.consume",
+        "startTimeUnixNano": "1790377665152973713",
+        "durationNanos": "1108831459",
+        "attributes": [
+         {
+          "key": "service.name",
+          "value": {
+           "stringValue": "notifier"
+          }
+         }
+        ]
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 1
+     },
+     "notifier": {
+      "spanCount": 11
+     },
+     "soldout": {
+      "spanCount": 29
+     }
+    }
+   },
+   {
+    "traceID": "cff3bf899c3773ecae84df5fdbb36e",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377664073448046",
+    "durationMs": 1479,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "811de28353a1ff3f",
+       "name": "notifier.consume",
+       "startTimeUnixNano": "1790377664566500380",
+       "durationNanos": "986071167",
+       "attributes": [
+        {
+         "key": "service.name",
+         "value": {
+          "stringValue": "notifier"
+         }
+        }
+       ]
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "811de28353a1ff3f",
+        "name": "notifier.consume",
+        "startTimeUnixNano": "1790377664566500380",
+        "durationNanos": "986071167",
+        "attributes": [
+         {
+          "key": "service.name",
+          "value": {
+           "stringValue": "notifier"
+          }
+         }
+        ]
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 1
+     },
+     "notifier": {
+      "spanCount": 11
+     },
+     "soldout": {
+      "spanCount": 29
+     }
+    }
+   },
+   {
+    "traceID": "3665e74bf3c9968ef6748500c73fe74",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377663873086129",
+    "durationMs": 1279,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "6eff68580e16a0ea",
+       "name": "notifier.consume",
+       "startTimeUnixNano": "1790377664453127254",
+       "durationNanos": "699041917",
+       "attributes": [
+        {
+         "key": "service.name",
+         "value": {
+          "stringValue": "notifier"
+         }
+        }
+       ]
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "6eff68580e16a0ea",
+        "name": "notifier.consume",
+        "startTimeUnixNano": "1790377664453127254",
+        "durationNanos": "699041917",
+        "attributes": [
+         {
+          "key": "service.name",
+          "value": {
+           "stringValue": "notifier"
+          }
+         }
+        ]
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 1
+     },
+     "notifier": {
+      "spanCount": 11
+     },
+     "soldout": {
+      "spanCount": 29
+     }
+    }
+   },
+   {
+    "traceID": "2a1b6ce76cd8226282a3f1ede3c1dc0",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377663863651213",
+    "durationMs": 1496,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "09ce3803546a86ae",
+       "name": "notifier.consume",
+       "startTimeUnixNano": "1790377664352635754",
+       "durationNanos": "1007460584",
+       "attributes": [
+        {
+         "key": "service.name",
+         "value": {
+          "stringValue": "notifier"
+         }
+        }
+       ]
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "09ce3803546a86ae",
+        "name": "notifier.consume",
+        "startTimeUnixNano": "1790377664352635754",
+        "durationNanos": "1007460584",
+        "attributes": [
+         {
+          "key": "service.name",
+          "value": {
+           "stringValue": "notifier"
+          }
+         }
+        ]
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 1
+     },
+     "notifier": {
+      "spanCount": 11
+     },
+     "soldout": {
+      "spanCount": 29
+     }
+    }
+   },
+   {
+    "traceID": "50c0608e98c2a5fc2b3ea4bd8eeea20",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377663460762671",
+    "durationMs": 1392,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "4e306a58939bccf2",
+       "name": "notifier.consume",
+       "startTimeUnixNano": "1790377663956610338",
+       "durationNanos": "896185833",
+       "attributes": [
+        {
+         "key": "service.name",
+         "value": {
+          "stringValue": "notifier"
+         }
+        }
+       ]
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "4e306a58939bccf2",
+        "name": "notifier.consume",
+        "startTimeUnixNano": "1790377663956610338",
+        "durationNanos": "896185833",
+        "attributes": [
+         {
+          "key": "service.name",
+          "value": {
+           "stringValue": "notifier"
+          }
+         }
+        ]
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 1
+     },
+     "notifier": {
+      "spanCount": 11
+     },
+     "soldout": {
+      "spanCount": 29
+     }
+    }
+   },
+   {
+    "traceID": "6d6cd46693c60c617ead23655de9dc4",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377663274984087",
+    "durationMs": 1577,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "6ae4b625ff707e12",
+       "name": "notifier.consume",
+       "startTimeUnixNano": "1790377663752549462",
+       "durationNanos": "1100292251",
+       "attributes": [
+        {
+         "key": "service.name",
+         "value": {
+          "stringValue": "notifier"
+         }
+        }
+       ]
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "6ae4b625ff707e12",
+        "name": "notifier.consume",
+        "startTimeUnixNano": "1790377663752549462",
+        "durationNanos": "1100292251",
+        "attributes": [
+         {
+          "key": "service.name",
+          "value": {
+           "stringValue": "notifier"
+          }
+         }
+        ]
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 1
+     },
+     "notifier": {
+      "spanCount": 11
+     },
+     "soldout": {
+      "spanCount": 29
+     }
+    }
+   },
+   {
+    "traceID": "34fcd8ac4e9b6270a3dc3ea2f149e4a",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377662955782212",
+    "durationMs": 1197,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "e4a2d7c55dd0e048",
+       "name": "notifier.consume",
+       "startTimeUnixNano": "1790377663465803421",
+       "durationNanos": "687026375",
+       "attributes": [
+        {
+         "key": "service.name",
+         "value": {
+          "stringValue": "notifier"
+         }
+        }
+       ]
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "e4a2d7c55dd0e048",
+        "name": "notifier.consume",
+        "startTimeUnixNano": "1790377663465803421",
+        "durationNanos": "687026375",
+        "attributes": [
+         {
+          "key": "service.name",
+          "value": {
+           "stringValue": "notifier"
+          }
+         }
+        ]
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 1
+     },
+     "notifier": {
+      "spanCount": 11
+     },
+     "soldout": {
+      "spanCount": 29
+     }
+    }
+   },
+   {
+    "traceID": "560bb30dece7beb85f6a8282caab101",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377662875799004",
+    "durationMs": 1476,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "967886861ff56960",
+       "name": "notifier.consume",
+       "startTimeUnixNano": "1790377663466503796",
+       "durationNanos": "885423709",
+       "attributes": [
+        {
+         "key": "service.name",
+         "value": {
+          "stringValue": "notifier"
+         }
+        }
+       ]
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "967886861ff56960",
+        "name": "notifier.consume",
+        "startTimeUnixNano": "1790377663466503796",
+        "durationNanos": "885423709",
+        "attributes": [
+         {
+          "key": "service.name",
+          "value": {
+           "stringValue": "notifier"
+          }
+         }
+        ]
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 1
+     },
+     "notifier": {
+      "spanCount": 11
+     },
+     "soldout": {
+      "spanCount": 29
+     }
+    }
+   },
+   {
+    "traceID": "6df8819c0479bb19a272d1fe58dde08",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377662787564462",
+    "durationMs": 1664,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "ebf17ac2ae34ef7c",
+       "name": "notifier.consume",
+       "startTimeUnixNano": "1790377663464090671",
+       "durationNanos": "987573042",
+       "attributes": [
+        {
+         "key": "service.name",
+         "value": {
+          "stringValue": "notifier"
+         }
+        }
+       ]
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "ebf17ac2ae34ef7c",
+        "name": "notifier.consume",
+        "startTimeUnixNano": "1790377663464090671",
+        "durationNanos": "987573042",
+        "attributes": [
+         {
+          "key": "service.name",
+          "value": {
+           "stringValue": "notifier"
+          }
+         }
+        ]
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 1
+     },
+     "notifier": {
+      "spanCount": 11
+     },
+     "soldout": {
+      "spanCount": 29
+     }
+    }
+   },
+   {
+    "traceID": "54258338de8e12b6dcc8939c54ec3d0",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377662762076254",
+    "durationMs": 1490,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "b7a6d2c0564b9520",
+       "name": "notifier.consume",
+       "startTimeUnixNano": "1790377663346091421",
+       "durationNanos": "905985001",
+       "attributes": [
+        {
+         "key": "service.name",
+         "value": {
+          "stringValue": "notifier"
+         }
+        }
+       ]
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "b7a6d2c0564b9520",
+        "name": "notifier.consume",
+        "startTimeUnixNano": "1790377663346091421",
+        "durationNanos": "905985001",
+        "attributes": [
+         {
+          "key": "service.name",
+          "value": {
+           "stringValue": "notifier"
+          }
+         }
+        ]
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 1
+     },
+     "notifier": {
+      "spanCount": 11
+     },
+     "soldout": {
+      "spanCount": 29
+     }
+    }
+   },
+   {
+    "traceID": "1d942782aaef4c7169912328327e89d",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377662553853670",
+    "durationMs": 1597,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "74a828c54adb65ad",
+       "name": "notifier.consume",
+       "startTimeUnixNano": "1790377663039800295",
+       "durationNanos": "1111764876",
+       "attributes": [
+        {
+         "key": "service.name",
+         "value": {
+          "stringValue": "notifier"
+         }
+        }
+       ]
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "74a828c54adb65ad",
+        "name": "notifier.consume",
+        "startTimeUnixNano": "1790377663039800295",
+        "durationNanos": "1111764876",
+        "attributes": [
+         {
+          "key": "service.name",
+          "value": {
+           "stringValue": "notifier"
+          }
+         }
+        ]
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 1
+     },
+     "notifier": {
+      "spanCount": 11
+     },
+     "soldout": {
+      "spanCount": 29
+     }
+    }
+   },
+   {
+    "traceID": "4b909d6f63a4f2a0eca98477827f32d",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377662458907462",
+    "durationMs": 1593,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "fe0e40c25c767776",
+       "name": "notifier.consume",
+       "startTimeUnixNano": "1790377662964223920",
+       "durationNanos": "1087755167",
+       "attributes": [
+        {
+         "key": "service.name",
+         "value": {
+          "stringValue": "notifier"
+         }
+        }
+       ]
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "fe0e40c25c767776",
+        "name": "notifier.consume",
+        "startTimeUnixNano": "1790377662964223920",
+        "durationNanos": "1087755167",
+        "attributes": [
+         {
+          "key": "service.name",
+          "value": {
+           "stringValue": "notifier"
+          }
+         }
+        ]
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 1
+     },
+     "notifier": {
+      "spanCount": 11
+     },
+     "soldout": {
+      "spanCount": 29
+     }
+    }
+   },
+   {
+    "traceID": "57a3eb4dc0ef88cd7e56fbf9f8c102",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377662294210045",
+    "durationMs": 1459,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "7e538f9a02dc6fc0",
+       "name": "notifier.consume",
+       "startTimeUnixNano": "1790377662765187504",
+       "durationNanos": "988307709",
+       "attributes": [
+        {
+         "key": "service.name",
+         "value": {
+          "stringValue": "notifier"
+         }
+        }
+       ]
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "7e538f9a02dc6fc0",
+        "name": "notifier.consume",
+        "startTimeUnixNano": "1790377662765187504",
+        "durationNanos": "988307709",
+        "attributes": [
+         {
+          "key": "service.name",
+          "value": {
+           "stringValue": "notifier"
+          }
+         }
+        ]
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 1
+     },
+     "notifier": {
+      "spanCount": 11
+     },
+     "soldout": {
+      "spanCount": 29
+     }
+    }
+   },
+   {
+    "traceID": "42a3f5c739b2ec4aadf286046385ffa",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377662179980045",
+    "durationMs": 1472,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "0bed55a772aa60ea",
+       "name": "notifier.consume",
+       "startTimeUnixNano": "1790377662764638629",
+       "durationNanos": "887730250",
+       "attributes": [
+        {
+         "key": "service.name",
+         "value": {
+          "stringValue": "notifier"
+         }
+        }
+       ]
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "0bed55a772aa60ea",
+        "name": "notifier.consume",
+        "startTimeUnixNano": "1790377662764638629",
+        "durationNanos": "887730250",
+        "attributes": [
+         {
+          "key": "service.name",
+          "value": {
+           "stringValue": "notifier"
+          }
+         }
+        ]
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 1
+     },
+     "notifier": {
+      "spanCount": 11
+     },
+     "soldout": {
+      "spanCount": 29
+     }
+    }
+   },
+   {
+    "traceID": "3656fe3e7f04daa2531158764338efe",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377662176419212",
+    "durationMs": 1598,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "97e0e3b6083a8488",
+       "name": "notifier.consume",
+       "startTimeUnixNano": "1790377662764502295",
+       "durationNanos": "1010588668",
+       "attributes": [
+        {
+         "key": "service.name",
+         "value": {
+          "stringValue": "notifier"
+         }
+        }
+       ]
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "97e0e3b6083a8488",
+        "name": "notifier.consume",
+        "startTimeUnixNano": "1790377662764502295",
+        "durationNanos": "1010588668",
+        "attributes": [
+         {
+          "key": "service.name",
+          "value": {
+           "stringValue": "notifier"
+          }
+         }
+        ]
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 1
+     },
+     "notifier": {
+      "spanCount": 11
+     },
+     "soldout": {
+      "spanCount": 29
+     }
+    }
+   },
+   {
+    "traceID": "6f780207bfb964624d309a8bc1b9ad9",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377662154805378",
+    "durationMs": 1402,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "4a6e03ba7fe1c950",
+       "name": "notifier.consume",
+       "startTimeUnixNano": "1790377662764029295",
+       "durationNanos": "793106959",
+       "attributes": [
+        {
+         "key": "service.name",
+         "value": {
+          "stringValue": "notifier"
+         }
+        }
+       ]
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "4a6e03ba7fe1c950",
+        "name": "notifier.consume",
+        "startTimeUnixNano": "1790377662764029295",
+        "durationNanos": "793106959",
+        "attributes": [
+         {
+          "key": "service.name",
+          "value": {
+           "stringValue": "notifier"
+          }
+         }
+        ]
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 1
+     },
+     "notifier": {
+      "spanCount": 11
+     },
+     "soldout": {
+      "spanCount": 29
+     }
+    }
+   },
+   {
+    "traceID": "48c3f72b1c7bd689f7b5453016ee2af",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377661956776170",
+    "durationMs": 1473,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "23e2ba041759603e",
+       "name": "notifier.consume",
+       "startTimeUnixNano": "1790377662427544962",
+       "durationNanos": "1002557625",
+       "attributes": [
+        {
+         "key": "service.name",
+         "value": {
+          "stringValue": "notifier"
+         }
+        }
+       ]
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "23e2ba041759603e",
+        "name": "notifier.consume",
+        "startTimeUnixNano": "1790377662427544962",
+        "durationNanos": "1002557625",
+        "attributes": [
+         {
+          "key": "service.name",
+          "value": {
+           "stringValue": "notifier"
+          }
+         }
+        ]
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 1
+     },
+     "notifier": {
+      "spanCount": 11
+     },
+     "soldout": {
+      "spanCount": 29
+     }
+    }
+   },
+   {
+    "traceID": "2f33df8f6d670dc23197e7f62f0c57",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377661882032128",
+    "durationMs": 1470,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "dfb8c590b681d0c5",
+       "name": "notifier.consume",
+       "startTimeUnixNano": "1790377662427493962",
+       "durationNanos": "925360084",
+       "attributes": [
+        {
+         "key": "service.name",
+         "value": {
+          "stringValue": "notifier"
+         }
+        }
+       ]
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "dfb8c590b681d0c5",
+        "name": "notifier.consume",
+        "startTimeUnixNano": "1790377662427493962",
+        "durationNanos": "925360084",
+        "attributes": [
+         {
+          "key": "service.name",
+          "value": {
+           "stringValue": "notifier"
+          }
+         }
+        ]
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 1
+     },
+     "notifier": {
+      "spanCount": 11
+     },
+     "soldout": {
+      "spanCount": 29
+     }
+    }
+   }
+  ],
+  "metrics": {
+   "inspectedBytes": "3802371",
+   "completedJobs": 1,
+   "totalJobs": 3
+  }
+ }
+}

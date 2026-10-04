@@ -1,0 +1,8 @@
+в outbox.event.order отправлено сообщение с ключом poison; смотрим notifier (≈ 8 с)…
+time=2026-09-25T23:09:59.275Z level=WARN msg="notifier: попытка не удалась" attempt=1 offset=12463 err="notifier: невалидное сообщение: invalid UUID length: 9" trace_id=63ab006c7042e00d6508869e94f5140d span_id=0b87c408c5a8055e
+time=2026-09-25T23:09:59.778Z level=WARN msg="notifier: попытка не удалась" attempt=2 offset=12463 err="notifier: невалидное сообщение: invalid UUID length: 9" trace_id=63ab006c7042e00d6508869e94f5140d span_id=0b87c408c5a8055e
+time=2026-09-25T23:10:00.779Z level=WARN msg="notifier: попытка не удалась" attempt=3 offset=12463 err="notifier: невалидное сообщение: invalid UUID length: 9" trace_id=63ab006c7042e00d6508869e94f5140d span_id=0b87c408c5a8055e
+time=2026-09-25T23:10:02.781Z level=WARN msg="notifier: попытка не удалась" attempt=4 offset=12463 err="notifier: невалидное сообщение: invalid UUID length: 9" trace_id=63ab006c7042e00d6508869e94f5140d span_id=0b87c408c5a8055e
+time=2026-09-25T23:10:06.783Z level=WARN msg="notifier: попытка не удалась" attempt=5 offset=12463 err="notifier: невалидное сообщение: invalid UUID length: 9" trace_id=63ab006c7042e00d6508869e94f5140d span_id=0b87c408c5a8055e
+time=2026-09-25T23:10:06.799Z level=ERROR msg="notifier: сообщение отправлено в DLQ" offset=12463 key=poison attempts=5 err="notifier: невалидное сообщение: invalid UUID length: 9" trace_id=63ab006c7042e00d6508869e94f5140d span_id=0b87c408c5a8055e
+error:notifier: невалидное сообщение: invalid UUID length: 9,attempts:5,original_topic:outbox.event.order,original_partition:0,original_offset:12463	poison	{"order_id": "не-uuid", "oops": true}

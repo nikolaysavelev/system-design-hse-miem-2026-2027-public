@@ -1,0 +1,166 @@
+{
+ "title": "soldout — k6",
+ "uid": "k6",
+ "schemaVersion": 39,
+ "refresh": "5s",
+ "time": {
+  "from": "now-15m",
+  "to": "now"
+ },
+ "tags": [
+  "soldout"
+ ],
+ "panels": [
+  {
+   "type": "timeseries",
+   "title": "VU",
+   "gridPos": {
+    "x": 0,
+    "y": 0,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "k6_vus",
+     "legendFormat": "vus",
+     "refId": "A"
+    }
+   ]
+  },
+  {
+   "type": "timeseries",
+   "title": "RPS и ошибки",
+   "gridPos": {
+    "x": 12,
+    "y": 0,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "rate(k6_http_reqs_total[30s])",
+     "legendFormat": "reqs/s",
+     "refId": "A"
+    },
+    {
+     "expr": "k6_http_req_failed_rate",
+     "legendFormat": "failed rate",
+     "refId": "B"
+    }
+   ]
+  },
+  {
+   "type": "timeseries",
+   "title": "p95/p99 по name",
+   "gridPos": {
+    "x": 0,
+    "y": 8,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "k6_http_req_duration_p99{name!=\"\"}",
+     "legendFormat": "p99 {{name}}",
+     "refId": "A"
+    },
+    {
+     "expr": "k6_http_req_duration_p95{name!=\"\"}",
+     "legendFormat": "p95 {{name}}",
+     "refId": "B"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "s"
+    }
+   }
+  },
+  {
+   "type": "timeseries",
+   "title": "Итерации/с",
+   "gridPos": {
+    "x": 12,
+    "y": 8,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "rate(k6_iterations_total[30s])",
+     "legendFormat": "iterations/s",
+     "refId": "A"
+    }
+   ]
+  },
+  {
+   "type": "timeseries",
+   "title": "Ответы по статусу",
+   "gridPos": {
+    "x": 0,
+    "y": 16,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "sum by (status) (rate(k6_http_reqs_total[30s]))",
+     "legendFormat": "{{status}}",
+     "refId": "A"
+    }
+   ]
+  },
+  {
+   "type": "timeseries",
+   "title": "Отправлено/получено байт/с",
+   "gridPos": {
+    "x": 12,
+    "y": 16,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "rate(k6_data_sent_total[30s])",
+     "legendFormat": "sent",
+     "refId": "A"
+    },
+    {
+     "expr": "rate(k6_data_received_total[30s])",
+     "legendFormat": "received",
+     "refId": "B"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "Bps"
+    }
+   }
+  }
+ ]
+}

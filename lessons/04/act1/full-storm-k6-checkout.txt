@@ -1,0 +1,45 @@
+checkout   [  97% ] 150 VUs  1m27.0s/1m30s
+checkout   [  98% ] 150 VUs  1m28.0s/1m30s
+checkout   [  99% ] 150 VUs  1m29.0s/1m30s
+checkout   [ 100% ] 150 VUs  1m30.0s/1m30s
+checkout ↓ [ 100% ] 150 VUs  1m30s
+checkout ↓ [ 100% ] 150 VUs  1m30s
+checkout ↓ [ 100% ] 150 VUs  1m30s
+  █ THRESHOLDS 
+    http_req_duration{name:order}
+    ✓ 'p(99)<500' p(99)=385.11ms
+    http_req_duration{name:pay}
+    ✗ 'p(99)<800' p(99)=3s
+    http_req_duration{name:tickets}
+    ✓ 'p(99)<500' p(99)=367.24ms
+    http_req_failed
+    ✓ 'rate<0.01' rate=0.00%
+  █ TOTAL RESULTS 
+    checks_total.......: 17494   186.362982/s
+    checks_succeeded...: 100.00% 17494 out of 17494
+    checks_failed......: 0.00%   0 out of 17494
+    ✓ queue/join 200
+    ✓ hold 409 (место занято) — допустимо
+    ✓ order 201
+    ✓ pay 200 → paid
+    ✓ tickets 200, есть билет
+    HTTP
+    http_req_duration..............: avg=634.32ms p(50)=285.89ms p(95)=2.22s    p(99)=2.51s    max=3s      
+      { expected_response:true }...: avg=634.32ms p(50)=285.89ms p(95)=2.22s    p(99)=2.51s    max=3s      
+      { name:order }...............: avg=250.94ms p(50)=240.03ms p(95)=312.73ms p(99)=385.11ms max=473.58ms
+      { name:pay }.................: avg=2.11s    p(50)=2.09s    p(95)=2.56s    p(99)=3s       max=3s      
+      { name:tickets }.............: avg=238.98ms p(50)=225.07ms p(95)=301.12ms p(99)=367.24ms max=405.2ms 
+    http_req_failed................: 0.00%  0 out of 21661
+    http_reqs......................: 21661  230.75389/s
+    EXECUTION
+    iteration_duration.............: avg=3.29s    p(50)=3.24s    p(95)=3.95s    p(99)=4.22s    max=4.94s   
+    iterations.....................: 4167   44.390908/s
+    vus............................: 8      min=8          max=150
+    vus_max........................: 150    min=150        max=150
+    NETWORK
+    data_received..................: 9.0 MB 96 kB/s
+    data_sent......................: 5.1 MB 54 kB/s
+checkout ✓ [ 100% ] 150 VUs  1m30s
+time="2026-09-25T21:20:33Z" level=error msg="thresholds on metrics 'http_req_duration{name:pay}' have been crossed"
+make[1]: *** [checkout] Error 99
+make: *** [checkout-storm] Error 2

@@ -1,0 +1,39 @@
+File: soldout
+Build ID: 4ed284495c3ba2136e878418d1d054d0c92d0350
+Type: cpu
+Time: 2026-09-26 02:06:35 MSK
+Duration: 20s, Total samples = 9.13s (45.65%)
+Showing nodes accounting for 5.08s, 55.64% of 9.13s total
+Dropped 605 nodes (cum <= 0.05s)
+Showing top 30 nodes out of 418
+      flat  flat%   sum%        cum   cum%
+     3.07s 33.63% 33.63%      3.07s 33.63%  internal/runtime/syscall/linux.Syscall6
+     0.27s  2.96% 36.58%      0.27s  2.96%  runtime.nanotime (inline)
+     0.17s  1.86% 38.44%      0.17s  1.86%  runtime.futex
+     0.15s  1.64% 40.09%      0.22s  2.41%  runtime.tryDeferToSpanScan
+     0.14s  1.53% 41.62%      0.16s  1.75%  time.now
+     0.11s  1.20% 42.83%      0.11s  1.20%  runtime.memclrNoHeapPointers
+     0.09s  0.99% 43.81%      0.71s  7.78%  runtime.mallocgc
+     0.08s  0.88% 44.69%      0.09s  0.99%  runtime.mapaccess2_fast32
+     0.07s  0.77% 45.45%      0.13s  1.42%  runtime.selectgo
+     0.06s  0.66% 46.11%      0.20s  2.19%  encoding/json/v2.makeStructArshaler.func2
+     0.06s  0.66% 46.77%      0.11s  1.20%  regexp.(*Regexp).tryBacktrack
+     0.05s  0.55% 47.32%      0.05s  0.55%  context.(*timerCtx).Done
+     0.05s  0.55% 47.86%      0.05s  0.55%  context.value
+     0.05s  0.55% 48.41%      0.08s  0.88%  runtime.casgstatus
+     0.05s  0.55% 48.96%      0.05s  0.55%  runtime.memmove
+     0.05s  0.55% 49.51%      0.14s  1.53%  runtime.pcvalue
+     0.04s  0.44% 49.95%      0.27s  2.96%  github.com/jackc/pgx/v5.(*baseRows).Scan
+     0.04s  0.44% 50.38%      0.59s  6.46%  github.com/jackc/pgx/v5/pgconn.(*PgConn).receiveMessage
+     0.04s  0.44% 50.82%      0.66s  7.23%  github.com/jackc/pgx/v5/pgproto3.(*Frontend).Receive
+     0.04s  0.44% 51.26%      0.13s  1.42%  google.golang.org/protobuf/internal/impl.(*MessageInfo).sizePointerSlow
+     0.04s  0.44% 51.70%      0.06s  0.66%  internal/runtime/maps.(*Iter).Init
+     0.04s  0.44% 52.14%      5.96s 65.28%  net/http.HandlerFunc.ServeHTTP
+     0.04s  0.44% 52.57%      0.06s  0.66%  runtime.(*mspan).writeHeapBitsSmall
+     0.04s  0.44% 53.01%      0.05s  0.55%  runtime.findObject
+     0.04s  0.44% 53.45%      0.11s  1.20%  runtime.interhash
+     0.04s  0.44% 53.89%      0.07s  0.77%  runtime.mallocgcSmallScanNoHeaderSC3
+     0.04s  0.44% 54.33%      0.09s  0.99%  runtime.mallocgcSmallScanNoHeaderSC4
+     0.04s  0.44% 54.76%      0.09s  0.99%  runtime.mallocgcSmallScanNoHeaderSC5
+     0.04s  0.44% 55.20%      0.10s  1.10%  runtime.scanblock
+     0.04s  0.44% 55.64%      0.05s  0.55%  slices.insertionSortCmpFunc[go.shape.struct { Key go.opentelemetry.io/otel/attribute.Key; Value go.opentelemetry.io/otel/attribute.Value }] (inline)

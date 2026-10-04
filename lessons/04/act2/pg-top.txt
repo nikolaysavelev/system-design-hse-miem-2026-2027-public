@@ -1,0 +1,14 @@
+ calls | total_ms | mean_ms |  rows   | hit_pct |                                                query                                                 
+-------+----------+---------+---------+---------+------------------------------------------------------------------------------------------------------
+ 43299 |  37922.0 |    0.88 |   43299 |   100.0 | /* booking.count_user_holds */ SELECT count(*) FROM holds WHERE event_id = $1 AND user_id = $2 AND s
+ 10014 |   2595.2 |    0.26 |   10014 |   100.0 | /* booking.list_user_orders */ SELECT o.id, o.event_id, o.user_id, o.status, o.amount::text, o.idemp
+ 31932 |   1875.8 |    0.06 |   31932 |   100.0 | /* booking.insert_hold */ INSERT INTO holds (id, event_id, seat_id, user_id, status, expires_at, cre
+ 41752 |   1116.1 |    0.03 |   41752 |   100.0 | /* queue.insert_admission */ INSERT INTO admissions (token, event_id, user_id, issued_at, expires_at
+ 43299 |   1092.3 |    0.03 |   43299 |   100.0 | /* catalog.get_seat */ SELECT s.id, s.sector_id, sec.venue_id, s.row_no, s.seat_no FROM seats s JOIN
+ 41946 |   1042.0 |    0.02 |   41946 |   100.0 | /* catalog.bump_sector_version */ INSERT INTO catalog_sector_version (event_id, sector_id, version, 
+ 41946 |   1004.3 |    0.02 |   41946 |   100.0 | /* catalog.projection_upsert */ INSERT INTO catalog_seat_state (event_id, seat_id, sector_id, state,
+  5310 |    997.7 |    0.19 | 1641377 |   100.0 | /* catalog.sector_states */ SELECT seat_id, state FROM catalog_seat_state WHERE event_id = $1 AND se
+ 30042 |    862.4 |    0.03 |   30042 |   100.0 | /* booking.get_order */ SELECT o.id, o.event_id, o.user_id, o.status, o.amount::text, o.idempotency_
+ 83698 |    574.9 |    0.01 |   83698 |   100.0 | SELECT $2 FROM ONLY "public"."events" x WHERE "id" OPERATOR(pg_catalog.=) $1 FOR KEY SHARE OF x
+(10 rows)
+

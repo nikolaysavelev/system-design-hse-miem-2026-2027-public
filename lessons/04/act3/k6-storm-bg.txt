@@ -1,0 +1,364 @@
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: /scripts/storm.js
+        output: Prometheus remote write (http://prometheus:9090/api/v1/write)
+
+     scenarios: (100.00%) 1 scenario, 300 max VUs, 2m10s max duration (incl. graceful stop):
+              * storm: 400.00 iterations/s for 1m40s (maxVUs: 200-300, gracefulStop: 30s)
+
+
+running (0m01.0s), 001/200 VUs, 392 complete and 0 interrupted iterations
+storm   [   1% ] 001/200 VUs  0m01.0s/1m40s  400.00 iters/s
+
+running (0m02.0s), 001/200 VUs, 792 complete and 0 interrupted iterations
+storm   [   2% ] 001/200 VUs  0m02.0s/1m40s  400.00 iters/s
+
+running (0m03.0s), 000/200 VUs, 1191 complete and 0 interrupted iterations
+storm   [   3% ] 000/200 VUs  0m03.0s/1m40s  400.00 iters/s
+
+running (0m04.0s), 001/200 VUs, 1592 complete and 0 interrupted iterations
+storm   [   4% ] 001/200 VUs  0m04.0s/1m40s  400.00 iters/s
+
+running (0m05.0s), 012/200 VUs, 1981 complete and 0 interrupted iterations
+storm   [   5% ] 012/200 VUs  0m05.0s/1m40s  400.00 iters/s
+
+running (0m06.0s), 063/200 VUs, 2329 complete and 0 interrupted iterations
+storm   [   6% ] 063/200 VUs  0m06.0s/1m40s  400.00 iters/s
+
+running (0m07.0s), 030/200 VUs, 2763 complete and 0 interrupted iterations
+storm   [   7% ] 029/200 VUs  0m07.0s/1m40s  400.00 iters/s
+
+running (0m08.0s), 028/200 VUs, 3165 complete and 0 interrupted iterations
+storm   [   8% ] 028/200 VUs  0m08.0s/1m40s  400.00 iters/s
+
+running (0m09.0s), 029/200 VUs, 3563 complete and 0 interrupted iterations
+storm   [   9% ] 029/200 VUs  0m09.0s/1m40s  400.00 iters/s
+
+running (0m10.0s), 039/200 VUs, 3954 complete and 0 interrupted iterations
+storm   [  10% ] 039/200 VUs  0m10.0s/1m40s  400.00 iters/s
+
+running (0m11.0s), 051/200 VUs, 4342 complete and 0 interrupted iterations
+storm   [  11% ] 051/200 VUs  0m11.0s/1m40s  400.00 iters/s
+
+running (0m12.0s), 066/200 VUs, 4727 complete and 0 interrupted iterations
+storm   [  12% ] 066/200 VUs  0m12.0s/1m40s  400.00 iters/s
+
+running (0m13.0s), 037/200 VUs, 5155 complete and 0 interrupted iterations
+storm   [  13% ] 037/200 VUs  0m13.0s/1m40s  400.00 iters/s
+
+running (0m14.0s), 036/200 VUs, 5557 complete and 0 interrupted iterations
+storm   [  14% ] 036/200 VUs  0m14.0s/1m40s  400.00 iters/s
+
+running (0m15.0s), 033/200 VUs, 5960 complete and 0 interrupted iterations
+storm   [  15% ] 033/200 VUs  0m15.0s/1m40s  400.00 iters/s
+
+running (0m16.0s), 030/200 VUs, 6363 complete and 0 interrupted iterations
+storm   [  16% ] 030/200 VUs  0m16.0s/1m40s  400.00 iters/s
+
+running (0m17.0s), 051/200 VUs, 6742 complete and 0 interrupted iterations
+storm   [  17% ] 051/200 VUs  0m17.0s/1m40s  400.00 iters/s
+
+running (0m18.0s), 030/200 VUs, 7163 complete and 0 interrupted iterations
+storm   [  18% ] 030/200 VUs  0m18.0s/1m40s  400.00 iters/s
+
+running (0m19.0s), 031/200 VUs, 7562 complete and 0 interrupted iterations
+storm   [  19% ] 031/200 VUs  0m19.0s/1m40s  400.00 iters/s
+
+running (0m20.0s), 034/200 VUs, 7958 complete and 0 interrupted iterations
+storm   [  20% ] 034/200 VUs  0m20.0s/1m40s  400.00 iters/s
+time="2026-09-25T23:06:03Z" level=error msg="Failed to send the time series data to the endpoint" error="got status code: 400 instead expected a 2xx successful status code" output="Prometheus remote write"
+
+running (0m21.0s), 054/200 VUs, 8338 complete and 0 interrupted iterations
+storm   [  21% ] 054/200 VUs  0m21.0s/1m40s  400.00 iters/s
+
+running (0m22.0s), 071/200 VUs, 8722 complete and 0 interrupted iterations
+storm   [  22% ] 071/200 VUs  0m22.0s/1m40s  400.00 iters/s
+
+running (0m23.0s), 036/200 VUs, 9157 complete and 0 interrupted iterations
+storm   [  23% ] 036/200 VUs  0m23.0s/1m40s  400.00 iters/s
+
+running (0m24.0s), 033/200 VUs, 9560 complete and 0 interrupted iterations
+storm   [  24% ] 033/200 VUs  0m24.0s/1m40s  400.00 iters/s
+
+running (0m25.0s), 033/200 VUs, 9959 complete and 0 interrupted iterations
+storm   [  25% ] 033/200 VUs  0m25.0s/1m40s  400.00 iters/s
+
+running (0m26.0s), 033/200 VUs, 10359 complete and 0 interrupted iterations
+storm   [  26% ] 033/200 VUs  0m26.0s/1m40s  400.00 iters/s
+
+running (0m27.0s), 031/200 VUs, 10761 complete and 0 interrupted iterations
+storm   [  27% ] 031/200 VUs  0m27.0s/1m40s  400.00 iters/s
+
+running (0m28.0s), 030/200 VUs, 11162 complete and 0 interrupted iterations
+storm   [  28% ] 030/200 VUs  0m28.0s/1m40s  400.00 iters/s
+
+running (0m29.0s), 028/200 VUs, 11565 complete and 0 interrupted iterations
+storm   [  29% ] 028/200 VUs  0m29.0s/1m40s  400.00 iters/s
+
+running (0m30.0s), 032/200 VUs, 11960 complete and 0 interrupted iterations
+storm   [  30% ] 032/200 VUs  0m30.0s/1m40s  400.00 iters/s
+
+running (0m31.0s), 039/200 VUs, 12353 complete and 0 interrupted iterations
+storm   [  31% ] 039/200 VUs  0m31.0s/1m40s  400.00 iters/s
+
+running (0m32.0s), 066/200 VUs, 12727 complete and 0 interrupted iterations
+storm   [  32% ] 066/200 VUs  0m32.0s/1m40s  400.00 iters/s
+
+running (0m33.0s), 063/200 VUs, 13129 complete and 0 interrupted iterations
+storm   [  33% ] 063/200 VUs  0m33.0s/1m40s  400.00 iters/s
+
+running (0m34.0s), 038/200 VUs, 13554 complete and 0 interrupted iterations
+storm   [  34% ] 038/200 VUs  0m34.0s/1m40s  400.00 iters/s
+
+running (0m35.0s), 032/200 VUs, 13961 complete and 0 interrupted iterations
+storm   [  35% ] 032/200 VUs  0m35.0s/1m40s  400.00 iters/s
+
+running (0m36.0s), 077/200 VUs, 14316 complete and 0 interrupted iterations
+storm   [  36% ] 077/200 VUs  0m36.0s/1m40s  400.00 iters/s
+
+running (0m37.0s), 129/200 VUs, 14664 complete and 0 interrupted iterations
+storm   [  37% ] 129/200 VUs  0m37.0s/1m40s  400.00 iters/s
+
+running (0m38.0s), 037/200 VUs, 15155 complete and 0 interrupted iterations
+storm   [  38% ] 037/200 VUs  0m38.0s/1m40s  400.00 iters/s
+
+running (0m39.0s), 036/200 VUs, 15557 complete and 0 interrupted iterations
+storm   [  39% ] 036/200 VUs  0m39.0s/1m40s  400.00 iters/s
+
+running (0m40.0s), 059/200 VUs, 15934 complete and 0 interrupted iterations
+storm   [  40% ] 059/200 VUs  0m40.0s/1m40s  400.00 iters/s
+
+running (0m41.0s), 033/200 VUs, 16359 complete and 0 interrupted iterations
+storm   [  41% ] 033/200 VUs  0m41.0s/1m40s  400.00 iters/s
+
+running (0m42.0s), 090/200 VUs, 16703 complete and 0 interrupted iterations
+storm   [  42% ] 090/200 VUs  0m42.0s/1m40s  400.00 iters/s
+
+running (0m43.0s), 051/200 VUs, 17141 complete and 0 interrupted iterations
+storm   [  43% ] 051/200 VUs  0m43.0s/1m40s  400.00 iters/s
+
+running (0m44.0s), 037/200 VUs, 17555 complete and 0 interrupted iterations
+storm   [  44% ] 037/200 VUs  0m44.0s/1m40s  400.00 iters/s
+
+running (0m45.0s), 029/200 VUs, 17964 complete and 0 interrupted iterations
+storm   [  45% ] 029/200 VUs  0m45.0s/1m40s  400.00 iters/s
+
+running (0m46.0s), 039/200 VUs, 18354 complete and 0 interrupted iterations
+storm   [  46% ] 039/200 VUs  0m46.0s/1m40s  400.00 iters/s
+
+running (0m47.0s), 095/200 VUs, 18697 complete and 0 interrupted iterations
+storm   [  47% ] 095/200 VUs  0m47.0s/1m40s  400.00 iters/s
+
+running (0m48.0s), 034/200 VUs, 19159 complete and 0 interrupted iterations
+storm   [  48% ] 034/200 VUs  0m48.0s/1m40s  400.00 iters/s
+
+running (0m49.0s), 008/200 VUs, 19585 complete and 0 interrupted iterations
+storm   [  49% ] 008/200 VUs  0m49.0s/1m40s  400.00 iters/s
+
+running (0m50.0s), 032/200 VUs, 19961 complete and 0 interrupted iterations
+storm   [  50% ] 032/200 VUs  0m50.0s/1m40s  400.00 iters/s
+
+running (0m51.0s), 027/200 VUs, 20366 complete and 0 interrupted iterations
+storm   [  51% ] 027/200 VUs  0m51.0s/1m40s  400.00 iters/s
+
+running (0m52.0s), 077/200 VUs, 20715 complete and 0 interrupted iterations
+storm   [  52% ] 077/200 VUs  0m52.0s/1m40s  400.00 iters/s
+
+running (0m53.0s), 048/200 VUs, 21144 complete and 0 interrupted iterations
+storm   [  53% ] 048/200 VUs  0m53.0s/1m40s  400.00 iters/s
+
+running (0m54.0s), 038/200 VUs, 21555 complete and 0 interrupted iterations
+storm   [  54% ] 038/200 VUs  0m54.0s/1m40s  400.00 iters/s
+
+running (0m55.0s), 035/200 VUs, 21958 complete and 0 interrupted iterations
+storm   [  55% ] 035/200 VUs  0m55.0s/1m40s  400.00 iters/s
+
+running (0m56.0s), 028/200 VUs, 22364 complete and 0 interrupted iterations
+storm   [  56% ] 028/200 VUs  0m56.0s/1m40s  400.00 iters/s
+
+running (0m57.0s), 067/200 VUs, 22726 complete and 0 interrupted iterations
+storm   [  57% ] 067/200 VUs  0m57.0s/1m40s  400.00 iters/s
+
+running (0m58.0s), 035/200 VUs, 23158 complete and 0 interrupted iterations
+storm   [  58% ] 035/200 VUs  0m58.0s/1m40s  400.00 iters/s
+
+running (0m59.0s), 038/200 VUs, 23555 complete and 0 interrupted iterations
+storm   [  59% ] 038/200 VUs  0m59.0s/1m40s  400.00 iters/s
+
+running (1m00.0s), 038/200 VUs, 23954 complete and 0 interrupted iterations
+storm   [  60% ] 038/200 VUs  1m00.0s/1m40s  400.00 iters/s
+
+running (1m01.0s), 044/200 VUs, 24348 complete and 0 interrupted iterations
+storm   [  61% ] 044/200 VUs  1m01.0s/1m40s  400.00 iters/s
+
+running (1m02.0s), 070/200 VUs, 24723 complete and 0 interrupted iterations
+storm   [  62% ] 070/200 VUs  1m02.0s/1m40s  400.00 iters/s
+
+running (1m03.0s), 058/200 VUs, 25135 complete and 0 interrupted iterations
+storm   [  63% ] 058/200 VUs  1m03.0s/1m40s  400.00 iters/s
+
+running (1m04.0s), 040/200 VUs, 25553 complete and 0 interrupted iterations
+storm   [  64% ] 040/200 VUs  1m04.0s/1m40s  400.00 iters/s
+
+running (1m05.0s), 037/200 VUs, 25956 complete and 0 interrupted iterations
+storm   [  65% ] 036/200 VUs  1m05.0s/1m40s  400.00 iters/s
+
+running (1m06.0s), 034/200 VUs, 26359 complete and 0 interrupted iterations
+storm   [  66% ] 034/200 VUs  1m06.0s/1m40s  400.00 iters/s
+
+running (1m07.0s), 065/200 VUs, 26727 complete and 0 interrupted iterations
+storm   [  67% ] 065/200 VUs  1m07.0s/1m40s  400.00 iters/s
+
+running (1m08.0s), 033/200 VUs, 27160 complete and 0 interrupted iterations
+storm   [  68% ] 033/200 VUs  1m08.0s/1m40s  400.00 iters/s
+
+running (1m09.0s), 034/200 VUs, 27558 complete and 0 interrupted iterations
+storm   [  69% ] 034/200 VUs  1m09.0s/1m40s  400.00 iters/s
+
+running (1m10.0s), 039/200 VUs, 27954 complete and 0 interrupted iterations
+storm   [  70% ] 039/200 VUs  1m10.0s/1m40s  400.00 iters/s
+time="2026-09-25T23:06:53Z" level=error msg="Failed to send the time series data to the endpoint" error="got status code: 400 instead expected a 2xx successful status code" output="Prometheus remote write"
+
+running (1m11.0s), 060/200 VUs, 28333 complete and 0 interrupted iterations
+storm   [  71% ] 060/200 VUs  1m11.0s/1m40s  400.00 iters/s
+
+running (1m12.0s), 133/200 VUs, 28660 complete and 0 interrupted iterations
+storm   [  72% ] 133/200 VUs  1m12.0s/1m40s  400.00 iters/s
+
+running (1m13.0s), 040/200 VUs, 29152 complete and 0 interrupted iterations
+storm   [  73% ] 040/200 VUs  1m13.0s/1m40s  400.00 iters/s
+
+running (1m14.0s), 037/200 VUs, 29555 complete and 0 interrupted iterations
+storm   [  74% ] 037/200 VUs  1m14.0s/1m40s  400.00 iters/s
+
+running (1m15.0s), 029/200 VUs, 29963 complete and 0 interrupted iterations
+storm   [  75% ] 029/200 VUs  1m15.0s/1m40s  400.00 iters/s
+
+running (1m16.0s), 030/200 VUs, 30362 complete and 0 interrupted iterations
+storm   [  76% ] 030/200 VUs  1m16.0s/1m40s  400.00 iters/s
+
+running (1m17.0s), 071/200 VUs, 30722 complete and 0 interrupted iterations
+storm   [  77% ] 071/200 VUs  1m17.0s/1m40s  400.00 iters/s
+
+running (1m18.0s), 036/200 VUs, 31157 complete and 0 interrupted iterations
+storm   [  78% ] 036/200 VUs  1m18.0s/1m40s  400.00 iters/s
+
+running (1m19.0s), 038/200 VUs, 31554 complete and 0 interrupted iterations
+storm   [  79% ] 038/200 VUs  1m19.0s/1m40s  400.00 iters/s
+
+running (1m20.0s), 066/200 VUs, 31927 complete and 0 interrupted iterations
+storm   [  80% ] 066/200 VUs  1m20.0s/1m40s  400.00 iters/s
+
+running (1m21.0s), 029/200 VUs, 32363 complete and 0 interrupted iterations
+storm   [  81% ] 029/200 VUs  1m21.0s/1m40s  400.00 iters/s
+
+running (1m22.0s), 068/200 VUs, 32724 complete and 0 interrupted iterations
+storm   [  82% ] 068/200 VUs  1m22.0s/1m40s  400.00 iters/s
+
+running (1m23.0s), 037/200 VUs, 33156 complete and 0 interrupted iterations
+storm   [  83% ] 037/200 VUs  1m23.0s/1m40s  400.00 iters/s
+
+running (1m24.0s), 050/200 VUs, 33542 complete and 0 interrupted iterations
+storm   [  84% ] 050/200 VUs  1m24.0s/1m40s  400.00 iters/s
+
+running (1m25.0s), 039/200 VUs, 33953 complete and 0 interrupted iterations
+storm   [  85% ] 039/200 VUs  1m25.0s/1m40s  400.00 iters/s
+
+running (1m26.0s), 035/200 VUs, 34357 complete and 0 interrupted iterations
+storm   [  86% ] 035/200 VUs  1m26.0s/1m40s  400.00 iters/s
+
+running (1m27.0s), 048/200 VUs, 34745 complete and 0 interrupted iterations
+storm   [  87% ] 048/200 VUs  1m27.0s/1m40s  400.00 iters/s
+
+running (1m28.0s), 068/200 VUs, 35124 complete and 0 interrupted iterations
+storm   [  88% ] 068/200 VUs  1m28.0s/1m40s  400.00 iters/s
+
+running (1m29.0s), 038/200 VUs, 35555 complete and 0 interrupted iterations
+storm   [  89% ] 038/200 VUs  1m29.0s/1m40s  400.00 iters/s
+
+running (1m30.0s), 038/200 VUs, 35954 complete and 0 interrupted iterations
+storm   [  90% ] 038/200 VUs  1m30.0s/1m40s  400.00 iters/s
+
+running (1m31.0s), 033/200 VUs, 36359 complete and 0 interrupted iterations
+storm   [  91% ] 033/200 VUs  1m31.0s/1m40s  400.00 iters/s
+
+running (1m32.0s), 063/200 VUs, 36729 complete and 0 interrupted iterations
+storm   [  92% ] 063/200 VUs  1m32.0s/1m40s  400.00 iters/s
+
+running (1m33.0s), 068/200 VUs, 37125 complete and 0 interrupted iterations
+storm   [  93% ] 068/200 VUs  1m33.0s/1m40s  400.00 iters/s
+
+running (1m34.0s), 034/200 VUs, 37559 complete and 0 interrupted iterations
+storm   [  94% ] 034/200 VUs  1m34.0s/1m40s  400.00 iters/s
+
+running (1m35.0s), 028/200 VUs, 37965 complete and 0 interrupted iterations
+storm   [  95% ] 028/200 VUs  1m35.0s/1m40s  400.00 iters/s
+time="2026-09-25T23:07:18Z" level=error msg="Failed to send the time series data to the endpoint" error="got status code: 400 instead expected a 2xx successful status code" output="Prometheus remote write"
+
+running (1m36.0s), 002/200 VUs, 38391 complete and 0 interrupted iterations
+storm   [  96% ] 002/200 VUs  1m36.0s/1m40s  400.00 iters/s
+
+running (1m37.0s), 010/200 VUs, 38783 complete and 0 interrupted iterations
+storm   [  97% ] 010/200 VUs  1m37.0s/1m40s  400.00 iters/s
+
+running (1m38.0s), 002/200 VUs, 39190 complete and 0 interrupted iterations
+storm   [  98% ] 002/200 VUs  1m38.0s/1m40s  400.00 iters/s
+
+running (1m39.0s), 001/200 VUs, 39592 complete and 0 interrupted iterations
+storm   [  99% ] 001/200 VUs  1m39.0s/1m40s  400.00 iters/s
+
+running (1m40.0s), 004/200 VUs, 39989 complete and 0 interrupted iterations
+storm   [ 100% ] 004/200 VUs  1m40.0s/1m40s  400.00 iters/s
+
+
+  █ THRESHOLDS 
+
+    http_req_duration{name:hold}
+    ✓ 'p(99)<500' p(99)=250.74ms
+
+    http_req_duration{name:seatmap}
+    ✓ 'p(99)<200' p(99)=4.45ms
+
+    http_req_failed
+    ✓ 'rate<0.01' rate=0.00%
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 71942   719.403745/s
+    checks_succeeded...: 100.00% 71942 out of 71942
+    checks_failed......: 0.00%   0 out of 71942
+
+    ✓ queue/join 200
+    ✓ seatmap 200
+    ✓ hold 201/409
+
+    HTTP
+    http_req_duration..............: avg=62.97ms  p(50)=68.13ms  p(95)=171.8ms  p(99)=200.08ms max=309.16ms
+      { expected_response:true }...: avg=62.97ms  p(50)=68.13ms  p(95)=171.8ms  p(99)=200.08ms max=309.16ms
+      { name:hold }................: avg=87.35ms  p(50)=92.46ms  p(95)=188.98ms p(99)=250.74ms max=309.16ms
+      { name:seatmap }.............: avg=592.66µs p(50)=294.04µs p(95)=1.95ms   p(99)=4.45ms   max=89.4ms  
+    http_req_failed................: 0.00%  0 out of 71942
+    http_reqs......................: 71942  719.403745/s
+
+    EXECUTION
+    iteration_duration.............: avg=113.4ms  p(50)=118.99ms p(95)=270.26ms p(99)=370.08ms max=485.94ms
+    iterations.....................: 40000  399.990962/s
+    vus............................: 3      min=0          max=133
+    vus_max........................: 200    min=200        max=200
+
+    NETWORK
+    data_received..................: 397 MB 4.0 MB/s
+    data_sent......................: 18 MB  182 kB/s
+
+
+
+
+running (1m40.0s), 000/200 VUs, 40000 complete and 0 interrupted iterations
+storm ✓ [ 100% ] 000/200 VUs  1m40s  400.00 iters/s

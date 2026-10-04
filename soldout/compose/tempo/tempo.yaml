@@ -1,0 +1,33 @@
+# Tempo 3 single binary (-target=all), локальное хранилище. MCP-сервер query-frontend: http://localhost:3200/api/mcp
+# (инструменты traceql-search, get-trace, traceql-metrics-range) — к нему подключается Claude Code (.mcp.json).
+stream_over_http_enabled: true
+
+server:
+  http_listen_port: 3200
+  grpc_listen_port: 9095
+  log_level: warn
+
+distributor:
+  receivers:
+    otlp:
+      protocols:
+        grpc:
+          endpoint: 0.0.0.0:4317
+
+query_frontend:
+  mcp_server:
+    enabled: true
+
+# TraceQL-метрики ({...} | quantile_over_time(...)) для traceql-metrics-range в Tempo 3 отдаёт live store
+# без отдельного процессора (local-blocks из Tempo 2 удалён). Span-метрики для Prometheus считает коллектор.
+
+storage:
+  trace:
+    backend: local
+    wal:
+      path: /var/tempo/wal
+    local:
+      path: /var/tempo/blocks
+
+usage_report:
+  reporting_enabled: false

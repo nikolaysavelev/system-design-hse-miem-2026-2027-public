@@ -1,0 +1,9 @@
+ calls | total_ms  | mean_ms |   rows    |                                                     query                                                      
+-------+-----------+---------+-----------+----------------------------------------------------------------------------------------------------------------
+ 54446 | 3146942.9 |   57.80 |     54446 | /* booking.lock_seat */ SELECT pg_advisory_xact_lock(hashtext($1::text), $2::int)
+ 16148 |  529333.7 |   32.78 | 645920000 | /* catalog.seats_by_venue */ SELECT s.id, s.sector_id, sec.venue_id, s.row_no, s.seat_no FROM seats s JOIN sec
+ 54446 |  148369.3 |    2.73 |     54446 | /* booking.count_user_holds */ SELECT count(*) FROM holds WHERE event_id = $1 AND user_id = $2 AND status IN (
+ 54446 |   82169.8 |    1.51 |     54446 | /* booking.seat_sold */ SELECT EXISTS (SELECT $3 FROM holds WHERE event_id = $1 AND seat_id = $2 AND status = 
+ 12137 |   54235.1 |    4.47 | 150928279 | /* booking.seat_states */ SELECT seat_id, status FROM holds WHERE event_id = $1 AND status IN ($2, $3)
+(5 rows)
+
