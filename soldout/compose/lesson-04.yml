@@ -1,0 +1,126 @@
+# Оверлей занятия 4 поверх lesson-02: полный путь покупки, внешний почтовый шлюз, трейсинг (otel-collector + Tempo).
+# Запуск: make up (LESSON=04) = docker compose -f docker-compose.yml -f compose/lesson-02.yml -f compose/lesson-04.yml --profile obs up.
+services:
+  soldout:
+    image: soldout:lesson-4
+    build:
+      context: .
+      args:
+        VERSION: ${VERSION:-dev}
+    restart: unless-stopped   # break-goroutine: процесс падает после commit и поднимается сам
+    environment:
+      OTEL_EXPORTER_OTLP_ENDPOINT: ${OTEL_EXPORTER_OTLP_ENDPOINT:-http://otel-collector:4317}
+      OTEL_TRACES_SAMPLER_ARG: ${OTEL_TRACES_SAMPLER_ARG:-1.0}   # стенд: 100 %; прод: 1–10 % + tail-sampling в коллекторе
+      OTEL_NOISY_SAMPLER_ARG: ${OTEL_NOISY_SAMPLER_ARG:-0.1}     # hold, join, карта зала: 10 % (шторм в фоне), pay и остальное 100 %
+      FAULT_NOTIFY_MODE: ${FAULT_NOTIFY_MODE:-sync}
+      PSP_DELAY_MS: ${PSP_DELAY_MS:-300}            # вторая внешняя остановка pay (эмулятор in-process)
+      MAILGW_URL: ${MAILGW_URL:-http://mailgw:8090} # письмо отправляется синхронно внутри pay
+    depends_on:
+      mailgw:
+        condition: service_healthy
+
+  # Эмулятор почтового шлюза: медленно (900 мс ± 30 %) и иногда 502 (5 %).
+  # Образ собирается из того же Dockerfile под своим тегом: параллельная сборка одного тега двумя сервисами падает.
+  mailgw:
+    image: soldout-mailgw:lesson-4
+    build: .
+    entrypoint: ["/mailgw"]
+    environment:
+      OTEL_EXPORTER_OTLP_ENDPOINT: ${OTEL_EXPORTER_OTLP_ENDPOINT:-http://otel-collector:4317}
+      MAILGW_DELAY_MS: ${MAILGW_DELAY_MS:-900}   # 600 по умолчанию в mailgw; 900 — чтобы p99 pay уверенно пробивал порог (спека C.1)
+      MAILGW_FAIL_RATE: ${MAILGW_FAIL_RATE:-0.05}
+    ports:
+      - "8090:8090"
+    cpus: 0.25
+    mem_limit: 64m
+    healthcheck:
+      test: ["CMD", "/mailgw", "-healthcheck"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+
+  k6:
+    environment:
+      CHECKOUT_VUS: ${CHECKOUT_VUS:-150}
+      CHECKOUT_DURATION: ${CHECKOUT_DURATION:-90s}
+
+  invariants:
+    image: soldout:lesson-4
+    command: ["-i5"]   # с занятия 4 I5 (письмо на каждый paid заказ) проверяется по умолчанию
+
+  prometheus:
+    volumes:
+      - ./compose/prometheus-04.yml:/etc/prometheus/prometheus.yml:ro
+
+  # PostgreSQL занятия 4: параметры lesson-02 плюс две вещи. autovacuum_naptime=5s — на свежей БД план подготовленного
+  # count_user_holds кэшируется при пустой holds и живет до первого autoanalyze (по умолчанию до минуты):
+  # count_user_holds стоил ~1 мс вместо 0.02 мс и давал 40+ с работы БД за первый прогон. Слоты репликации — для
+  # Debezium на ветке cdc: команда одна на все ветки, чтобы switch не перезапускал базу.
+  postgres:
+    command:
+      - postgres
+      - -c
+      - shared_preload_libraries=pg_stat_statements
+      - -c
+      - pg_stat_statements.track=all
+      - -c
+      - wal_level=logical
+      - -c
+      - max_replication_slots=4
+      - -c
+      - max_wal_senders=4
+      - -c
+      - max_connections=100
+      - -c
+      - shared_buffers=256MB
+      - -c
+      - work_mem=8MB
+      - -c
+      - statement_timeout=5s
+      - -c
+      - idle_in_transaction_session_timeout=5s
+      - -c
+      - track_io_timing=on
+      - -c
+      - log_min_duration_statement=1000
+      - -c
+      - autovacuum_naptime=5s
+
+  # --- трейсинг ---
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:0.161.0
+    command: ["--config=/etc/otelcol/config.yaml"]
+    volumes:
+      - ./compose/otel/collector.yaml:/etc/otelcol/config.yaml:ro
+    ports:
+      - "4317:4317"   # OTLP gRPC
+      - "8889:8889"   # span-метрики для Prometheus
+    depends_on:
+      - tempo
+    cpus: 0.5
+    mem_limit: 384m
+    restart: unless-stopped
+
+  tempo:
+    image: grafana/tempo:3.0.3
+    command: ["-target=all", "-config.file=/etc/tempo.yaml"]
+    user: "0"   # том tempo-data создаётся root'ом
+    volumes:
+      - ./compose/tempo/tempo.yaml:/etc/tempo.yaml:ro
+      - tempo-data:/var/tempo
+    ports:
+      - "3200:3200"   # HTTP API, TraceQL и MCP (/api/mcp)
+    environment:
+      GOMEMLIMIT: 1200MiB       # GC Go включается раньше лимита контейнера
+    cpus: 0.5
+    mem_limit: 1536m            # 512 МиБ не хватало (OOM под фоновым штормом), 1 ГБ — впритык после трех прогонов
+    restart: unless-stopped
+
+  grafana:
+    environment:
+      GF_FEATURE_TOGGLES_ENABLE: traceqlEditor metricsSummary
+    depends_on:
+      - tempo
+
+volumes:
+  tempo-data:

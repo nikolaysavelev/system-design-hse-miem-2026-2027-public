@@ -1,0 +1,832 @@
+{
+ "isError": false,
+ "content": {
+  "traces": [
+   {
+    "traceID": "3035dcae490254d4fe1703507330644",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377394317095754",
+    "durationMs": 2073,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "75a88782edef4e71",
+       "name": "POST /v1/orders/{id}/pay",
+       "startTimeUnixNano": "1790377394317095754",
+       "durationNanos": "2073691793"
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "75a88782edef4e71",
+        "name": "POST /v1/orders/{id}/pay",
+        "startTimeUnixNano": "1790377394317095754",
+        "durationNanos": "2073691793"
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 2,
+      "errorCount": 1
+     },
+     "soldout": {
+      "spanCount": 32,
+      "errorCount": 1
+     }
+    }
+   },
+   {
+    "traceID": "127f6f2490763225d32dc2bf27045417",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377393817364088",
+    "durationMs": 2226,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "0de87c1988efc4ae",
+       "name": "POST /v1/orders/{id}/pay",
+       "startTimeUnixNano": "1790377393817364088",
+       "durationNanos": "2226462626"
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "0de87c1988efc4ae",
+        "name": "POST /v1/orders/{id}/pay",
+        "startTimeUnixNano": "1790377393817364088",
+        "durationNanos": "2226462626"
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 2,
+      "errorCount": 1
+     },
+     "soldout": {
+      "spanCount": 32,
+      "errorCount": 1
+     }
+    }
+   },
+   {
+    "traceID": "3411c7f4122753ee1e1090ba8f7a5fe0",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377393301758671",
+    "durationMs": 2095,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "a1da33aef2f0aa0d",
+       "name": "POST /v1/orders/{id}/pay",
+       "startTimeUnixNano": "1790377393301758671",
+       "durationNanos": "2095267251"
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "a1da33aef2f0aa0d",
+        "name": "POST /v1/orders/{id}/pay",
+        "startTimeUnixNano": "1790377393301758671",
+        "durationNanos": "2095267251"
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 2,
+      "errorCount": 1
+     },
+     "soldout": {
+      "spanCount": 32,
+      "errorCount": 1
+     }
+    }
+   },
+   {
+    "traceID": "25af2bf30749e535302eb9fd006273de",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377391217232253",
+    "durationMs": 2469,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "5cd6b9f60fd973e4",
+       "name": "POST /v1/orders/{id}/pay",
+       "startTimeUnixNano": "1790377391217232253",
+       "durationNanos": "2469754376"
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "5cd6b9f60fd973e4",
+        "name": "POST /v1/orders/{id}/pay",
+        "startTimeUnixNano": "1790377391217232253",
+        "durationNanos": "2469754376"
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 2,
+      "errorCount": 1
+     },
+     "soldout": {
+      "spanCount": 32,
+      "errorCount": 1
+     }
+    }
+   },
+   {
+    "traceID": "1b9426a278c4f27c4442156cf4de9b92",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377391140990711",
+    "durationMs": 2247,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "46a6a61616f6c2b4",
+       "name": "POST /v1/orders/{id}/pay",
+       "startTimeUnixNano": "1790377391140990711",
+       "durationNanos": "2247080710"
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "46a6a61616f6c2b4",
+        "name": "POST /v1/orders/{id}/pay",
+        "startTimeUnixNano": "1790377391140990711",
+        "durationNanos": "2247080710"
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 2,
+      "errorCount": 1
+     },
+     "soldout": {
+      "spanCount": 32,
+      "errorCount": 1
+     }
+    }
+   },
+   {
+    "traceID": "17f1dcafbd04e5d82add92b4747fd5cb",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377389871809877",
+    "durationMs": 2550,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "dfc5de749a0e225d",
+       "name": "POST /v1/orders/{id}/pay",
+       "startTimeUnixNano": "1790377389871809877",
+       "durationNanos": "2550171918"
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "dfc5de749a0e225d",
+        "name": "POST /v1/orders/{id}/pay",
+        "startTimeUnixNano": "1790377389871809877",
+        "durationNanos": "2550171918"
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 2,
+      "errorCount": 1
+     },
+     "soldout": {
+      "spanCount": 32,
+      "errorCount": 1
+     }
+    }
+   },
+   {
+    "traceID": "2312f07b90fe080c2d13f5be9ffa5b0e",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377389666103461",
+    "durationMs": 2308,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "7009e69be36f43b1",
+       "name": "POST /v1/orders/{id}/pay",
+       "startTimeUnixNano": "1790377389666103461",
+       "durationNanos": "2308981459"
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "7009e69be36f43b1",
+        "name": "POST /v1/orders/{id}/pay",
+        "startTimeUnixNano": "1790377389666103461",
+        "durationNanos": "2308981459"
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 2,
+      "errorCount": 1
+     },
+     "soldout": {
+      "spanCount": 32,
+      "errorCount": 1
+     }
+    }
+   },
+   {
+    "traceID": "2daefec0e4fa5ab40a0358e9f404ed35",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377388835759169",
+    "durationMs": 2307,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "0a878ccf7d2b75ba",
+       "name": "POST /v1/orders/{id}/pay",
+       "startTimeUnixNano": "1790377388835759169",
+       "durationNanos": "2307079418"
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "0a878ccf7d2b75ba",
+        "name": "POST /v1/orders/{id}/pay",
+        "startTimeUnixNano": "1790377388835759169",
+        "durationNanos": "2307079418"
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 2,
+      "errorCount": 1
+     },
+     "soldout": {
+      "spanCount": 32,
+      "errorCount": 1
+     }
+    }
+   },
+   {
+    "traceID": "1958721d784fd8f907708c9249e4898",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377388477964127",
+    "durationMs": 2259,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "86618be9521ef12a",
+       "name": "POST /v1/orders/{id}/pay",
+       "startTimeUnixNano": "1790377388477964127",
+       "durationNanos": "2259843709"
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "86618be9521ef12a",
+        "name": "POST /v1/orders/{id}/pay",
+        "startTimeUnixNano": "1790377388477964127",
+        "durationNanos": "2259843709"
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 2,
+      "errorCount": 1
+     },
+     "soldout": {
+      "spanCount": 32,
+      "errorCount": 1
+     }
+    }
+   },
+   {
+    "traceID": "22136c6440b2160393dd14e6e5ed4883",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377387663514335",
+    "durationMs": 2085,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "0fcdced587ecb744",
+       "name": "POST /v1/orders/{id}/pay",
+       "startTimeUnixNano": "1790377387663514335",
+       "durationNanos": "2085706542"
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "0fcdced587ecb744",
+        "name": "POST /v1/orders/{id}/pay",
+        "startTimeUnixNano": "1790377387663514335",
+        "durationNanos": "2085706542"
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 2,
+      "errorCount": 1
+     },
+     "soldout": {
+      "spanCount": 32,
+      "errorCount": 1
+     }
+    }
+   },
+   {
+    "traceID": "5b60b9d0341ad591182d10f7e25000c",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377387610289043",
+    "durationMs": 2154,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "ab6d4fc4d09ab215",
+       "name": "POST /v1/orders/{id}/pay",
+       "startTimeUnixNano": "1790377387610289043",
+       "durationNanos": "2154434751"
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "ab6d4fc4d09ab215",
+        "name": "POST /v1/orders/{id}/pay",
+        "startTimeUnixNano": "1790377387610289043",
+        "durationNanos": "2154434751"
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 2,
+      "errorCount": 1
+     },
+     "soldout": {
+      "spanCount": 32,
+      "errorCount": 1
+     }
+    }
+   },
+   {
+    "traceID": "20b604d3bb9959e5562d8bc3101bdd9d",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377386719243293",
+    "durationMs": 2084,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "2af1290318f13974",
+       "name": "POST /v1/orders/{id}/pay",
+       "startTimeUnixNano": "1790377386719243293",
+       "durationNanos": "2084978834"
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "2af1290318f13974",
+        "name": "POST /v1/orders/{id}/pay",
+        "startTimeUnixNano": "1790377386719243293",
+        "durationNanos": "2084978834"
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 2,
+      "errorCount": 2
+     },
+     "soldout": {
+      "spanCount": 32,
+      "errorCount": 3
+     }
+    }
+   },
+   {
+    "traceID": "280c22a65369e1b52a2d5bd567c9346d",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377381530886346",
+    "durationMs": 2321,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "d1b66f05627f7d20",
+       "name": "POST /v1/orders/{id}/pay",
+       "startTimeUnixNano": "1790377381530886346",
+       "durationNanos": "2321150376"
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "d1b66f05627f7d20",
+        "name": "POST /v1/orders/{id}/pay",
+        "startTimeUnixNano": "1790377381530886346",
+        "durationNanos": "2321150376"
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 2,
+      "errorCount": 1
+     },
+     "soldout": {
+      "spanCount": 32,
+      "errorCount": 1
+     }
+    }
+   },
+   {
+    "traceID": "cc69cbfede45f3cf85567934915c34b",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377380026081137",
+    "durationMs": 2028,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "8d49415c8591ebcc",
+       "name": "POST /v1/orders/{id}/pay",
+       "startTimeUnixNano": "1790377380026081137",
+       "durationNanos": "2028650668"
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "8d49415c8591ebcc",
+        "name": "POST /v1/orders/{id}/pay",
+        "startTimeUnixNano": "1790377380026081137",
+        "durationNanos": "2028650668"
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 2,
+      "errorCount": 1
+     },
+     "soldout": {
+      "spanCount": 32,
+      "errorCount": 1
+     }
+    }
+   },
+   {
+    "traceID": "2958ec85d2446cb6711851a3621eceb1",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377379590629720",
+    "durationMs": 2137,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "af7028c34e8a0baf",
+       "name": "POST /v1/orders/{id}/pay",
+       "startTimeUnixNano": "1790377379590629720",
+       "durationNanos": "2137147418"
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "af7028c34e8a0baf",
+        "name": "POST /v1/orders/{id}/pay",
+        "startTimeUnixNano": "1790377379590629720",
+        "durationNanos": "2137147418"
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 2,
+      "errorCount": 1
+     },
+     "soldout": {
+      "spanCount": 32,
+      "errorCount": 1
+     }
+    }
+   },
+   {
+    "traceID": "2060a5dacae690a8bb099c02a4784f64",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377378584309178",
+    "durationMs": 2194,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "6b29bda942dcfaad",
+       "name": "POST /v1/orders/{id}/pay",
+       "startTimeUnixNano": "1790377378584309178",
+       "durationNanos": "2194537501"
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "6b29bda942dcfaad",
+        "name": "POST /v1/orders/{id}/pay",
+        "startTimeUnixNano": "1790377378584309178",
+        "durationNanos": "2194537501"
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 2,
+      "errorCount": 2
+     },
+     "soldout": {
+      "spanCount": 32,
+      "errorCount": 3
+     }
+    }
+   },
+   {
+    "traceID": "13018f3dc2e93318e3a12c36900c2795",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377375241212676",
+    "durationMs": 2024,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "64f489fad712a034",
+       "name": "POST /v1/orders/{id}/pay",
+       "startTimeUnixNano": "1790377375241212676",
+       "durationNanos": "2024573335"
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "64f489fad712a034",
+        "name": "POST /v1/orders/{id}/pay",
+        "startTimeUnixNano": "1790377375241212676",
+        "durationNanos": "2024573335"
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 2,
+      "errorCount": 1
+     },
+     "soldout": {
+      "spanCount": 32,
+      "errorCount": 1
+     }
+    }
+   },
+   {
+    "traceID": "1a3cfd6912b5dc50902c4e7a566d80e9",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377373914925967",
+    "durationMs": 2140,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "d66634a871ebd87d",
+       "name": "POST /v1/orders/{id}/pay",
+       "startTimeUnixNano": "1790377373914925967",
+       "durationNanos": "2140174376"
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "d66634a871ebd87d",
+        "name": "POST /v1/orders/{id}/pay",
+        "startTimeUnixNano": "1790377373914925967",
+        "durationNanos": "2140174376"
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 2,
+      "errorCount": 1
+     },
+     "soldout": {
+      "spanCount": 32,
+      "errorCount": 1
+     }
+    }
+   },
+   {
+    "traceID": "20a81415f41a67574f8bd57742e0fea5",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377373857497967",
+    "durationMs": 2181,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "bd526bbea516ba83",
+       "name": "POST /v1/orders/{id}/pay",
+       "startTimeUnixNano": "1790377373857497967",
+       "durationNanos": "2181448251"
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "bd526bbea516ba83",
+        "name": "POST /v1/orders/{id}/pay",
+        "startTimeUnixNano": "1790377373857497967",
+        "durationNanos": "2181448251"
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 2,
+      "errorCount": 1
+     },
+     "soldout": {
+      "spanCount": 32,
+      "errorCount": 1
+     }
+    }
+   },
+   {
+    "traceID": "eac2e5f318e29bc4c98a776b55f8905",
+    "rootServiceName": "soldout",
+    "rootTraceName": "POST /v1/orders/{id}/pay",
+    "startTimeUnixNano": "1790377373521073551",
+    "durationMs": 2295,
+    "spanSet": {
+     "spans": [
+      {
+       "spanID": "1ce569ea991a9145",
+       "name": "POST /v1/orders/{id}/pay",
+       "startTimeUnixNano": "1790377373521073551",
+       "durationNanos": "2295724834"
+      }
+     ],
+     "matched": 1
+    },
+    "spanSets": [
+     {
+      "spans": [
+       {
+        "spanID": "1ce569ea991a9145",
+        "name": "POST /v1/orders/{id}/pay",
+        "startTimeUnixNano": "1790377373521073551",
+        "durationNanos": "2295724834"
+       }
+      ],
+      "matched": 1
+     }
+    ],
+    "serviceStats": {
+     "mailgw": {
+      "spanCount": 2,
+      "errorCount": 1
+     },
+     "soldout": {
+      "spanCount": 32,
+      "errorCount": 1
+     }
+    }
+   }
+  ],
+  "metrics": {
+   "inspectedBytes": "4049745",
+   "completedJobs": 1,
+   "totalJobs": 2
+  }
+ }
+}

@@ -1,0 +1,39 @@
+File: soldout
+Build ID: 4f6a62c81c5632a535685fbab8df0b4bf171b2f7
+Type: cpu
+Time: 2026-09-26 00:42:40 MSK
+Duration: 20s, Total samples = 10.12s (50.60%)
+Showing nodes accounting for 5.58s, 55.14% of 10.12s total
+Dropped 737 nodes (cum <= 0.05s)
+Showing top 30 nodes out of 355
+      flat  flat%   sum%        cum   cum%
+     3.62s 35.77% 35.77%      3.62s 35.77%  internal/runtime/syscall/linux.Syscall6
+     0.33s  3.26% 39.03%      0.33s  3.26%  runtime.nanotime (inline)
+     0.17s  1.68% 40.71%      0.21s  2.08%  time.now
+     0.13s  1.28% 42.00%      0.13s  1.28%  runtime.memmove
+     0.10s  0.99% 42.98%      0.10s  0.99%  runtime.memclrNoHeapPointers
+     0.09s  0.89% 43.87%      0.17s  1.68%  runtime.pcvalue
+     0.08s  0.79% 44.66%      0.08s  0.79%  context.(*valueCtx).Done
+     0.07s  0.69% 45.36%      0.07s  0.69%  context.value
+     0.07s  0.69% 46.05%      0.07s  0.69%  runtime.(*mspan).writeHeapBitsSmall
+     0.07s  0.69% 46.74%      0.07s  0.69%  runtime.releasem (inline)
+     0.07s  0.69% 47.43%      0.16s  1.58%  runtime.tryDeferToSpanScan
+     0.06s  0.59% 48.02%      0.10s  0.99%  runtime.interhash
+     0.06s  0.59% 48.62%      0.06s  0.59%  runtime.step
+     0.05s  0.49% 49.11%      0.23s  2.27%  encoding/json/v2.makeStructArshaler.func2
+     0.05s  0.49% 49.60%      0.07s  0.69%  internal/runtime/maps.(*Map).getWithoutKeySmallFastStr
+     0.04s   0.4% 50.00%      0.17s  1.68%  github.com/jackc/pgx/v5.(*baseRows).Scan
+     0.04s   0.4% 50.40%      0.21s  2.08%  google.golang.org/protobuf/internal/impl.(*MessageInfo).sizePointerSlow
+     0.04s   0.4% 50.79%      0.06s  0.59%  google.golang.org/protobuf/internal/impl.pointer.AsValueOf
+     0.04s   0.4% 51.19%      0.09s  0.89%  regexp.(*Regexp).tryBacktrack
+     0.04s   0.4% 51.58%      0.54s  5.34%  runtime.mallocgc
+     0.04s   0.4% 51.98%      0.26s  2.57%  runtime.mallocgcSmallScanNoHeader
+     0.04s   0.4% 52.37%      0.08s  0.79%  runtime.mallocgcSmallScanNoHeaderSC2
+     0.04s   0.4% 52.77%      0.46s  4.55%  runtime.netpoll
+     0.04s   0.4% 53.16%      0.13s  1.28%  runtime.scanObjectsSmall
+     0.04s   0.4% 53.56%      0.10s  0.99%  runtime.scanblock
+     0.04s   0.4% 53.95%      0.09s  0.89%  runtime.selectgo
+     0.03s   0.3% 54.25%      0.20s  1.98%  go.opentelemetry.io/otel/exporters/otlp/otlptrace/internal/tracetransform.Spans
+     0.03s   0.3% 54.55%      0.16s  1.58%  go.opentelemetry.io/otel/exporters/otlp/otlptrace/internal/tracetransform.span
+     0.03s   0.3% 54.84%      0.18s  1.78%  go.opentelemetry.io/otel/sdk/trace.(*recordingSpan).SetAttributes
+     0.03s   0.3% 55.14%      0.21s  2.08%  go.opentelemetry.io/otel/sdk/trace.(*tracer).newSpan
