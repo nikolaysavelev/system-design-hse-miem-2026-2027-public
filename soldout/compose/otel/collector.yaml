@@ -1,0 +1,52 @@
+# otel-collector (contrib): OTLP от soldout/mailgw/notifier → Tempo; span-метрики (RED по span'ам) → Prometheus.
+# spanmetrics даёт p99 по имени span'а без ручных метрик в коде: тот же ответ «где время», но агрегированный.
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+      http:
+        endpoint: 0.0.0.0:4318
+
+processors:
+  memory_limiter:
+    check_interval: 1s
+    limit_percentage: 80
+    spike_limit_percentage: 20
+  batch:
+    send_batch_size: 2048
+    timeout: 2s
+
+connectors:
+  span_metrics:
+    histogram:
+      unit: s
+      explicit:
+        buckets: [5ms, 10ms, 25ms, 50ms, 100ms, 250ms, 500ms, 750ms, 1s, 1.5s, 2s, 3s, 5s]
+    dimensions:
+      - name: http.route
+    metrics_flush_interval: 5s
+    aggregation_cardinality_limit: 2000
+
+exporters:
+  otlp_grpc/tempo:
+    endpoint: tempo:4317
+    tls:
+      insecure: true
+  prometheus:
+    endpoint: 0.0.0.0:8889
+    resource_to_telemetry_conversion:
+      enabled: false
+
+service:
+  telemetry:
+    logs:
+      level: warn
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [memory_limiter, batch]
+      exporters: [otlp_grpc/tempo, span_metrics]
+    metrics/span_metrics:
+      receivers: [span_metrics]
+      exporters: [prometheus]

@@ -1,0 +1,27 @@
+# Tempo (занятие 4). На стенде занятия 2 его нет — datasource просто недоступен.
+apiVersion: 1
+datasources:
+  - name: Tempo
+    uid: tempo
+    type: tempo
+    access: proxy
+    url: http://tempo:3200
+    jsonData:
+      tracesToMetrics:
+        datasourceUid: prometheus
+        spanStartTimeShift: -5m
+        spanEndTimeShift: 5m
+        tags: [{ key: service.name, value: service_name }, { key: http.route, value: http_route }]
+        queries:
+          - name: p99 span'а
+            query: histogram_quantile(0.99, sum by (le) (rate(traces_span_metrics_duration_seconds_bucket{$$__tags}[1m])))
+      serviceMap:
+        datasourceUid: prometheus
+      nodeGraph:
+        enabled: true
+      search:
+        hide: false
+      traceQuery:
+        timeShiftEnabled: true
+        spanStartTimeShift: -30m
+        spanEndTimeShift: 30m

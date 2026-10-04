@@ -1,0 +1,23 @@
+=== t+50s ===
+             state             | wait_event_type | wait_event | count 
+-------------------------------+-----------------+------------+-------
+ idle                          | Client          | ClientRead |     7
+ idle in transaction           | Client          | ClientRead |     5
+ active                        | LWLock          | WALWrite   |     3
+ idle in transaction (aborted) | Client          | ClientRead |     3
+ active                        | IO              | WalSync    |     1
+ active                        | Client          | ClientRead |     1
+ idle in transaction (aborted) |                 |            |     1
+(7 rows)
+
+
+=== t+90s ===
+             state             | wait_event_type | wait_event | count 
+-------------------------------+-----------------+------------+-------
+ idle                          | Client          | ClientRead |     8
+ idle in transaction           | Client          | ClientRead |     8
+ active                        | LWLock          | WALWrite   |     2
+ idle in transaction (aborted) | Client          | ClientRead |     2
+ active                        | IO              | WalSync    |     1
+(5 rows)
+

@@ -1,0 +1,26 @@
+# Все цели занятия 4 сразу: при make switch Prometheus не перечитывает смонтированный конфиг,
+# поэтому цели следующих веток (otel-collector, notifier) заведены с первой. Пока сервиса нет, цель просто down.
+global:
+  scrape_interval: 5s
+scrape_configs:
+  - job_name: soldout
+    static_configs:
+      - targets: ["soldout:8080"]
+  - job_name: mailgw
+    static_configs:
+      - targets: ["mailgw:8090"]
+  - job_name: otel-collector   # span-метрики (connector span_metrics), ветка demo/l4-otel
+    static_configs:
+      - targets: ["otel-collector:8889"]
+  - job_name: notifier         # ветка demo/l4-cdc
+    static_configs:
+      - targets: ["notifier:8091"]
+  - job_name: notifier-lag     # экспортёр лага (профиль cdc)
+    static_configs:
+      - targets: ["notifier-lag:8091"]
+  - job_name: postgres
+    static_configs:
+      - targets: ["postgres-exporter:9187"]
+  - job_name: valkey
+    static_configs:
+      - targets: ["valkey-exporter:9121"]

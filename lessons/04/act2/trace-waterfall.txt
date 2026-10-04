@@ -1,0 +1,16 @@
+старт, мс длит., мс  сервис   span
+      0.0    2689.0  soldout  POST /v1/orders/{id}/pay status=200
+      0.0    2689.0  soldout  booking.PayOrder
+      0.0      86.6  soldout  pgx.acquire
+     89.2      21.7  soldout  pgx.acquire
+    111.0      73.3  soldout  sql.begin
+    187.3     317.2  soldout  payment.Charge
+    187.3      15.2  soldout  pgx.acquire
+    203.3     300.0  soldout  psp.emulate
+    509.0    2180.0  soldout  ticketing.Issue
+    514.3    2174.7  soldout  notification.Send
+    514.3    1034.5  soldout  mailgw.POST /send retry.attempt=0 status=502 ERROR
+    514.8    1033.8  mailgw   POST /send status=502 ERROR
+   1548.8    1140.0  soldout  mailgw.POST /send retry.attempt=1 status=202
+   1548.8    1139.9  mailgw   POST /send status=202
+(SQL- и pgx-span'ы короче 5 мс скрыты; полный трейс — trace.json)

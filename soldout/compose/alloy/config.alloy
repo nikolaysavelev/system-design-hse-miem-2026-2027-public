@@ -1,0 +1,22 @@
+// Grafana Alloy: pull-профилирование soldout по /debug/pprof каждые 15 с → Pyroscope.
+pyroscope.scrape "soldout" {
+  targets = [{"__address__" = "soldout:8080", "service_name" = "soldout"}]
+  forward_to = [pyroscope.write.local.receiver]
+  scrape_interval = "15s"
+  scrape_timeout  = "20s"
+
+  profiling_config {
+    profile.process_cpu { enabled = true }
+    profile.memory      { enabled = true }
+    profile.goroutine   { enabled = true }
+    profile.block       { enabled = false }
+    profile.mutex       { enabled = false }
+    profile.fgprof      { enabled = false }
+  }
+}
+
+pyroscope.write "local" {
+  endpoint {
+    url = "http://pyroscope:4040"
+  }
+}

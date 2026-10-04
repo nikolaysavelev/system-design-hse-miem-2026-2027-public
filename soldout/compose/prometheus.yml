@@ -1,0 +1,12 @@
+global:
+  scrape_interval: 5s
+scrape_configs:
+  - job_name: soldout
+    static_configs:
+      - targets: ["soldout:8080"]
+  - job_name: postgres
+    static_configs:
+      - targets: ["postgres-exporter:9187"]
+  - job_name: valkey
+    static_configs:
+      - targets: ["valkey-exporter:9121"]

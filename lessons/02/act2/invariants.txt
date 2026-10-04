@@ -1,0 +1,11 @@
+docker compose -f docker-compose.yml -f compose/lesson-02.yml --profile tools run --rm invariants
+ Container soldout-postgres-1  Running
+ID  Инвариант                                            Нарушений  Статус
+I1  нет двух active hold на одно (event, seat)           0          OK
+I2  нет двух tickets на одно (event, seat)               0          OK
+I3  у каждого paid заказа есть ticket на каждую позицию  0          OK
+I4  у пользователя ≤ 4 билетов на мероприятие            0          OK
+
+active holds=17128 confirmed holds=0 orders=0 paid=0 tickets=0
+
+Все инварианты соблюдены.

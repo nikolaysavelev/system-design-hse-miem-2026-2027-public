@@ -1,0 +1,1 @@
+TRUNCATE catalog_seat_state, catalog_sector_version;

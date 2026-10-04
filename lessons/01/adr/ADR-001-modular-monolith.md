@@ -1,0 +1,1 @@
+../../../soldout/docs/adr/ADR-001-modular-monolith.md

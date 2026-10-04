@@ -1,0 +1,95 @@
+# Архитектурные правила soldout — fitness function для go-arch-lint (make lint-arch).
+#
+# Модули: catalog, queue, booking, payment, ticketing, notification. У каждого — публичный пакет api
+# (DTO, ошибки, интерфейсы) и «внутренность» (domain, app, adapters). Правило:
+#   * *_internal → свой *_api, platform и *_api других модулей — только по разрешённым рёбрам ниже;
+#   * *_api → только platform и стандартная библиотека (+ uuid как общий тип);
+#   * platform не зависит ни от одного бизнес-модуля;
+#   * cmd собирает всё и может зависеть от чего угодно.
+# cmd/notifier (занятие 4) — отдельный сервис: только notification, platform и booking/api (тип события), никакого booking.
+# Разрешённые рёбра между модулями (см. spec/soldout.md, раздел «Модули»):
+#   booking → catalog.api, queue.api          payment → booking.api      ticketing → booking.api
+#   notification → booking.api (событие OrderPaidEvent, занятие 4)          queue → catalog.api
+#   catalog → booking.api  (чтение статусов мест и sold_count; единственное ребро «против потока», только через api)
+version: 3
+workdir: .
+
+allow:
+  depOnAnyVendor: false
+  ignoreNotFoundComponents: true   # ветка demo/act2-start: internal/booking/{domain,app,adapters} отсутствуют
+  # deepScan выключен намеренно: он считает зависимостью передачу реализации одного модуля в конструктор другого
+  # через интерфейс api (сборка в cmd/soldout/main.go). Нам нужна проверка именно импортов пакетов.
+  deepScan: false
+
+exclude:
+  - .git
+  - k6
+  - compose
+
+excludeFiles:
+  - "_test\\.go$"
+
+vendors:
+  uuid:       { in: github.com/google/uuid }
+  chi:        { in: [github.com/go-chi/chi/v5, github.com/go-chi/chi/v5/**] }
+  pgx:        { in: [github.com/jackc/pgx/v5, github.com/jackc/pgx/v5/**] }
+  valkey:     { in: [github.com/valkey-io/valkey-go, github.com/valkey-io/valkey-go/**] }
+  prometheus: { in: [github.com/prometheus/client_golang/**] }
+  migrate:    { in: [github.com/golang-migrate/migrate/v4, github.com/golang-migrate/migrate/v4/**] }
+  xsync:      { in: [golang.org/x/sync/**] }
+  kafka:      { in: [github.com/twmb/franz-go/**] }
+  # OpenTelemetry (занятие 4) — только в platform и cmd: модули пишут span'ы через internal/platform/otel
+  otel:       { in: [go.opentelemetry.io/otel, go.opentelemetry.io/otel/**, go.opentelemetry.io/contrib/**, github.com/exaring/otelpgx] }
+
+commonVendors:
+  - uuid
+
+components:
+  cmd:          { in: [cmd/soldout, cmd/mailgw] }
+  notifier_cmd: { in: cmd/notifier }
+  tools:      { in: tools/** }
+  platform:   { in: internal/platform/** }
+  migrations: { in: migrations }
+  seed:       { in: seed }
+
+  catalog_api:      { in: internal/catalog/api }
+  catalog_internal: { in: [internal/catalog/domain, internal/catalog/app, internal/catalog/adapters/**] }
+
+  queue_api:        { in: internal/queue/api }
+  queue_internal:   { in: [internal/queue/domain, internal/queue/app, internal/queue/adapters/**] }
+
+  booking_api:      { in: internal/booking/api }
+  booking_internal: { in: [internal/booking/domain, internal/booking/app, internal/booking/adapters/**] }
+
+  payment_api:      { in: internal/payment/api }
+  payment_internal: { in: [internal/payment/domain, internal/payment/app, internal/payment/adapters/**] }
+
+  ticketing_api:      { in: internal/ticketing/api }
+  ticketing_internal: { in: [internal/ticketing/domain, internal/ticketing/app, internal/ticketing/adapters/**] }
+
+  notification_api:      { in: internal/notification/api }
+  notification_internal: { in: [internal/notification/app, internal/notification/adapters/**] }
+
+deps:
+  cmd:      { anyProjectDeps: true, anyVendorDeps: true }
+  notifier_cmd: { mayDependOn: [notification_internal, notification_api, platform, booking_api], canUse: [prometheus, xsync] }
+  tools:    { canUse: [pgx] }
+  platform: { mayDependOn: [platform, migrations, seed], canUse: [chi, pgx, valkey, prometheus, migrate, otel] }
+
+  catalog_api:      { mayDependOn: [platform] }
+  catalog_internal: { mayDependOn: [catalog_internal, catalog_api, platform, booking_api], canUse: [chi, pgx, valkey, xsync] }
+
+  queue_api:        { mayDependOn: [platform] }
+  queue_internal:   { mayDependOn: [queue_internal, queue_api, platform, catalog_api], canUse: [chi, pgx, valkey] }
+
+  booking_api:      { mayDependOn: [platform] }
+  booking_internal: { mayDependOn: [booking_internal, booking_api, platform, catalog_api, queue_api], canUse: [chi, pgx] }
+
+  payment_api:      { mayDependOn: [platform] }
+  payment_internal: { mayDependOn: [payment_internal, payment_api, platform, booking_api], canUse: [pgx] }
+
+  ticketing_api:      { mayDependOn: [platform] }
+  ticketing_internal: { mayDependOn: [ticketing_internal, ticketing_api, platform, booking_api], canUse: [chi, pgx] }
+
+  notification_api:      { mayDependOn: [platform] }
+  notification_internal: { mayDependOn: [notification_internal, notification_api, platform, booking_api], canUse: [pgx, kafka] }

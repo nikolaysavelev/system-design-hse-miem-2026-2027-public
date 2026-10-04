@@ -1,0 +1,11 @@
+join    200       5 мс
+hold    409       8 мс
+hold    409       3 мс
+hold    409       3 мс
+hold    409       4 мс
+hold    409       4 мс
+hold    201       4 мс
+order   201       6 мс
+pay     200     327 мс
+pay:    paid
+user_id=81f50610-3210-4518-b876-84a7bf9c24bb order_id=96eef188-c0cc-42cb-b1bc-2a6f34fe03f5 seat_id=80782
