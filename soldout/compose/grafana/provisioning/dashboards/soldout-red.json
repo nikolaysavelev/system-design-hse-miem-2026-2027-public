@@ -1,0 +1,21 @@
+{
+  "title": "soldout — RED (занятие 1)",
+  "uid": "soldout-red",
+  "schemaVersion": 39,
+  "time": {"from": "now-15m", "to": "now"},
+  "refresh": "5s",
+  "panels": [
+    {"type": "timeseries", "title": "RPS по маршрутам", "gridPos": {"x": 0, "y": 0, "w": 12, "h": 8},
+     "targets": [{"expr": "sum by (route) (rate(http_requests_total[30s]))", "legendFormat": "{{route}}"}]},
+    {"type": "timeseries", "title": "Ошибки (5xx) в секунду", "gridPos": {"x": 12, "y": 0, "w": 12, "h": 8},
+     "targets": [{"expr": "sum by (route) (rate(http_requests_total{status=~\"5..\"}[30s]))", "legendFormat": "{{route}}"}]},
+    {"type": "timeseries", "title": "p99 латентность, с", "gridPos": {"x": 0, "y": 8, "w": 12, "h": 8},
+     "targets": [{"expr": "histogram_quantile(0.99, sum by (le, route) (rate(http_request_duration_seconds_bucket[30s])))", "legendFormat": "{{route}}"}]},
+    {"type": "timeseries", "title": "Пул pgx: занято / лимит", "gridPos": {"x": 12, "y": 8, "w": 12, "h": 8},
+     "targets": [{"expr": "pgxpool_acquired_conns", "legendFormat": "acquired"}, {"expr": "pgxpool_max_conns", "legendFormat": "max"}]},
+    {"type": "stat", "title": "holds_active", "gridPos": {"x": 0, "y": 16, "w": 6, "h": 5},
+     "targets": [{"expr": "holds_active"}]},
+    {"type": "timeseries", "title": "p99 SQL по запросу, с", "gridPos": {"x": 6, "y": 16, "w": 18, "h": 8},
+     "targets": [{"expr": "histogram_quantile(0.99, sum by (le, query) (rate(db_query_duration_seconds_bucket[30s])))", "legendFormat": "{{query}}"}]}
+  ]
+}

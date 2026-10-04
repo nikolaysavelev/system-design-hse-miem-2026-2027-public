@@ -1,0 +1,30 @@
+name: ci
+
+on:
+  push:
+    branches: [main, "demo/**", "hw*"]
+    tags: ["lesson-*"]
+  pull_request:
+
+jobs:
+  soldout:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: soldout
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: soldout/go.mod
+          cache-dependency-path: soldout/go.sum
+      - name: go vet
+        run: go vet ./...
+      - name: go-arch-lint
+        run: |
+          go install github.com/fe3dback/go-arch-lint@v1.18.0
+          make lint-arch
+      - name: go test (unit + testcontainers)
+        run: make test
+      - name: docker build
+        run: docker build -t soldout:ci .
