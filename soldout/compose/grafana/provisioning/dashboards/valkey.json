@@ -1,0 +1,181 @@
+{
+ "title": "soldout — Valkey",
+ "uid": "valkey",
+ "schemaVersion": 39,
+ "refresh": "5s",
+ "time": {
+  "from": "now-15m",
+  "to": "now"
+ },
+ "tags": [
+  "soldout"
+ ],
+ "panels": [
+  {
+   "type": "timeseries",
+   "title": "Команды/с",
+   "gridPos": {
+    "x": 0,
+    "y": 0,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "rate(redis_commands_processed_total[30s])",
+     "legendFormat": "commands/s",
+     "refId": "A"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "ops"
+    }
+   }
+  },
+  {
+   "type": "timeseries",
+   "title": "Клиенты",
+   "gridPos": {
+    "x": 12,
+    "y": 0,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "redis_connected_clients",
+     "legendFormat": "clients",
+     "refId": "A"
+    },
+    {
+     "expr": "redis_blocked_clients",
+     "legendFormat": "blocked",
+     "refId": "B"
+    }
+   ]
+  },
+  {
+   "type": "timeseries",
+   "title": "Память",
+   "gridPos": {
+    "x": 0,
+    "y": 8,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "redis_memory_used_bytes",
+     "legendFormat": "used",
+     "refId": "A"
+    },
+    {
+     "expr": "redis_memory_max_bytes",
+     "legendFormat": "max",
+     "refId": "B"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "bytes"
+    }
+   }
+  },
+  {
+   "type": "timeseries",
+   "title": "Keyspace hits/misses",
+   "gridPos": {
+    "x": 12,
+    "y": 8,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "rate(redis_keyspace_hits_total[30s])",
+     "legendFormat": "hits",
+     "refId": "A"
+    },
+    {
+     "expr": "rate(redis_keyspace_misses_total[30s])",
+     "legendFormat": "misses",
+     "refId": "B"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "ops"
+    }
+   }
+  },
+  {
+   "type": "timeseries",
+   "title": "Ключи в БД",
+   "gridPos": {
+    "x": 0,
+    "y": 16,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "redis_db_keys",
+     "legendFormat": "keys",
+     "refId": "A"
+    },
+    {
+     "expr": "redis_db_keys_expiring",
+     "legendFormat": "expiring",
+     "refId": "B"
+    }
+   ]
+  },
+  {
+   "type": "timeseries",
+   "title": "Команды по типу/с",
+   "gridPos": {
+    "x": 12,
+    "y": 16,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "sum by (cmd) (rate(redis_commands_total[30s]))",
+     "legendFormat": "{{cmd}}",
+     "refId": "A"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "ops"
+    }
+   }
+  }
+ ]
+}

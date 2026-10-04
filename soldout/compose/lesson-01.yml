@@ -1,0 +1,6 @@
+# Оверлей занятия 1: настройки демо. Лимитов CPU/памяти нет — они появятся в lesson-02.yml.
+services:
+  soldout:
+    environment:
+      LOG_FORMAT: ${LOG_FORMAT:-text}   # на проекторе читабельнее text; в CI/проде — json
+      HOLD_TTL: ${HOLD_TTL:-10m}
