@@ -1,0 +1,33 @@
+rules:
+  - id: booking-session-advisory-lock
+    languages: [go]
+    severity: ERROR
+    message: "Сессионный advisory lock (pg_advisory_lock/unlock) несовместим с transaction pooling PgBouncer; используйте транзакционный pg_advisory_xact_lock или, лучше, уникальный индекс (занятие 2, шаг C)."
+    pattern-either:
+      - pattern-regex: 'pg_advisory_lock\('
+      - pattern-regex: 'pg_advisory_unlock\('
+  - id: no-select-star
+    languages: [go]
+    severity: ERROR
+    message: "SELECT * запрещён (constitution 5): перечислите колонки — иначе добавление колонки ломает сканирование."
+    pattern-regex: '(?i)SELECT\s+\*\s+FROM'
+  - id: no-context-background-outside-cmd
+    languages: [go]
+    severity: WARNING
+    message: "context.Background() вне cmd/ и тестов: контекст должен приходить от вызывающего (таймауты, отмена)."
+    pattern: context.Background()
+    paths:
+      exclude:
+        - "cmd/**"
+        - "**/*_test.go"
+        - "internal/platform/eventbus/**"
+        - "internal/catalog/app/service.go"
+  - id: no-time-now-in-domain
+    languages: [go]
+    severity: WARNING
+    message: "time.Now() в domain: время должно приходить параметром (детерминизм тестов, единый источник времени)."
+    pattern: time.Now()
+    paths:
+      include:
+        - "internal/*/domain/**"
+        - "testdata/fitness/red/**"

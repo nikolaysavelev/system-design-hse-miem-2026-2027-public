@@ -1,0 +1,243 @@
+{
+ "title": "soldout — PostgreSQL",
+ "uid": "pg",
+ "schemaVersion": 39,
+ "refresh": "5s",
+ "time": {
+  "from": "now-15m",
+  "to": "now"
+ },
+ "tags": [
+  "soldout"
+ ],
+ "panels": [
+  {
+   "type": "timeseries",
+   "title": "Соединения (pg_stat_activity)",
+   "gridPos": {
+    "x": 0,
+    "y": 0,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "sum(pg_stat_activity_count{datname=\"soldout\"})",
+     "legendFormat": "всего",
+     "refId": "A"
+    },
+    {
+     "expr": "sum by (state) (pg_stat_activity_count{datname=\"soldout\"})",
+     "legendFormat": "{{state}}",
+     "refId": "B"
+    },
+    {
+     "expr": "pg_settings_max_connections",
+     "legendFormat": "max_connections",
+     "refId": "C"
+    }
+   ]
+  },
+  {
+   "type": "timeseries",
+   "title": "TPS: commit / rollback",
+   "gridPos": {
+    "x": 12,
+    "y": 0,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "rate(pg_stat_database_xact_commit{datname=\"soldout\"}[30s])",
+     "legendFormat": "commit",
+     "refId": "A"
+    },
+    {
+     "expr": "rate(pg_stat_database_xact_rollback{datname=\"soldout\"}[30s])",
+     "legendFormat": "rollback",
+     "refId": "B"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "ops"
+    }
+   }
+  },
+  {
+   "type": "timeseries",
+   "title": "Cache hit ratio",
+   "gridPos": {
+    "x": 0,
+    "y": 8,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "rate(pg_stat_database_blks_hit{datname=\"soldout\"}[1m]) / (rate(pg_stat_database_blks_hit{datname=\"soldout\"}[1m]) + rate(pg_stat_database_blks_read{datname=\"soldout\"}[1m]))",
+     "legendFormat": "hit ratio",
+     "refId": "A"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "percentunit"
+    }
+   }
+  },
+  {
+   "type": "timeseries",
+   "title": "Блокировки (pg_locks) по режиму",
+   "gridPos": {
+    "x": 12,
+    "y": 8,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "sum by (mode) (pg_locks_count{datname=\"soldout\"})",
+     "legendFormat": "{{mode}}",
+     "refId": "A"
+    }
+   ]
+  },
+  {
+   "type": "timeseries",
+   "title": "n_dead_tup / n_live_tup (holds)",
+   "gridPos": {
+    "x": 0,
+    "y": 16,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "pg_stat_user_tables_n_dead_tup{relname=\"holds\"}",
+     "legendFormat": "dead holds",
+     "refId": "A"
+    },
+    {
+     "expr": "pg_stat_user_tables_n_live_tup{relname=\"holds\"}",
+     "legendFormat": "live holds",
+     "refId": "B"
+    }
+   ]
+  },
+  {
+   "type": "timeseries",
+   "title": "Строки: returned / fetched / inserted / updated",
+   "gridPos": {
+    "x": 12,
+    "y": 16,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "rate(pg_stat_database_tup_returned{datname=\"soldout\"}[30s])",
+     "legendFormat": "returned",
+     "refId": "A"
+    },
+    {
+     "expr": "rate(pg_stat_database_tup_fetched{datname=\"soldout\"}[30s])",
+     "legendFormat": "fetched",
+     "refId": "B"
+    },
+    {
+     "expr": "rate(pg_stat_database_tup_inserted{datname=\"soldout\"}[30s])",
+     "legendFormat": "inserted",
+     "refId": "C"
+    },
+    {
+     "expr": "rate(pg_stat_database_tup_updated{datname=\"soldout\"}[30s])",
+     "legendFormat": "updated",
+     "refId": "D"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "ops"
+    }
+   }
+  },
+  {
+   "type": "timeseries",
+   "title": "Deadlocks и conflicts",
+   "gridPos": {
+    "x": 0,
+    "y": 24,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "rate(pg_stat_database_deadlocks{datname=\"soldout\"}[1m])",
+     "legendFormat": "deadlocks",
+     "refId": "A"
+    },
+    {
+     "expr": "rate(pg_stat_database_conflicts{datname=\"soldout\"}[1m])",
+     "legendFormat": "conflicts",
+     "refId": "B"
+    }
+   ]
+  },
+  {
+   "type": "timeseries",
+   "title": "Autovacuum: последние vacuum/analyze holds (unix ts)",
+   "gridPos": {
+    "x": 12,
+    "y": 24,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "pg_stat_user_tables_last_autovacuum{relname=\"holds\"}",
+     "legendFormat": "autovacuum",
+     "refId": "A"
+    },
+    {
+     "expr": "pg_stat_user_tables_last_autoanalyze{relname=\"holds\"}",
+     "legendFormat": "autoanalyze",
+     "refId": "B"
+    }
+   ]
+  }
+ ]
+}

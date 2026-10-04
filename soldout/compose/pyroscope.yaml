@@ -1,0 +1,8 @@
+# Pyroscope 2.x (single binary). Хранение ограничено max_query_lookback: на занятие хватает часа.
+target: all
+server:
+  http_listen_port: 4040
+self_profiling:
+  disable_push: true
+limits:
+  max_query_lookback: 1h
