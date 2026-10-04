@@ -1,0 +1,2 @@
+DROP PUBLICATION IF EXISTS soldout_outbox;
+DROP TABLE IF EXISTS outbox;

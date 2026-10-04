@@ -1,0 +1,1 @@
+{"ready":true,"db_max_conns":200,"pgbouncer":"direct"}

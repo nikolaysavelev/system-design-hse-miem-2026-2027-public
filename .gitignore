@@ -1,0 +1,24 @@
+# бинарники и артефакты сборки
+/soldout/bin/
+/soldout/soldout
+/soldout/invariant-checker
+*.test
+*.out
+*.prof
+
+# локальные переменные окружения
+.env
+.env.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# результаты прогонов (кроме выложенных в hw/*/artifacts)
+/soldout/k6/results/
+/soldout/tmp/
+
+# kubeconfig агента (make kubeconfig-ro): токен ServiceAccount
+/soldout/.kube/

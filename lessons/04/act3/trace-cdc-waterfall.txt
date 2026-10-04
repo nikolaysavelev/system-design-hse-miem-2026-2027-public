@@ -1,0 +1,29 @@
+старт, мс длит., мс  сервис    span
+      0.0     325.5  soldout   POST /v1/orders/{id}/pay
+      0.1     325.4  soldout   booking.PayOrder [события: outbox.append]
+      0.1       1.4  soldout   booking.get_order
+      1.8       0.5  soldout   booking.lock_order
+      2.3       1.0  soldout   booking.get_order_locked
+      3.3       0.3  soldout   booking.holds_for_update
+      4.2     308.4  soldout   payment.Charge
+      4.3       1.5  soldout   payment.get_by_key
+      5.8     301.6  soldout   psp.emulate
+    307.5       5.1  soldout   payment.insert
+    313.1       0.5  soldout   booking.lock_order
+    313.7       1.0  soldout   booking.get_order_locked
+    314.7       0.3  soldout   booking.holds_for_update
+    315.0       0.6  soldout   booking.update_hold
+    315.6       0.5  soldout   booking.update_order
+    316.2       1.0  soldout   outbox.insert
+    317.2       1.2  soldout   outbox.delete
+    319.4       6.1  soldout   ticketing.Issue
+    319.4       6.0  soldout   ticketing.insert
+    384.5    1139.4  notifier  notifier.consume
+    385.1       1.1  notifier  notifier.processed_insert
+    386.2       1.6  notifier  notifier.notification_insert
+    387.9       0.7  notifier  notifier.notification_get
+    388.9    1131.1  notifier  notification.Send
+    389.0    1131.0  notifier  mailgw.POST /send retry.attempt=0
+    389.6    1129.8  mailgw    POST /send
+   1520.5       3.4  notifier  notifier.notification_status
+(sql.* и pgx.* короче 5 мс скрыты, полный трейс в trace-cdc.json)

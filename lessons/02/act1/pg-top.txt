@@ -1,0 +1,14 @@
+ calls | total_ms | mean_ms |   rows   | hit_pct |                                                query                                                 
+-------+----------+---------+----------+---------+------------------------------------------------------------------------------------------------------
+   495 | 351796.3 |  710.70 | 19800000 |    99.7 | /* catalog.seats_by_venue */ SELECT s.id, s.sector_id, sec.venue_id, s.row_no, s.seat_no FROM seats 
+ 19909 | 118587.4 |    5.96 |    19909 |    99.9 | /* queue.insert_admission */ INSERT INTO admissions (token, event_id, user_id, issued_at, expires_at
+  1718 |  56830.5 |   33.08 |     1718 |   100.0 | /* booking.count_user_holds */ SELECT count(*) FROM holds WHERE event_id = $1 AND user_id = $2 AND s
+ 20893 |  55678.8 |    2.66 |    20893 |   100.0 | SELECT $2 FROM ONLY "public"."events" x WHERE "id" OPERATOR(pg_catalog.=) $1 FOR KEY SHARE OF x
+ 47027 |  53548.2 |    1.14 |    47027 |   100.0 | /* catalog.get_event */ SELECT id, name, venue_id, starts_at, sales_open_at, sales_state FROM events
+  1350 |  13685.1 |   10.14 |     1350 |   100.0 | /* booking.seat_sold */ SELECT EXISTS (SELECT $3 FROM holds WHERE event_id = $1 AND seat_id = $2 AND
+   163 |   8243.7 |   50.57 |  2212250 |   100.0 | /* booking.seat_states */ SELECT seat_id, status FROM holds WHERE event_id = $1 AND status IN ($2, $
+ 12869 |   6814.6 |    0.53 |    12869 |    99.8 | /* catalog.get_seat */ SELECT s.id, s.sector_id, sec.venue_id, s.row_no, s.seat_no FROM seats s JOIN
+    49 |   5862.7 |  119.65 |    14157 |   100.0 | /* booking.expire_holds_batch */ WITH batch AS ( SELECT id FROM holds WHERE status = $3 AND expires_
+   984 |   5668.6 |    5.76 |      984 |    99.6 | /* booking.insert_hold */ INSERT INTO holds (id, event_id, seat_id, user_id, status, expires_at, cre
+(10 rows)
+

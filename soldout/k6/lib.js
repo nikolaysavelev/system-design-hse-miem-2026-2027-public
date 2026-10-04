@@ -1,0 +1,77 @@
+// Общие помощники k6-сценариев soldout.
+import http from 'k6/http';
+import { check } from 'k6';
+
+// 409 (место занято/продано) — ожидаемый исход под нагрузкой, не считается ошибкой http_req_failed.
+http.setResponseCallback(http.expectedStatuses({ min: 200, max: 299 }, 409));
+
+export const BASE_URL = __ENV.BASE_URL || 'http://localhost:8080';
+export const EVENT_ID = __ENV.EVENT_ID || '10000000-0000-4000-8000-000000000001';
+export const SEATS_PER_EVENT = parseInt(__ENV.SEATS_PER_EVENT || '40000', 10);
+export const EVENT_NO = parseInt(__ENV.EVENT_NO || '1', 10);
+// Места мероприятия i имеют id (i-1)*N+1..i*N (см. seed/seed.sql); по умолчанию мероприятие 1.
+export const SEAT_MIN = (EVENT_NO - 1) * SEATS_PER_EVENT + 1;
+export const SEAT_MAX = EVENT_NO * SEATS_PER_EVENT;
+export const SECTORS_PER_EVENT = SEATS_PER_EVENT / 1000; // по 1000 мест в секторе (seed/seed.sql)
+
+// Детерминированные id секторов из seed: 30000000-0000-4000-8000-<hex(event*1000+sector)>
+export function sectorID(sectorNo) {
+  return '30000000-0000-4000-8000-' + (EVENT_NO * 1000 + sectorNo).toString(16).padStart(12, '0');
+}
+export function randomSector() {
+  return sectorID(1 + Math.floor(Math.random() * SECTORS_PER_EVENT));
+}
+
+export function uuid() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+    const r = (Math.random() * 16) | 0;
+    return (c === 'x' ? r : (r & 0x3) | 0x8).toString(16);
+  });
+}
+
+export function randomSeat(min = SEAT_MIN, max = SEAT_MAX) {
+  return min + Math.floor(Math.random() * (max - min + 1));
+}
+
+const json = { 'Content-Type': 'application/json' };
+
+// Токен допуска (на L1 выдаётся сразу).
+export function join(userId) {
+  const res = http.post(`${BASE_URL}/v1/events/${EVENT_ID}/queue/join`, JSON.stringify({ user_id: userId }), {
+    headers: json, tags: { name: 'queue_join' },
+  });
+  check(res, { 'queue/join 200': (r) => r.status === 200 });
+  return res.status === 200 ? res.json('token') : null;
+}
+
+// hold: 201 — успех, 409 — занято/продано (ожидаемо под нагрузкой), 422 — лимит.
+export function hold(userId, token, seatId) {
+  return http.post(`${BASE_URL}/v1/holds`, JSON.stringify({ event_id: EVENT_ID, seat_id: seatId, user_id: userId }), {
+    headers: Object.assign({ 'X-Admission-Token': token }, json), tags: { name: 'hold' },
+  });
+}
+
+export function createOrder(userId, holdIds) {
+  return http.post(`${BASE_URL}/v1/orders`, JSON.stringify({ hold_ids: holdIds, user_id: userId }), {
+    headers: Object.assign({ 'Idempotency-Key': uuid() }, json), tags: { name: 'order' },
+  });
+}
+
+export function pay(orderId, idempotencyKey = null) {
+  const headers = idempotencyKey ? Object.assign({ 'Idempotency-Key': idempotencyKey }, json) : json;
+  return http.post(`${BASE_URL}/v1/orders/${orderId}/pay`, null, { headers, tags: { name: 'pay' } });
+}
+
+// Билеты пользователя (коды приходят после оплаты).
+export function tickets(userId) {
+  return http.get(`${BASE_URL}/v1/users/${userId}/tickets`, { tags: { name: 'tickets' } });
+}
+
+// Сводка по секторам (с занятия 2 — маленький ответ) и карта одного сектора (≈ 32 КБ, ETag).
+export function seatmapSummary() {
+  return http.get(`${BASE_URL}/v1/events/${EVENT_ID}/seatmap`, { tags: { name: 'seatmap_summary' } });
+}
+export function seatmap(discard = false, sector = null) {
+  const sec = sector || randomSector();
+  return http.get(`${BASE_URL}/v1/events/${EVENT_ID}/sectors/${sec}/seatmap`, { tags: { name: 'seatmap' }, responseType: discard ? 'none' : 'text' });
+}

@@ -1,0 +1,14 @@
+ calls  | total_ms | mean_ms |  rows  | hit_pct |                                                query                                                 
+--------+----------+---------+--------+---------+------------------------------------------------------------------------------------------------------
+ 192213 |   9599.0 |    0.05 | 192213 |   100.0 | /* queue.insert_admission */ INSERT INTO admissions (token, event_id, user_id, issued_at, expires_at
+ 192213 |   7227.5 |    0.04 | 192213 |   100.0 | /* catalog.get_seat */ SELECT s.id, s.sector_id, sec.venue_id, s.row_no, s.seat_no FROM seats s JOIN
+  39675 |   4784.8 |    0.12 |  39675 |   100.0 | /* booking.insert_hold */ INSERT INTO holds (id, event_id, seat_id, user_id, status, expires_at, cre
+ 231888 |   4282.0 |    0.02 | 231888 |   100.0 | SELECT 1 FROM ONLY "public"."events" x WHERE "id" OPERATOR(pg_catalog.=) $1 FOR KEY SHARE OF x
+ 192213 |   4149.0 |    0.02 | 192213 |   100.0 | /* booking.count_user_holds */ SELECT count(*) FROM holds WHERE event_id = $1 AND user_id = $2 AND s
+ 192213 |   3681.8 |    0.02 | 192213 |   100.0 | /* booking.seat_sold */ SELECT EXISTS (SELECT $3 FROM holds WHERE event_id = $1 AND seat_id = $2 AND
+ 387549 |   2581.4 |    0.01 | 387549 |   100.0 | /* catalog.get_event */ SELECT id, name, venue_id, starts_at, sales_open_at, sales_state FROM events
+  39675 |    826.9 |    0.02 |  39675 |   100.0 | SELECT 1 FROM ONLY "public"."seats" x WHERE "id" OPERATOR(pg_catalog.=) $1 FOR KEY SHARE OF x
+ 192213 |    651.9 |    0.00 | 192213 |         | /* booking.lock_seat */ SELECT pg_advisory_xact_lock(hashtext($1::text), $2::int)
+     28 |    434.1 |   15.50 |     28 |   100.0 | /* booking.count_active_holds */ SELECT count(*) FROM holds WHERE status = $1
+(10 rows)
+

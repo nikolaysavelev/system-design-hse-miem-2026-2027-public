@@ -1,0 +1,130 @@
+# Контракт событий soldout (занятие 4). HTTP описан в api/openapi.yaml, события в этом файле.
+# Проверка: make lint-asyncapi (@asyncapi/cli в контейнере).
+asyncapi: 3.1.0
+info:
+  title: soldout events
+  version: 1.0.0
+  description: |
+    События публикуются через transactional outbox: строка пишется в таблицу outbox в транзакции издателя,
+    Debezium (PostgreSQL connector + EventRouter) доставляет ее в Kafka. Доставка at-least-once,
+    порядок гарантирован внутри ключа (order_id). Потребитель обязан быть идемпотентным по заголовку id.
+    Решение и ограничения: docs/adr/ADR-003-event-delivery-and-notifier.md.
+
+servers:
+  lab:
+    host: kafka:9092
+    protocol: kafka
+    description: Kafka 4.2 (KRaft, один узел) на стенде занятия 4. С хоста через kafka-ui (localhost:8088).
+
+channels:
+  orderEvents:
+    address: outbox.event.order
+    description: События агрегата "заказ". 3 партиции, ключ сообщения: order_id.
+    messages:
+      orderPaid:
+        $ref: '#/components/messages/OrderPaid'
+  orderEventsDLQ:
+    address: outbox.event.order.dlq
+    description: |
+      Сообщения, которые notifier не смог обработать за NOTIFIER_MAX_ATTEMPTS попыток. Исходные ключ и тело
+      без изменений, заголовки дополнены причиной и координатами исходного сообщения. 1 партиция.
+    messages:
+      deadLetter:
+        $ref: '#/components/messages/DeadLetter'
+
+operations:
+  publishOrderPaid:
+    action: send
+    channel:
+      $ref: '#/channels/orderEvents'
+    summary: booking публикует OrderPaid в транзакции pay (outbox → Debezium).
+    messages:
+      - $ref: '#/channels/orderEvents/messages/orderPaid'
+  consumeOrderPaid:
+    action: receive
+    channel:
+      $ref: '#/channels/orderEvents'
+    summary: notifier (consumer group notifier) отправляет письмо о билетах.
+    messages:
+      - $ref: '#/channels/orderEvents/messages/orderPaid'
+  publishDeadLetter:
+    action: send
+    channel:
+      $ref: '#/channels/orderEventsDLQ'
+    summary: notifier перекладывает необрабатываемое сообщение в DLQ и коммитит смещение.
+    messages:
+      - $ref: '#/channels/orderEventsDLQ/messages/deadLetter'
+
+components:
+  messages:
+    OrderPaid:
+      name: OrderPaid
+      title: Заказ оплачен
+      contentType: application/json
+      headers:
+        $ref: '#/components/schemas/OutboxHeaders'
+      payload:
+        $ref: '#/components/schemas/OrderPaidPayload'
+      bindings:
+        kafka:
+          key:
+            type: string
+            format: uuid
+            description: order_id
+    DeadLetter:
+      name: DeadLetter
+      title: Необрабатываемое сообщение
+      contentType: application/json
+      headers:
+        allOf:
+          - $ref: '#/components/schemas/OutboxHeaders'
+          - type: object
+            required: [error, attempts, original_topic, original_partition, original_offset]
+            properties:
+              error: { type: string, description: Текст последней ошибки обработки }
+              attempts: { type: string, description: Число попыток (строкой: заголовки Kafka хранят байты) }
+              original_topic: { type: string }
+              original_partition: { type: string }
+              original_offset: { type: string }
+      payload:
+        description: Тело исходного сообщения как есть (может быть невалидным JSON).
+
+  schemas:
+    OutboxHeaders:
+      type: object
+      required: [id, type]
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Id события (outbox.id). Ключ дедупликации у потребителя (notifier.processed_events).
+        type:
+          type: string
+          enum: [OrderPaid]
+        traceparent:
+          type: string
+          pattern: '^00-[0-9a-f]{32}-[0-9a-f]{16}-0[01]$'
+          description: W3C Trace Context продюсера. Потребитель продолжает тот же трейс (span notifier.consume).
+    OrderPaidPayload:
+      type: object
+      required: [id, order_id, event_id, user_id, seat_ids, amount_minor, at]
+      additionalProperties: false
+      properties:
+        id: { type: string, format: uuid, description: Id события, совпадает с заголовком id }
+        order_id: { type: string, format: uuid }
+        event_id: { type: string, format: uuid, description: Мероприятие (концерт), не id сообщения }
+        user_id: { type: string, format: uuid, description: Только идентификатор, без PII (NFR-7) }
+        seat_ids:
+          type: array
+          items: { type: integer, format: int64 }
+          minItems: 1
+        amount_minor: { type: integer, format: int64, description: Сумма в копейках }
+        at: { type: string, format: date-time, description: Момент commit оплаты; задержка доставки = now − at }
+      examples:
+        - id: 0f8e6c1e-3b8a-4d7e-9c55-2b6c7a1d9e10
+          order_id: d1fbc43e-fd87-4b58-b67d-8a3c79303f38
+          event_id: 10000000-0000-4000-8000-000000000002
+          user_id: 38e88b71-1064-4892-acaa-cbe500ed53fc
+          seat_ids: [40777]
+          amount_minor: 500000
+          at: '2026-09-26T00:58:45.912Z'

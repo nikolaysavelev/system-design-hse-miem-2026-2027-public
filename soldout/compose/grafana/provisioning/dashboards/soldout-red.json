@@ -1,0 +1,399 @@
+{
+ "title": "soldout — RED (занятие 2)",
+ "uid": "soldout-red",
+ "schemaVersion": 39,
+ "refresh": "5s",
+ "time": {
+  "from": "now-15m",
+  "to": "now"
+ },
+ "tags": [
+  "soldout"
+ ],
+ "panels": [
+  {
+   "type": "timeseries",
+   "title": "RPS по репликам soldout",
+   "gridPos": {
+    "x": 0,
+    "y": 0,
+    "w": 12,
+    "h": 6
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "sum by (instance) (rate(http_requests_total{job=\"soldout\"}[30s]))",
+     "legendFormat": "{{instance}}",
+     "refId": "A"
+    }
+   ]
+  },
+  {
+   "type": "timeseries",
+   "title": "Реплики: soldout, notifier; CPU реплик soldout, ядер",
+   "gridPos": {
+    "x": 12,
+    "y": 0,
+    "w": 12,
+    "h": 6
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "count(up{job=\"soldout\"} == 1)",
+     "legendFormat": "реплик soldout",
+     "refId": "A"
+    },
+    {
+     "expr": "count(up{job=\"notifier\"} == 1)",
+     "legendFormat": "реплик notifier",
+     "refId": "B"
+    },
+    {
+     "expr": "rate(process_cpu_seconds_total{job=\"soldout\"}[30s])",
+     "legendFormat": "CPU {{instance}}",
+     "refId": "C"
+    }
+   ]
+  },
+  {
+   "type": "timeseries",
+   "title": "RPS по маршрутам",
+   "gridPos": {
+    "x": 0,
+    "y": 6,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "sum by (route) (rate(http_requests_total[30s]))",
+     "legendFormat": "{{route}}",
+     "refId": "A"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "reqps"
+    }
+   }
+  },
+  {
+   "type": "timeseries",
+   "title": "Ошибки 5xx/с по маршрутам",
+   "gridPos": {
+    "x": 12,
+    "y": 6,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "sum by (route,status) (rate(http_requests_total{status=~\"5..\"}[30s]))",
+     "legendFormat": "{{route}} {{status}}",
+     "refId": "A"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "reqps"
+    }
+   }
+  },
+  {
+   "type": "timeseries",
+   "title": "p99 латентность по маршрутам",
+   "gridPos": {
+    "x": 0,
+    "y": 14,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "histogram_quantile(0.99, sum by (le, route) (rate(http_request_duration_seconds_bucket[30s])))",
+     "legendFormat": "{{route}}",
+     "refId": "A"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "s"
+    }
+   }
+  },
+  {
+   "type": "timeseries",
+   "title": "Пул pgx: сумма по репликам, лимит PgBouncer; ожидание acquire p99",
+   "gridPos": {
+    "x": 12,
+    "y": 14,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "sum(pgxpool_acquired_conns)",
+     "legendFormat": "acquired, все реплики",
+     "refId": "A"
+    },
+    {
+     "expr": "sum(pgxpool_max_conns)",
+     "legendFormat": "max, все реплики",
+     "refId": "B"
+    },
+    {
+     "expr": "vector(20)",
+     "legendFormat": "PgBouncer default_pool_size",
+     "refId": "D"
+    },
+    {
+     "expr": "histogram_quantile(0.99, sum by (le) (rate(db_pool_acquire_wait_seconds_bucket[30s])))",
+     "legendFormat": "acquire wait p99, s",
+     "refId": "C"
+    }
+   ]
+  },
+  {
+   "type": "timeseries",
+   "title": "SQL p99 по запросу",
+   "gridPos": {
+    "x": 0,
+    "y": 22,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "histogram_quantile(0.99, sum by (le, query) (rate(db_query_duration_seconds_bucket[30s])))",
+     "legendFormat": "{{query}}",
+     "refId": "A"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "s"
+    }
+   }
+  },
+  {
+   "type": "timeseries",
+   "title": "Кэш карты зала: ops/с",
+   "gridPos": {
+    "x": 12,
+    "y": 22,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "sum by (op) (rate(cache_ops_total[30s]))",
+     "legendFormat": "{{op}}",
+     "refId": "A"
+    }
+   ]
+  },
+  {
+   "type": "timeseries",
+   "title": "Контенция hold: исходы/с",
+   "gridPos": {
+    "x": 0,
+    "y": 30,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "sum by (outcome) (rate(hold_contention_total[30s]))",
+     "legendFormat": "{{outcome}}",
+     "refId": "A"
+    }
+   ]
+  },
+  {
+   "type": "timeseries",
+   "title": "Шина событий",
+   "gridPos": {
+    "x": 12,
+    "y": 30,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "sum by (topic) (rate(eventbus_published_total[30s]))",
+     "legendFormat": "published {{topic}}",
+     "refId": "A"
+    },
+    {
+     "expr": "rate(eventbus_dropped_total[30s])",
+     "legendFormat": "dropped",
+     "refId": "B"
+    },
+    {
+     "expr": "eventbus_queue_depth",
+     "legendFormat": "depth {{instance}}",
+     "refId": "C"
+    }
+   ]
+  },
+  {
+   "type": "timeseries",
+   "title": "Go: память (heap, GOMEMLIMIT) и GC",
+   "gridPos": {
+    "x": 0,
+    "y": 38,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "go_memstats_heap_alloc_bytes",
+     "legendFormat": "heap_alloc {{instance}}",
+     "refId": "A"
+    },
+    {
+     "expr": "go_memstats_heap_sys_bytes",
+     "legendFormat": "heap_sys {{instance}}",
+     "refId": "B"
+    },
+    {
+     "expr": "go_memstats_next_gc_bytes",
+     "legendFormat": "next_gc {{instance}}",
+     "refId": "C"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "bytes"
+    }
+   }
+  },
+  {
+   "type": "timeseries",
+   "title": "Go: горутины, GOMAXPROCS, GC/с",
+   "gridPos": {
+    "x": 12,
+    "y": 38,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "go_goroutines",
+     "legendFormat": "goroutines {{instance}}",
+     "refId": "A"
+    },
+    {
+     "expr": "go_sched_gomaxprocs_threads",
+     "legendFormat": "gomaxprocs {{instance}}",
+     "refId": "B"
+    },
+    {
+     "expr": "rate(go_gc_duration_seconds_count[30s])",
+     "legendFormat": "gc/s",
+     "refId": "C"
+    }
+   ]
+  },
+  {
+   "type": "timeseries",
+   "title": "holds_active и expirer batch p99",
+   "gridPos": {
+    "x": 0,
+    "y": 46,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "max(holds_active)",
+     "legendFormat": "holds_active",
+     "refId": "A"
+    },
+    {
+     "expr": "histogram_quantile(0.99, rate(expirer_batch_size_bucket[1m]))",
+     "legendFormat": "batch p99",
+     "refId": "B"
+    }
+   ]
+  },
+  {
+   "type": "timeseries",
+   "title": "503 db_busy / timeouts acquire",
+   "gridPos": {
+    "x": 12,
+    "y": 46,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "sum(rate(http_requests_total{status=\"503\"}[30s]))",
+     "legendFormat": "503/s",
+     "refId": "A"
+    },
+    {
+     "expr": "rate(db_pool_acquire_timeouts_total[30s])",
+     "legendFormat": "acquire timeouts/s",
+     "refId": "B"
+    }
+   ]
+  }
+ ]
+}
