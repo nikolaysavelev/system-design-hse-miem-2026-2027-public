@@ -1,0 +1,19 @@
+# Карта владения таблицами (constitution 2: модуль владеет своими таблицами, чужие — только через api).
+# Проверяется tools/check-sql-owners.py: SQL в internal/<module>/… должен начинаться с /* <module>.<name> */
+# и ссылаться только на таблицы своего модуля. Исключения — явно, с причиной.
+owners:
+  catalog: [venues, sectors, seats, events, catalog_seat_state, catalog_sector_version]
+  queue: [admissions]
+  booking: [holds, orders, order_items, idempotency_keys]
+  payment: [payments]
+  ticketing: [tickets]
+  notification: [notifications]
+  platform: [schema_migrations]
+exceptions:
+  # миграции — платформенный код; одноразовый backfill 0012 читает holds осознанно (см. комментарий в файле)
+  - path: migrations/
+    reason: миграции применяются платформой, не модулем
+  - path: seed/
+    reason: тестовые данные
+  - path: tools/invariant-checker/
+    reason: инвариант-чекер по определению читает таблицы всех модулей

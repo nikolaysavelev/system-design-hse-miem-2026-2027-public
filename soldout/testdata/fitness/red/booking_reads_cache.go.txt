@@ -1,0 +1,18 @@
+package app
+
+// КРАСНЫЙ ПРИМЕР (go-arch-lint): booking читает кэш в пути hold — статус места из Valkey вместо индекса в БД.
+// Нарушает constitution 4 и I1: кэш врёт про отображение и никогда не является истиной.
+import (
+	"context"
+
+	"github.com/nikolaysavelev/soldout/internal/platform/cache"
+)
+
+func seatLooksFree(ctx context.Context, addr string) bool {
+	c, err := cache.New(ctx, addr)
+	if err != nil {
+		return true
+	}
+	defer c.Close()
+	return true
+}
