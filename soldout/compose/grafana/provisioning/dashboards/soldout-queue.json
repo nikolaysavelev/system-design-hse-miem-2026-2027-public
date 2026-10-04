@@ -1,0 +1,161 @@
+{
+ "title": "soldout — waiting room",
+ "uid": "soldout-queue",
+ "schemaVersion": 39,
+ "refresh": "5s",
+ "time": {
+  "from": "now-15m",
+  "to": "now"
+ },
+ "tags": [
+  "soldout"
+ ],
+ "panels": [
+  {
+   "type": "timeseries",
+   "title": "Размер очереди и inflight",
+   "gridPos": {
+    "x": 0,
+    "y": 0,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "queue_size",
+     "legendFormat": "queue {{event}}",
+     "refId": "A"
+    },
+    {
+     "expr": "queue_inflight",
+     "legendFormat": "inflight {{event}}",
+     "refId": "B"
+    }
+   ]
+  },
+  {
+   "type": "timeseries",
+   "title": "Допусков/с (admission rate)",
+   "gridPos": {
+    "x": 12,
+    "y": 0,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "rate(queue_admitted_total[30s])",
+     "legendFormat": "admitted/s",
+     "refId": "A"
+    },
+    {
+     "expr": "queue_admission_rate",
+     "legendFormat": "rate limit",
+     "refId": "B"
+    }
+   ]
+  },
+  {
+   "type": "timeseries",
+   "title": "p99 /queue/status и /queue/join",
+   "gridPos": {
+    "x": 0,
+    "y": 8,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "histogram_quantile(0.99, sum by (le, route) (rate(http_request_duration_seconds_bucket{route=~\".*queue.*\"}[30s])))",
+     "legendFormat": "{{route}}",
+     "refId": "A"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "s"
+    }
+   }
+  },
+  {
+   "type": "timeseries",
+   "title": "RPS к PostgreSQL (tps) — должна быть ровная полка",
+   "gridPos": {
+    "x": 12,
+    "y": 8,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "rate(pg_stat_database_xact_commit{datname=\"soldout\"}[30s]) + rate(pg_stat_database_xact_rollback{datname=\"soldout\"}[30s])",
+     "legendFormat": "tps",
+     "refId": "A"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "ops"
+    }
+   }
+  },
+  {
+   "type": "timeseries",
+   "title": "hold: исходы/с",
+   "gridPos": {
+    "x": 0,
+    "y": 16,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "sum by (outcome) (rate(hold_contention_total[30s]))",
+     "legendFormat": "{{outcome}}",
+     "refId": "A"
+    }
+   ]
+  },
+  {
+   "type": "timeseries",
+   "title": "403 admission_required / 429",
+   "gridPos": {
+    "x": 12,
+    "y": 16,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "targets": [
+    {
+     "expr": "sum(rate(http_requests_total{status=~\"401|403|429\"}[30s]))",
+     "legendFormat": "rejected/s",
+     "refId": "A"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1 @@
+DROP INDEX CONCURRENTLY IF EXISTS holds_taken_uidx;

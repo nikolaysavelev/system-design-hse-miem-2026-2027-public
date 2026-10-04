@@ -1,0 +1,15 @@
+# Образы курса. Формат: image:tag — один на строку. Digest'ы — в images.lock (infra/pin-images.sh).
+# Занятие 1
+postgres:17-alpine
+valkey/valkey:9-alpine
+golang:1.27-alpine
+gcr.io/distroless/static-debian12:nonroot
+grafana/k6:1.3.0
+prom/prometheus:v3.6.0
+grafana/grafana:12.2.0
+# Занятие 2 (obs-профиль и PgBouncer)
+edoburu/pgbouncer:latest
+prometheuscommunity/postgres-exporter:v0.20.1
+oliver006/redis_exporter:v1.91.1
+grafana/pyroscope:2.3.1
+grafana/alloy:v1.19.2
