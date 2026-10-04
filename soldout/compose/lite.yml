@@ -1,0 +1,27 @@
+# Lite-профиль (8–16 ГБ RAM): уменьшенный seed, экономный PostgreSQL. Observability-профиль не запускать.
+services:
+  postgres:
+    command:
+      - postgres
+      - -c
+      - shared_preload_libraries=pg_stat_statements
+      - -c
+      - wal_level=logical
+      - -c
+      - max_connections=100
+      - -c
+      - shared_buffers=128MB
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+  soldout:
+    environment:
+      SEED_SEATS_PER_EVENT: ${SEED_SEATS_PER_EVENT:-4000}
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+  k6:
+    environment:
+      SEATS_PER_EVENT: ${SEED_SEATS_PER_EVENT:-4000}
