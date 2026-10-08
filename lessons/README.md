@@ -11,8 +11,8 @@
 | 3 | `lessons/02` | `demo/l2-baseline` → `stepA` → `stepB` (показаны), `stepC`, `stepD` (в материалах) | `results.md`, `demo.md`, `act1/`, `act2/`, `act3/` с замерами (k6, pg_stat_statements, профили, скриншоты), `baseline.md` |
 | 4 | `lessons/04`, акты 1–2 | `demo/l4-problem` → `demo/l4-otel` | `demo.md`, `results.md`, `act1/` (проблема), `act2/` (трейсинг, `trace-waterfall.png`, `break-goroutine.txt`), `ai-session.md` |
 | 5 | `lessons/04`, акт 3; `lessons/05/diagrams` | `demo/l4-cdc` | `act3/` (outbox, Debezium, Kafka, notifier: `pay-demo-cdc.txt`, `trace-cdc.png`, `kill-notifier.txt`, `poison.txt`), диаграммы 01–04 |
-| 6 (план) | `lessons/04` акт 3, `lessons/05` акт 1 | `demo/l5-k8s` | сломы cdc и ADR-003; реплики в compose, `act1/` |
-| 7 (план) | `lessons/05` | `demo/l5-k8s`, `deploy/` | кластер, выкатка, автоскейлинг, агент и кластер, ADR-004 |
+| 6 (план) | `lessons/04` акт 3, `lessons/05` акты 1–3 | `demo/l5-k8s` | сломы cdc и ADR-003; реплики в compose (`act1/`); выкатка без ошибок (`act2/`), KEDA (`act3/`) |
+| 7 (план) | `lessons/05` | `demo/l5-k8s`, `deploy/` | агент и кластер (`ai-session.md`), ADR-004 |
 
 Решения с ценой: `soldout/docs/adr/`. Правила проекта: `soldout/docs/constitution.md`, `soldout/AGENTS.md`. Как поднять стенд: `docs/setup.md`; кластер: `docs/deploy.md`.
 

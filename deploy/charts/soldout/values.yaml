@@ -5,7 +5,7 @@ image:
   tag: lesson-5            # тег обязателен и не latest (deploy/policies/image.rego)
   pullPolicy: IfNotPresent
 
-# Адреса stateful-сервисов вне кластера: на стенде compose, в облаке managed-сервисы (занятие 8).
+# Адреса stateful-сервисов вне кластера: на стенде compose, в облаке managed-сервисы (занятия 10 и 14).
 external:
   valkeyAddr: ""
   kafkaBrokers: ""
