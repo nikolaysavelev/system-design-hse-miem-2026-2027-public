@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS notifier.processed_events;
+DROP SCHEMA IF EXISTS notifier;
+DROP INDEX IF EXISTS notifications_order_kind_uniq;
+DELETE FROM notifications WHERE status = 'pending';
+ALTER TABLE notifications DROP CONSTRAINT notifications_status_check;
+ALTER TABLE notifications ADD CONSTRAINT notifications_status_check CHECK (status IN ('sent', 'failed'));
+ALTER TABLE notifications DROP COLUMN updated_at;
+ALTER TABLE notifications DROP COLUMN attempts;
+ALTER TABLE notifications DROP COLUMN event_id;
+ALTER TABLE notifications DROP COLUMN order_id;

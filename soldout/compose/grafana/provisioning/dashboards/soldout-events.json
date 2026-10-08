@@ -1,0 +1,340 @@
+{
+ "uid": "soldout-events",
+ "title": "soldout · события (outbox → Kafka → notifier)",
+ "tags": [
+  "soldout",
+  "lesson-4"
+ ],
+ "schemaVersion": 39,
+ "refresh": "5s",
+ "time": {
+  "from": "now-15m",
+  "to": "now"
+ },
+ "panels": [
+  {
+   "type": "timeseries",
+   "title": "Лаг notifier (сообщений)",
+   "description": "Сообщений в outbox.event.order после зафиксированного смещения группы notifier (Kafka admin API раз в 5 с). Растёт — notifier не успевает или стоит. Сигнал для HPA на занятии 5. Считает отдельный экспортёр (notifier-lag): лаг виден и тогда, когда notifier остановлен.",
+   "gridPos": {
+    "x": 0,
+    "y": 0,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "fieldConfig": {
+    "defaults": {
+     "unit": "short",
+     "custom": {
+      "lineWidth": 2,
+      "fillOpacity": 5
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "displayMode": "table",
+     "placement": "right",
+     "calcs": [
+      "lastNotNull",
+      "max"
+     ]
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "targets": [
+    {
+     "refId": "A",
+     "expr": "max(notifier_lag)",
+     "legendFormat": "lag"
+    }
+   ]
+  },
+  {
+   "type": "timeseries",
+   "title": "Задержка письма: commit оплаты → письмо отправлено",
+   "description": "OrderPaidEvent.at → статус sent. Включает Debezium (WAL → Kafka), опрос потребителя, почтовый шлюз и повторы.",
+   "gridPos": {
+    "x": 12,
+    "y": 0,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "fieldConfig": {
+    "defaults": {
+     "unit": "s",
+     "custom": {
+      "lineWidth": 2,
+      "fillOpacity": 5
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "displayMode": "table",
+     "placement": "right",
+     "calcs": [
+      "lastNotNull",
+      "max"
+     ]
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "targets": [
+    {
+     "refId": "A",
+     "expr": "histogram_quantile(0.5, sum by (le) (rate(notifier_delivery_delay_seconds_bucket[1m])))",
+     "legendFormat": "p50"
+    },
+    {
+     "refId": "B",
+     "expr": "histogram_quantile(0.99, sum by (le) (rate(notifier_delivery_delay_seconds_bucket[1m])))",
+     "legendFormat": "p99"
+    }
+   ]
+  },
+  {
+   "type": "timeseries",
+   "title": "Поток событий",
+   "description": "",
+   "gridPos": {
+    "x": 0,
+    "y": 8,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "fieldConfig": {
+    "defaults": {
+     "unit": "reqps",
+     "custom": {
+      "lineWidth": 2,
+      "fillOpacity": 5
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "displayMode": "table",
+     "placement": "right",
+     "calcs": [
+      "lastNotNull",
+      "max"
+     ]
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "targets": [
+    {
+     "refId": "A",
+     "expr": "sum(rate(notifier_consumed_total[1m]))",
+     "legendFormat": "принято/с"
+    },
+    {
+     "refId": "B",
+     "expr": "sum(rate(notifier_duplicates_total[1m]))",
+     "legendFormat": "повторная доставка/с"
+    },
+    {
+     "refId": "C",
+     "expr": "sum(rate(notifier_failed_total[1m]))",
+     "legendFormat": "неудачных попыток/с"
+    },
+    {
+     "refId": "D",
+     "expr": "sum(rate(notifier_dlq_total[1m]))",
+     "legendFormat": "в DLQ/с"
+    }
+   ]
+  },
+  {
+   "type": "timeseries",
+   "title": "Всего в DLQ",
+   "description": "",
+   "gridPos": {
+    "x": 12,
+    "y": 8,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "fieldConfig": {
+    "defaults": {
+     "unit": "short",
+     "custom": {
+      "lineWidth": 2,
+      "fillOpacity": 5
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "displayMode": "table",
+     "placement": "right",
+     "calcs": [
+      "lastNotNull",
+      "max"
+     ]
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "targets": [
+    {
+     "refId": "A",
+     "expr": "sum(notifier_dlq_total)",
+     "legendFormat": "dlq"
+    }
+   ]
+  },
+  {
+   "type": "timeseries",
+   "title": "pay: p99 и RPS (монолит)",
+   "description": "После outbox pay ждёт только PSP: почта ушла из пути запроса.",
+   "gridPos": {
+    "x": 0,
+    "y": 16,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "fieldConfig": {
+    "defaults": {
+     "unit": "short",
+     "custom": {
+      "lineWidth": 2,
+      "fillOpacity": 5
+     }
+    },
+    "overrides": [
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "pay RPS"
+      },
+      "properties": [
+       {
+        "id": "custom.axisPlacement",
+        "value": "right"
+       },
+       {
+        "id": "unit",
+        "value": "reqps"
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "pay p99, с"
+      },
+      "properties": [
+       {
+        "id": "unit",
+        "value": "s"
+       }
+      ]
+     }
+    ]
+   },
+   "options": {
+    "legend": {
+     "displayMode": "table",
+     "placement": "right",
+     "calcs": [
+      "lastNotNull",
+      "max"
+     ]
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "targets": [
+    {
+     "refId": "A",
+     "expr": "histogram_quantile(0.99, sum by (le) (rate(http_request_duration_seconds_bucket{route=\"/v1/orders/{id}/pay\"}[1m])))",
+     "legendFormat": "pay p99, с"
+    },
+    {
+     "refId": "B",
+     "expr": "sum(rate(http_requests_total{route=\"/v1/orders/{id}/pay\"}[1m]))",
+     "legendFormat": "pay RPS"
+    }
+   ]
+  },
+  {
+   "type": "timeseries",
+   "title": "Почтовый шлюз: ответы/с",
+   "description": "",
+   "gridPos": {
+    "x": 12,
+    "y": 16,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prometheus"
+   },
+   "fieldConfig": {
+    "defaults": {
+     "unit": "reqps",
+     "custom": {
+      "lineWidth": 2,
+      "fillOpacity": 5
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "displayMode": "table",
+     "placement": "right",
+     "calcs": [
+      "lastNotNull",
+      "max"
+     ]
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "targets": [
+    {
+     "refId": "A",
+     "expr": "sum by (status) (rate(mailgw_requests_total[1m]))",
+     "legendFormat": "{{status}}"
+    }
+   ]
+  }
+ ]
+}

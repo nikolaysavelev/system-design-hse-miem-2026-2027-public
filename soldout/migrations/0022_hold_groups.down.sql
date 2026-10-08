@@ -1,0 +1,2 @@
+ALTER TABLE holds DROP COLUMN IF EXISTS group_id;
+DROP TABLE IF EXISTS hold_groups;

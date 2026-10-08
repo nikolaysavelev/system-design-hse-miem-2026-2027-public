@@ -1,0 +1,149 @@
+# Оверлей занятия 2: лимиты ресурсов (единственная причина, по которой узкие места видны на M4),
+# параметры PostgreSQL, PgBouncer и obs-профиль (Prometheus, Grafana, exporters, Pyroscope + Alloy).
+# Запуск: make up-02 (= docker compose -f docker-compose.yml -f compose/lesson-02.yml --profile obs up).
+services:
+  postgres:
+    image: soldout-postgres:17-hypopg
+    build: ./compose/postgres
+    cpus: 1.0
+    mem_limit: 1g
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./compose/postgres/initdb:/docker-entrypoint-initdb.d:ro
+    command:
+      - postgres
+      - -c
+      - shared_preload_libraries=pg_stat_statements
+      - -c
+      - pg_stat_statements.track=all
+      - -c
+      - wal_level=logical
+      - -c
+      - max_connections=100
+      - -c
+      - shared_buffers=256MB
+      - -c
+      - work_mem=8MB
+      - -c
+      - statement_timeout=5s
+      - -c
+      - idle_in_transaction_session_timeout=5s
+      - -c
+      - track_io_timing=on
+      - -c
+      - log_min_duration_statement=1000
+
+  pgbouncer:
+    image: edoburu/pgbouncer:latest
+    cpus: 0.5
+    volumes:
+      - ./compose/pgbouncer/${PGBOUNCER_INI:-pgbouncer.ini}:/etc/pgbouncer/pgbouncer.ini:ro
+      - ./compose/pgbouncer/userlist.txt:/etc/pgbouncer/userlist.txt:ro
+    ports:
+      - "6432:6432"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -p 6432 -U soldout"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+
+  valkey:
+    cpus: 0.5
+
+  soldout:
+    image: soldout:lesson-2
+    cpus: 2.0
+    mem_limit: 512m
+    restart: on-failure
+    environment:
+      GOMEMLIMIT: 440MiB
+      GOGC: "100"
+      LOG_FORMAT: ${LOG_FORMAT:-text}
+      # с шага A пул приложения ходит через PgBouncer; baseline и слом №3 — DATABASE_URL на postgres:5432 напрямую
+      DATABASE_URL: ${DATABASE_URL:-postgres://soldout:soldout@pgbouncer:6432/soldout?sslmode=disable}
+      # прямое подключение для миграций/seed: statement_timeout=0, иначе CREATE INDEX CONCURRENTLY упрётся в 5 с
+      DATABASE_URL_DIRECT: postgres://soldout:soldout@postgres:5432/soldout?sslmode=disable&options=-c%20statement_timeout%3D0
+      DB_MAX_CONNS: ${DB_MAX_CONNS:-40}
+      DB_MIN_CONNS: ${DB_MIN_CONNS:-5}
+      DB_MAX_CONN_IDLE: ${DB_MAX_CONN_IDLE:-5m}
+      DB_ACQUIRE_TIMEOUT: ${DB_ACQUIRE_TIMEOUT:-2s}
+      HANDLER_TIMEOUT: ${HANDLER_TIMEOUT:-3s}
+      HOLD_EXPIRER_BATCH: "500"
+      CACHE_INVALIDATE: ${CACHE_INVALIDATE:-true}
+      QUEUE_ENABLED: ${QUEUE_ENABLED:-false}
+      ADMITTER_ENABLED: ${ADMITTER_ENABLED:-false}
+      ADMISSION_RATE: ${ADMISSION_RATE:-50}
+    depends_on:
+      pgbouncer:
+        condition: service_healthy
+
+  k6:
+    environment:
+      K6_PROMETHEUS_RW_SERVER_URL: http://prometheus:9090/api/v1/write
+      K6_PROMETHEUS_RW_TREND_STATS: p(50),p(95),p(99),avg,max
+      STORM_DURATION: ${STORM_DURATION:-2m}
+      QUEUE_ENABLED: ${QUEUE_ENABLED:-false}
+      HOT_MODE: ${HOT_MODE:-both}
+
+  invariants:
+    image: soldout:lesson-2
+
+  prometheus:
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.retention.time=2h
+      - --web.enable-remote-write-receiver
+    cpus: 1.0
+    mem_limit: 512m
+
+  grafana:
+    cpus: 1.0
+    mem_limit: 512m
+    depends_on:
+      - prometheus
+      - pyroscope
+
+  postgres-exporter:
+    image: prometheuscommunity/postgres-exporter:v0.20.1
+    profiles: [obs]
+    environment:
+      DATA_SOURCE_URI: postgres:5432/soldout?sslmode=disable
+      DATA_SOURCE_USER: soldout
+      DATA_SOURCE_PASS: soldout
+    depends_on:
+      postgres:
+        condition: service_healthy
+    cpus: 0.25
+    mem_limit: 128m
+
+  valkey-exporter:
+    image: oliver006/redis_exporter:v1.91.1
+    profiles: [obs]
+    command: ["--redis.addr=redis://valkey:6379"]
+    cpus: 0.25
+    mem_limit: 64m
+
+  pyroscope:
+    image: grafana/pyroscope:2.3.1
+    profiles: [obs]
+    command: ["-config.file=/etc/pyroscope/config.yaml"]
+    volumes:
+      - ./compose/pyroscope.yaml:/etc/pyroscope/config.yaml:ro
+    ports:
+      - "4040:4040"
+    cpus: 1.0
+    mem_limit: 768m
+
+  alloy:
+    image: grafana/alloy:v1.19.2
+    profiles: [obs]
+    command: ["run", "--server.http.listen-addr=0.0.0.0:12345", "/etc/alloy/config.alloy"]
+    volumes:
+      - ./compose/alloy/config.alloy:/etc/alloy/config.alloy:ro
+    depends_on:
+      - pyroscope
+    cpus: 0.5
+    mem_limit: 256m

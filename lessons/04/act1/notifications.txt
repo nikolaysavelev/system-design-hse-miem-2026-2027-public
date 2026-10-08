@@ -1,0 +1,11 @@
+ status | count 
+--------+-------
+ failed |    28
+ sent   | 10669
+(2 rows)
+
+ paid_orders | paid_without_notification 
+-------------+---------------------------
+       10697 |                         0
+(1 row)
+
