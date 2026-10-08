@@ -1,0 +1,54 @@
+storm   [ 100% ] 0134/1000 VUs  2m19.9s/2m20.0s
+
+
+  █ THRESHOLDS 
+
+    http_req_duration{name:hold}
+    ✗ 'p(99)<500' p(99)=3.01s
+
+    http_req_duration{name:seatmap}
+    ✗ 'p(99)<200' p(99)=3.01s
+
+    http_req_failed
+    ✗ 'rate<0.01' rate=63.45%
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 56327  400.534566/s
+    checks_succeeded...: 36.54% 20586 out of 56327
+    checks_failed......: 63.45% 35741 out of 56327
+
+    ✗ queue/join 200
+      ↳  65% — ✓ 19421 / ✗ 10084
+    ✗ hold 201/409
+      ↳  5% — ✓ 1006 / ✗ 18415
+    ✗ seatmap 200
+      ↳  2% — ✓ 159 / ✗ 7242
+
+    HTTP
+    http_req_duration..............: avg=2.33s p(50)=2.49s p(95)=3s    p(99)=3.01s max=3.05s
+      { expected_response:true }...: avg=2.03s p(50)=2.09s p(95)=2.89s p(99)=2.99s max=3.01s
+      { name:hold }................: avg=2.65s p(50)=3s    p(95)=3s    p(99)=3.01s max=3.05s
+      { name:seatmap }.............: avg=2.63s p(50)=3s    p(95)=3s    p(99)=3.01s max=3.05s
+    http_req_failed................: 63.45% 35741 out of 56327
+    http_reqs......................: 56327  400.534566/s
+
+    EXECUTION
+    iteration_duration.............: avg=3.56s p(50)=3.01s p(95)=5.69s p(99)=5.91s max=6.02s
+    iterations.....................: 36906  262.434156/s
+    vus............................: 134    min=93             max=1000
+    vus_max........................: 1000   min=1000           max=1000
+
+    NETWORK
+    data_received..................: 311 MB 2.2 MB/s
+    data_sent......................: 13 MB  96 kB/s
+
+
+
+
+running (2m20.6s), 0000/1000 VUs, 36906 complete and 0 interrupted iterations
+storm ✓ [ 100% ] 0000/1000 VUs  2m20s
+time="2026-09-19T07:21:39Z" level=error msg="thresholds on metrics 'http_req_duration{name:hold}, http_req_duration{name:seatmap}, http_req_failed' have been crossed"
+
+make: *** [storm] Error 99

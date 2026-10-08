@@ -1,0 +1,690 @@
+{
+ "isError": false,
+ "content": {
+  "trace": {
+   "traceId": "127f6f2490763225d32dc2bf27045417",
+   "services": [
+    {
+     "serviceName": "soldout",
+     "resource": {
+      "deployment.environment": "lab",
+      "service.version": "b4519c3",
+      "telemetry.sdk.language": "go",
+      "telemetry.sdk.name": "opentelemetry",
+      "telemetry.sdk.version": "1.46.0"
+     },
+     "scopes": [
+      {
+       "name": "go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp",
+       "version": "0.71.0",
+       "spans": [
+        {
+         "spanId": "0de87c1988efc4ae",
+         "name": "POST /v1/orders/{id}/pay",
+         "kind": "SPAN_KIND_SERVER",
+         "startTimeUnixNano": "1790377393817364088",
+         "endTimeUnixNano": "1790377396043826714",
+         "durationMs": 2226.462626,
+         "attributes": {
+          "client.address": "172.27.0.16",
+          "http.request.method": "POST",
+          "http.response.body.size": 363,
+          "http.response.status_code": 200,
+          "http.route": "/v1/orders/{id}/pay",
+          "network.peer.address": "172.27.0.16",
+          "network.peer.port": 41464,
+          "network.protocol.version": "1.1",
+          "server.address": "soldout",
+          "server.port": 8080,
+          "url.path": "/v1/orders/503c33dc-5c25-43de-aaaa-1fefbb3b4e8d/pay",
+          "url.scheme": "http",
+          "user_agent.original": "Grafana k6/1.3.0"
+         },
+         "status": {
+          "code": "STATUS_CODE_UNSET",
+          "message": ""
+         }
+        },
+        {
+         "spanId": "5ab4f38504b6672c",
+         "name": "mailgw.POST /send",
+         "parentSpanId": "3ff51ecf25d0b7e2",
+         "kind": "SPAN_KIND_CLIENT",
+         "startTimeUnixNano": "1790377394121601213",
+         "endTimeUnixNano": "1790377395047666296",
+         "durationMs": 926.065083,
+         "attributes": {
+          "error.type": "502",
+          "http.request.method": "POST",
+          "http.response.status_code": 502,
+          "network.protocol.version": "1.1",
+          "retry.attempt": 0,
+          "server.address": "mailgw",
+          "server.port": 8090,
+          "url.full": "http://mailgw:8090/send"
+         },
+         "status": {
+          "code": "STATUS_CODE_ERROR",
+          "message": ""
+         }
+        },
+        {
+         "spanId": "cfc5074f063196ab",
+         "name": "mailgw.POST /send",
+         "parentSpanId": "3ff51ecf25d0b7e2",
+         "kind": "SPAN_KIND_CLIENT",
+         "startTimeUnixNano": "1790377395047676546",
+         "endTimeUnixNano": "1790377396043472505",
+         "durationMs": 995.795959,
+         "attributes": {
+          "http.request.method": "POST",
+          "http.response.status_code": 202,
+          "network.protocol.version": "1.1",
+          "retry.attempt": 1,
+          "server.address": "mailgw",
+          "server.port": 8090,
+          "url.full": "http://mailgw:8090/send"
+         },
+         "status": {
+          "code": "STATUS_CODE_UNSET",
+          "message": ""
+         }
+        }
+       ]
+      },
+      {
+       "name": "github.com/nikolaysavelev/soldout",
+       "spans": [
+        {
+         "spanId": "0ceeb82731d91a2c",
+         "name": "booking.PayOrder",
+         "parentSpanId": "0de87c1988efc4ae",
+         "kind": "SPAN_KIND_INTERNAL",
+         "startTimeUnixNano": "1790377393817399379",
+         "endTimeUnixNano": "1790377396043805422",
+         "durationMs": 2226.406043,
+         "attributes": {
+          "enduser.id": "bd71948f-64e8-4d66-a233-5710e9690ca6",
+          "order.id": "503c33dc-5c25-43de-aaaa-1fefbb3b4e8d"
+         },
+         "status": {
+          "code": "STATUS_CODE_UNSET",
+          "message": ""
+         }
+        },
+        {
+         "spanId": "24ca6675128c2438",
+         "name": "payment.Charge",
+         "parentSpanId": "0ceeb82731d91a2c",
+         "kind": "SPAN_KIND_INTERNAL",
+         "startTimeUnixNano": "1790377393818425879",
+         "endTimeUnixNano": "1790377394120095088",
+         "durationMs": 301.669209,
+         "attributes": {
+          "order.id": "503c33dc-5c25-43de-aaaa-1fefbb3b4e8d",
+          "payment.amount_minor": 500000
+         },
+         "status": {
+          "code": "STATUS_CODE_UNSET",
+          "message": ""
+         }
+        },
+        {
+         "spanId": "63e10877edcc4dda",
+         "name": "psp.emulate",
+         "parentSpanId": "24ca6675128c2438",
+         "kind": "SPAN_KIND_CLIENT",
+         "startTimeUnixNano": "1790377393818566171",
+         "endTimeUnixNano": "1790377394119733796",
+         "durationMs": 301.167625,
+         "attributes": {
+          "psp.delay_ms": 300
+         },
+         "status": {
+          "code": "STATUS_CODE_UNSET",
+          "message": ""
+         }
+        },
+        {
+         "spanId": "a2b0d9f452dc84e2",
+         "name": "ticketing.Issue",
+         "parentSpanId": "0ceeb82731d91a2c",
+         "kind": "SPAN_KIND_INTERNAL",
+         "startTimeUnixNano": "1790377394121255296",
+         "endTimeUnixNano": "1790377396043803922",
+         "durationMs": 1922.548626,
+         "attributes": {
+          "order.id": "503c33dc-5c25-43de-aaaa-1fefbb3b4e8d",
+          "tickets.seats": 1
+         },
+         "status": {
+          "code": "STATUS_CODE_UNSET",
+          "message": ""
+         }
+        },
+        {
+         "spanId": "3ff51ecf25d0b7e2",
+         "name": "notification.Send",
+         "parentSpanId": "a2b0d9f452dc84e2",
+         "kind": "SPAN_KIND_INTERNAL",
+         "startTimeUnixNano": "1790377394121589963",
+         "endTimeUnixNano": "1790377396043803464",
+         "durationMs": 1922.213501,
+         "attributes": {
+          "notification.kind": "tickets_issued"
+         },
+         "status": {
+          "code": "STATUS_CODE_UNSET",
+          "message": ""
+         }
+        }
+       ]
+      },
+      {
+       "name": "github.com/exaring/otelpgx",
+       "version": "v0.12.0",
+       "spans": [
+        {
+         "spanId": "01cf22937e899fb3",
+         "name": "pgx.acquire",
+         "parentSpanId": "0ceeb82731d91a2c",
+         "kind": "SPAN_KIND_CLIENT",
+         "startTimeUnixNano": "1790377393817403463",
+         "endTimeUnixNano": "1790377393817404629",
+         "durationMs": 0.001166,
+         "attributes": {
+          "db.system.name": "postgresql"
+         },
+         "status": {
+          "code": "STATUS_CODE_UNSET",
+          "message": ""
+         }
+        },
+        {
+         "spanId": "e83292a5c9a66bfe",
+         "name": "booking.get_order",
+         "parentSpanId": "0ceeb82731d91a2c",
+         "kind": "SPAN_KIND_CLIENT",
+         "startTimeUnixNano": "1790377393817408171",
+         "endTimeUnixNano": "1790377393817614587",
+         "durationMs": 0.206416,
+         "attributes": {
+          "db.statement": "/* booking.get_order */ SELECT o.id, o.event_id, o.user_id, o.status, o.amount::text, o.idempotency_key, o.created_at, o.updated_at,\n\t\tcoalesce(array_agg(oi.hold_id ORDER BY h.id) FILTER (WHERE oi.hol",
+          "db.system.name": "postgresql",
+          "pgx.rows_affected": 1
+         },
+         "status": {
+          "code": "STATUS_CODE_UNSET",
+          "message": ""
+         }
+        },
+        {
+         "spanId": "867cfd2390aa50d9",
+         "name": "pgx.acquire",
+         "parentSpanId": "0ceeb82731d91a2c",
+         "kind": "SPAN_KIND_CLIENT",
+         "startTimeUnixNano": "1790377393817618838",
+         "endTimeUnixNano": "1790377393817619880",
+         "durationMs": 0.001042,
+         "attributes": {
+          "db.system.name": "postgresql"
+         },
+         "status": {
+          "code": "STATUS_CODE_UNSET",
+          "message": ""
+         }
+        },
+        {
+         "spanId": "cbd7b4eda8c23b2c",
+         "name": "sql.begin",
+         "parentSpanId": "0ceeb82731d91a2c",
+         "kind": "SPAN_KIND_CLIENT",
+         "startTimeUnixNano": "1790377393817621963",
+         "endTimeUnixNano": "1790377393817737213",
+         "durationMs": 0.11525,
+         "attributes": {
+          "db.statement": "begin",
+          "db.system.name": "postgresql",
+          "pgx.rows_affected": 0
+         },
+         "status": {
+          "code": "STATUS_CODE_UNSET",
+          "message": ""
+         }
+        },
+        {
+         "spanId": "8b97f22d10357c58",
+         "name": "booking.lock_order",
+         "parentSpanId": "0ceeb82731d91a2c",
+         "kind": "SPAN_KIND_CLIENT",
+         "startTimeUnixNano": "1790377393817739379",
+         "endTimeUnixNano": "1790377393817896796",
+         "durationMs": 0.157417,
+         "attributes": {
+          "db.statement": "/* booking.lock_order */ SELECT id FROM orders WHERE id = $1 FOR UPDATE",
+          "db.system.name": "postgresql",
+          "pgx.rows_affected": 1
+         },
+         "status": {
+          "code": "STATUS_CODE_UNSET",
+          "message": ""
+         }
+        },
+        {
+         "spanId": "94a3a54b3ae3e5e6",
+         "name": "booking.get_order_locked",
+         "parentSpanId": "0ceeb82731d91a2c",
+         "kind": "SPAN_KIND_CLIENT",
+         "startTimeUnixNano": "1790377393817899129",
+         "endTimeUnixNano": "1790377393818074046",
+         "durationMs": 0.174917,
+         "attributes": {
+          "db.statement": "/* booking.get_order_locked */ SELECT o.id, o.event_id, o.user_id, o.status, o.amount::text, o.idempotency_key, o.created_at, o.updated_at,\n\t\tcoalesce(array_agg(oi.hold_id ORDER BY h.id) FILTER (WHERE",
+          "db.system.name": "postgresql",
+          "pgx.rows_affected": 1
+         },
+         "status": {
+          "code": "STATUS_CODE_UNSET",
+          "message": ""
+         }
+        },
+        {
+         "spanId": "ea7ee6deffaf85da",
+         "name": "booking.holds_for_update",
+         "parentSpanId": "0ceeb82731d91a2c",
+         "kind": "SPAN_KIND_CLIENT",
+         "startTimeUnixNano": "1790377393818076046",
+         "endTimeUnixNano": "1790377393818194338",
+         "durationMs": 0.118292,
+         "attributes": {
+          "db.statement": "/* booking.holds_for_update */ SELECT id, event_id, seat_id, user_id, status, expires_at, created_at FROM holds WHERE id = ANY($1) ORDER BY id FOR UPDATE",
+          "db.system.name": "postgresql",
+          "pgx.rows_affected": 1
+         },
+         "status": {
+          "code": "STATUS_CODE_UNSET",
+          "message": ""
+         }
+        },
+        {
+         "spanId": "ee22614799ce399b",
+         "name": "sql.commit",
+         "parentSpanId": "0ceeb82731d91a2c",
+         "kind": "SPAN_KIND_CLIENT",
+         "startTimeUnixNano": "1790377393818195713",
+         "endTimeUnixNano": "1790377393818424046",
+         "durationMs": 0.228333,
+         "attributes": {
+          "db.statement": "commit",
+          "db.system.name": "postgresql",
+          "pgx.rows_affected": 0
+         },
+         "status": {
+          "code": "STATUS_CODE_UNSET",
+          "message": ""
+         }
+        },
+        {
+         "spanId": "66a78f8442cc9e3d",
+         "name": "pgx.acquire",
+         "parentSpanId": "24ca6675128c2438",
+         "kind": "SPAN_KIND_CLIENT",
+         "startTimeUnixNano": "1790377393818427754",
+         "endTimeUnixNano": "1790377393818428254",
+         "durationMs": 0.0005,
+         "attributes": {
+          "db.system.name": "postgresql"
+         },
+         "status": {
+          "code": "STATUS_CODE_UNSET",
+          "message": ""
+         }
+        },
+        {
+         "spanId": "2967c1e67476bcd7",
+         "name": "payment.get_by_key",
+         "parentSpanId": "24ca6675128c2438",
+         "kind": "SPAN_KIND_CLIENT",
+         "startTimeUnixNano": "1790377393818429963",
+         "endTimeUnixNano": "1790377393818563379",
+         "durationMs": 0.133416,
+         "attributes": {
+          "db.statement": "/* payment.get_by_key */ SELECT id, order_id, status, coalesce(psp_ref, ''), idempotency_key, created_at FROM payments WHERE idempotency_key = $1 ORDER BY created_at DESC LIMIT 1",
+          "db.system.name": "postgresql",
+          "pgx.rows_affected": 0
+         },
+         "status": {
+          "code": "STATUS_CODE_UNSET",
+          "message": ""
+         }
+        },
+        {
+         "spanId": "7b0e1532a55ce9cb",
+         "name": "pgx.acquire",
+         "parentSpanId": "24ca6675128c2438",
+         "kind": "SPAN_KIND_CLIENT",
+         "startTimeUnixNano": "1790377394119740671",
+         "endTimeUnixNano": "1790377394119742962",
+         "durationMs": 0.002291,
+         "attributes": {
+          "db.system.name": "postgresql"
+         },
+         "status": {
+          "code": "STATUS_CODE_UNSET",
+          "message": ""
+         }
+        },
+        {
+         "spanId": "4f3294015b77eab6",
+         "name": "payment.insert",
+         "parentSpanId": "24ca6675128c2438",
+         "kind": "SPAN_KIND_CLIENT",
+         "startTimeUnixNano": "1790377394119745421",
+         "endTimeUnixNano": "1790377394120092837",
+         "durationMs": 0.347416,
+         "attributes": {
+          "db.statement": "/* payment.insert */\n\t\tINSERT INTO payments (id, order_id, status, psp_ref, idempotency_key, created_at) VALUES ($1, $2, $3, $4, $5, $6)",
+          "db.system.name": "postgresql",
+          "pgx.rows_affected": 1
+         },
+         "status": {
+          "code": "STATUS_CODE_UNSET",
+          "message": ""
+         }
+        },
+        {
+         "spanId": "358612d269d8fe8a",
+         "name": "pgx.acquire",
+         "parentSpanId": "0ceeb82731d91a2c",
+         "kind": "SPAN_KIND_CLIENT",
+         "startTimeUnixNano": "1790377394120097879",
+         "endTimeUnixNano": "1790377394120099129",
+         "durationMs": 0.00125,
+         "attributes": {
+          "db.system.name": "postgresql"
+         },
+         "status": {
+          "code": "STATUS_CODE_UNSET",
+          "message": ""
+         }
+        },
+        {
+         "spanId": "d232e5584273f74d",
+         "name": "sql.begin",
+         "parentSpanId": "0ceeb82731d91a2c",
+         "kind": "SPAN_KIND_CLIENT",
+         "startTimeUnixNano": "1790377394120100879",
+         "endTimeUnixNano": "1790377394120187004",
+         "durationMs": 0.086125,
+         "attributes": {
+          "db.statement": "begin",
+          "db.system.name": "postgresql",
+          "pgx.rows_affected": 0
+         },
+         "status": {
+          "code": "STATUS_CODE_UNSET",
+          "message": ""
+         }
+        },
+        {
+         "spanId": "04618e63250f05b8",
+         "name": "booking.lock_order",
+         "parentSpanId": "0ceeb82731d91a2c",
+         "kind": "SPAN_KIND_CLIENT",
+         "startTimeUnixNano": "1790377394120189754",
+         "endTimeUnixNano": "1790377394120285671",
+         "durationMs": 0.095917,
+         "attributes": {
+          "db.statement": "/* booking.lock_order */ SELECT id FROM orders WHERE id = $1 FOR UPDATE",
+          "db.system.name": "postgresql",
+          "pgx.rows_affected": 1
+         },
+         "status": {
+          "code": "STATUS_CODE_UNSET",
+          "message": ""
+         }
+        },
+        {
+         "spanId": "bca9071994ab81fd",
+         "name": "booking.get_order_locked",
+         "parentSpanId": "0ceeb82731d91a2c",
+         "kind": "SPAN_KIND_CLIENT",
+         "startTimeUnixNano": "1790377394120287838",
+         "endTimeUnixNano": "1790377394120447254",
+         "durationMs": 0.159416,
+         "attributes": {
+          "db.statement": "/* booking.get_order_locked */ SELECT o.id, o.event_id, o.user_id, o.status, o.amount::text, o.idempotency_key, o.created_at, o.updated_at,\n\t\tcoalesce(array_agg(oi.hold_id ORDER BY h.id) FILTER (WHERE",
+          "db.system.name": "postgresql",
+          "pgx.rows_affected": 1
+         },
+         "status": {
+          "code": "STATUS_CODE_UNSET",
+          "message": ""
+         }
+        },
+        {
+         "spanId": "1c1e9775436a70cd",
+         "name": "booking.holds_for_update",
+         "parentSpanId": "0ceeb82731d91a2c",
+         "kind": "SPAN_KIND_CLIENT",
+         "startTimeUnixNano": "1790377394120458213",
+         "endTimeUnixNano": "1790377394120655880",
+         "durationMs": 0.197667,
+         "attributes": {
+          "db.statement": "/* booking.holds_for_update */ SELECT id, event_id, seat_id, user_id, status, expires_at, created_at FROM holds WHERE id = ANY($1) ORDER BY id FOR UPDATE",
+          "db.system.name": "postgresql",
+          "pgx.rows_affected": 1
+         },
+         "status": {
+          "code": "STATUS_CODE_UNSET",
+          "message": ""
+         }
+        },
+        {
+         "spanId": "be1cf9e4c6e712b7",
+         "name": "booking.update_hold",
+         "parentSpanId": "0ceeb82731d91a2c",
+         "kind": "SPAN_KIND_CLIENT",
+         "startTimeUnixNano": "1790377394120667088",
+         "endTimeUnixNano": "1790377394120870338",
+         "durationMs": 0.20325,
+         "attributes": {
+          "db.statement": "/* booking.update_hold */ UPDATE holds SET status = $2, expires_at = $3 WHERE id = $1",
+          "db.system.name": "postgresql",
+          "pgx.rows_affected": 1
+         },
+         "status": {
+          "code": "STATUS_CODE_UNSET",
+          "message": ""
+         }
+        },
+        {
+         "spanId": "149db0a8f81daafe",
+         "name": "booking.update_order",
+         "parentSpanId": "0ceeb82731d91a2c",
+         "kind": "SPAN_KIND_CLIENT",
+         "startTimeUnixNano": "1790377394120872713",
+         "endTimeUnixNano": "1790377394121032879",
+         "durationMs": 0.160166,
+         "attributes": {
+          "db.statement": "/* booking.update_order */ UPDATE orders SET status = $2, updated_at = $3 WHERE id = $1",
+          "db.system.name": "postgresql",
+          "pgx.rows_affected": 1
+         },
+         "status": {
+          "code": "STATUS_CODE_UNSET",
+          "message": ""
+         }
+        },
+        {
+         "spanId": "ba07d84b47eb5624",
+         "name": "sql.commit",
+         "parentSpanId": "0ceeb82731d91a2c",
+         "kind": "SPAN_KIND_CLIENT",
+         "startTimeUnixNano": "1790377394121036838",
+         "endTimeUnixNano": "1790377394121252505",
+         "durationMs": 0.215667,
+         "attributes": {
+          "db.statement": "commit",
+          "db.system.name": "postgresql",
+          "pgx.rows_affected": 0
+         },
+         "status": {
+          "code": "STATUS_CODE_UNSET",
+          "message": ""
+         }
+        },
+        {
+         "spanId": "4c429fcb052f2b3a",
+         "name": "pgx.acquire",
+         "parentSpanId": "a2b0d9f452dc84e2",
+         "kind": "SPAN_KIND_CLIENT",
+         "startTimeUnixNano": "1790377394121258629",
+         "endTimeUnixNano": "1790377394121259171",
+         "durationMs": 0.000542,
+         "attributes": {
+          "db.system.name": "postgresql"
+         },
+         "status": {
+          "code": "STATUS_CODE_UNSET",
+          "message": ""
+         }
+        },
+        {
+         "spanId": "31c07d078c540734",
+         "name": "ticketing.insert",
+         "parentSpanId": "a2b0d9f452dc84e2",
+         "kind": "SPAN_KIND_CLIENT",
+         "startTimeUnixNano": "1790377394121261046",
+         "endTimeUnixNano": "1790377394121586338",
+         "durationMs": 0.325292,
+         "attributes": {
+          "db.statement": "/* ticketing.insert */\n\t\tINSERT INTO tickets (id, order_id, event_id, seat_id, code, issued_at) VALUES ($1, $2, $3, $4, $5, $6)\n\t\tON CONFLICT (order_id, seat_id) DO NOTHING",
+          "db.system.name": "postgresql",
+          "pgx.rows_affected": 1
+         },
+         "status": {
+          "code": "STATUS_CODE_UNSET",
+          "message": ""
+         }
+        },
+        {
+         "spanId": "8804551c334d5fed",
+         "name": "pgx.acquire",
+         "parentSpanId": "3ff51ecf25d0b7e2",
+         "kind": "SPAN_KIND_CLIENT",
+         "startTimeUnixNano": "1790377396043476005",
+         "endTimeUnixNano": "1790377396043477255",
+         "durationMs": 0.00125,
+         "attributes": {
+          "db.system.name": "postgresql"
+         },
+         "status": {
+          "code": "STATUS_CODE_UNSET",
+          "message": ""
+         }
+        },
+        {
+         "spanId": "47458cb0e8ba08a3",
+         "name": "notification.insert",
+         "parentSpanId": "3ff51ecf25d0b7e2",
+         "kind": "SPAN_KIND_CLIENT",
+         "startTimeUnixNano": "1790377396043479464",
+         "endTimeUnixNano": "1790377396043801297",
+         "durationMs": 0.321833,
+         "attributes": {
+          "db.statement": "/* notification.insert */\n\t\tINSERT INTO notifications (id, user_id, kind, payload, status, created_at) VALUES ($1, $2, $3, $4, $5, $6)",
+          "db.system.name": "postgresql",
+          "pgx.rows_affected": 1
+         },
+         "status": {
+          "code": "STATUS_CODE_UNSET",
+          "message": ""
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "serviceName": "mailgw",
+     "resource": {
+      "deployment.environment": "lab",
+      "service.version": "emulator",
+      "telemetry.sdk.language": "go",
+      "telemetry.sdk.name": "opentelemetry",
+      "telemetry.sdk.version": "1.46.0"
+     },
+     "scopes": [
+      {
+       "name": "go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp",
+       "version": "0.71.0",
+       "spans": [
+        {
+         "spanId": "0a4ac0d2cd49ed8d",
+         "name": "POST /send",
+         "parentSpanId": "5ab4f38504b6672c",
+         "kind": "SPAN_KIND_SERVER",
+         "startTimeUnixNano": "1790377394121667754",
+         "endTimeUnixNano": "1790377395047525338",
+         "durationMs": 925.857584,
+         "attributes": {
+          "client.address": "172.27.0.14",
+          "http.request.body.size": 230,
+          "http.request.method": "POST",
+          "http.response.body.size": 33,
+          "http.response.status_code": 502,
+          "mailgw.injected_failure": true,
+          "network.peer.address": "172.27.0.14",
+          "network.peer.port": 33302,
+          "network.protocol.version": "1.1",
+          "server.address": "mailgw",
+          "server.port": 8090,
+          "url.path": "/send",
+          "url.scheme": "http",
+          "user_agent.original": "Go-http-client/1.1"
+         },
+         "status": {
+          "code": "STATUS_CODE_ERROR",
+          "message": ""
+         }
+        },
+        {
+         "spanId": "2ff4e700e3f33815",
+         "name": "POST /send",
+         "parentSpanId": "cfc5074f063196ab",
+         "kind": "SPAN_KIND_SERVER",
+         "startTimeUnixNano": "1790377395047729755",
+         "endTimeUnixNano": "1790377396043418422",
+         "durationMs": 995.688667,
+         "attributes": {
+          "client.address": "172.27.0.14",
+          "http.request.body.size": 230,
+          "http.request.method": "POST",
+          "http.response.body.size": 20,
+          "http.response.status_code": 202,
+          "network.peer.address": "172.27.0.14",
+          "network.peer.port": 34442,
+          "network.protocol.version": "1.1",
+          "server.address": "mailgw",
+          "server.port": 8090,
+          "url.path": "/send",
+          "url.scheme": "http",
+          "user_agent.original": "Go-http-client/1.1"
+         },
+         "status": {
+          "code": "STATUS_CODE_UNSET",
+          "message": ""
+         }
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "metrics": {
+   "inspectedBytes": 133141748
+  }
+ }
+}

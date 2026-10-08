@@ -1,0 +1,15 @@
+      slot_name      | active | confirmed_flush_lsn | wal_behind 
+---------------------+--------+---------------------+------------
+ soldout_outbox_slot | t      | 0/279E2910          | 57 MB
+(1 row)
+
+ outbox_rows 
+-------------
+           0
+(1 row)
+
+connector: RUNNING tasks: ['RUNNING']
+
+notifier        outbox.event.order 0          12464           12464           0               notifier-074ddc3c-55de-4e94-9449-f9f65934cd55 /172.27.0.16    notifier
+notifier        outbox.event.order 1          12375           12375           0               notifier-074ddc3c-55de-4e94-9449-f9f65934cd55 /172.27.0.16    notifier
+notifier        outbox.event.order 2          12314           12314           0               notifier-074ddc3c-55de-4e94-9449-f9f65934cd55 /172.27.0.16    notifier

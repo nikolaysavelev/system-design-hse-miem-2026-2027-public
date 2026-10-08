@@ -1,0 +1,14 @@
+ calls | total_ms | mean_ms |  rows   | hit_pct |                                                query                                                 
+-------+----------+---------+---------+---------+------------------------------------------------------------------------------------------------------
+ 59033 |   4217.1 |    0.07 |   59033 |    99.7 | /* catalog.get_seat */ SELECT s.id, s.sector_id, sec.venue_id, s.row_no, s.seat_no FROM seats s JOIN
+ 28615 |   4125.3 |    0.14 |   28615 |   100.0 | /* booking.insert_hold */ INSERT INTO holds (id, event_id, seat_id, user_id, status, expires_at, cre
+ 50253 |   3393.1 |    0.07 |   50253 |   100.0 | /* booking.get_order */ SELECT o.id, o.event_id, o.user_id, o.status, o.amount::text, o.idempotency_
+ 48833 |   2436.9 |    0.05 |   48833 |    99.8 | /* queue.insert_admission */ INSERT INTO admissions (token, event_id, user_id, issued_at, expires_at
+ 16751 |   2070.8 |    0.12 |   16751 |    99.9 | /* notifier.notification_insert */ INSERT INTO notifications (id, order_id, event_id, user_id, kind,
+  2485 |   2040.1 |    0.82 | 1433362 |   100.0 | /* catalog.sector_states */ SELECT seat_id, state FROM catalog_seat_state WHERE event_id = $1 AND se
+ 16795 |   1902.3 |    0.11 |   16751 |   100.0 | /* notifier.processed_insert */ INSERT INTO notifier.processed_events (event_id, consumer) VALUES ($
+ 16751 |   1778.0 |    0.11 |   16751 |    99.9 | /* booking.insert_order_item */ INSERT INTO order_items (order_id, hold_id) VALUES ($1, $2)
+ 94199 |   1697.8 |    0.02 |   94199 |   100.0 | SELECT $2 FROM ONLY "public"."events" x WHERE "id" OPERATOR(pg_catalog.=) $1 FOR KEY SHARE OF x
+ 16751 |   1632.0 |    0.10 |   16751 |    99.7 | /* ticketing.insert */ INSERT INTO tickets (id, order_id, event_id, seat_id, code, issued_at) VALUES
+(10 rows)
+

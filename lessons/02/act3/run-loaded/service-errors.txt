@@ -1,0 +1,2 @@
+too_many_clients=0
+pg_log_too_many_clients=0

@@ -1,0 +1,12 @@
+                                                       QUERY PLAN                                                        
+-------------------------------------------------------------------------------------------------------------------------
+ Seq Scan on holds  (cost=0.00..2266.82 rows=1087 width=16) (actual time=7.018..7.019 rows=0 loops=1)
+   Filter: ((status = ANY ('{active,confirmed}'::text[])) AND (event_id = '10000000-0000-4000-8000-000000000001'::uuid))
+   Rows Removed by Filter: 42188
+   Buffers: shared hit=1634
+ Planning:
+   Buffers: shared hit=200
+ Planning Time: 0.663 ms
+ Execution Time: 7.044 ms
+(8 rows)
+

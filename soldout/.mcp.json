@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "postgres": {
+      "command": "uvx",
+      "args": ["--python", "3.12", "--with", "mcp<2", "postgres-mcp", "--access-mode=restricted"],
+      "env": {
+        "DATABASE_URI": "postgresql://soldout:soldout@localhost:5432/soldout"
+      }
+    },
+    "tempo": {
+      "type": "http",
+      "url": "http://localhost:3200/api/mcp"
+    },
+    "grafana": {
+      "command": "sh",
+      "args": ["-c", "set -a; . ./.env.local; exec docker run --rm -i -e GRAFANA_URL=http://host.docker.internal:3000 -e GRAFANA_SERVICE_ACCOUNT_TOKEN grafana/mcp-grafana:1.6.0 -t stdio --disable-write"]
+    }
+  }
+}

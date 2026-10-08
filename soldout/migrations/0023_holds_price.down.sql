@@ -1,0 +1,2 @@
+ALTER TABLE holds DROP COLUMN IF EXISTS ordinal;
+ALTER TABLE holds DROP COLUMN IF EXISTS price_minor;
